@@ -6,7 +6,7 @@ Secondary ID(12)와 ID(7)의 차이는 다음과 같습니다.
 1. Secondary ID(12)는 ID(7)과 달리 고유 번호가 아닙니다. 즉, 다수의 장치가 동일한 Secondary ID 값을 가질 수 있습니다.
 2. Secondary ID(12)보다 ID(7)의 우선순위가 높습니다. 따라서 Secondary ID(12)와 ID(7)가 같을 경우, ID(7)가 우선적으로 적용됩니다.
 3. Secondary ID(12)로는 컨트롤테이블의 EEPROM 영역을 변경할 수 없습니다. RAM 영역만 변경이 가능합니다.
-4. Instruction Packet의 ID가 Sencodary ID(12)와 같은 경우, Status Packet을 반환하지 않습니다.
+4. Instruction Packet의 ID가 Secondary ID(12)와 같은 경우, Status Packet을 반환하지 않습니다.
 5. Secondary ID(12)의 값이 253 이상인 경우, Secondary ID 기능은 비활성화 됩니다.
 
 |    값     | 세부 설명                                 |
