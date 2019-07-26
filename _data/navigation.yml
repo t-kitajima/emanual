@@ -217,16 +217,20 @@ main:
     - title: "ROBOTIS OP3"
       titlekr: "로보티즈 OP3"
       url: /platform/op3/introduction/
-    - title: "RH-P12-RN(A)"
-      titlekr: "RH-P12-RN(A)"
-      url: /platform/rh_p12_rna/
-    - title: "RH-P12-RN"
-      titlekr: "RH-P12-RN"
-      url: /platform/rh_p12_rn/
-    - titlekr: "로봇핸드 RX28"
-      url: /platform/robothand_rx28/
-    - titlekr: "로봇핸드 MX28"
-      url: /platform/robothand_mx28/
+    - title: "ROBOTIS HAND"
+      titlekr: "Robot HAND"
+      url: /platform/rh_p12_rn_main/#rh-p12-rn
+      children: 
+        - title: "RH-P12-RN"
+          titlekr: "RH-P12-RN"
+          url: /platform/rh_p12_rn/
+        - title: "RH-P12-RN(A)"
+          titlekr: "RH-P12-RN(A)"
+          url: /platform/rh_p12_rna/
+        - titlekr: "*로봇핸드 RX-28"
+          url: /platform/robothand_rx28/
+        - titlekr: "*로봇핸드 MX-28"
+          url: /platform/robothand_mx28/
     - title: "THORMANG3"
       titlekr: "똘망3"
       url: /platform/thormang3/introduction/
@@ -14758,6 +14762,18 @@ op3:
       url: /platform/op3/recovery/#op3-manual-installation
     - title: "Recovery of ROBOTIS-OP3"
       url: /platform/op3/recovery/#recovery-of-robotis-op3
+
+rh_p12_rn_main:
+  - title: "RH-P12-RN"
+    titlekr: "RH-P12-RN"
+    url: /platform/rh_p12_rn_main/#rh-p12-rn
+  - title: "RH-P12-RN(A)"
+    titlekr: "RH-P12-RN(A)"
+    url: /platform/rh_p12_rn_main/#rh-p12-rna
+  - title: "Compatible Product"
+    titlekr: "호환 제품"
+    url: /platform/rh_p12_rn_main/#compatible-products
+    urlkr: /platform/rh_p12_rn_main/#호환-제품
 
 rh_p12_rn:
   - title: "Introduction"

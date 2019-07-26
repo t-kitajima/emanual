@@ -46,7 +46,7 @@ sidebar:
 | **Main Controller** | -       | PC, OpenCR                                           |
 
 
-- [OpenMANIPULATOR-X's details](/docs/en/platform/openmanipulator_x/overview/) 
+- [OpenMANIPULATOR-X e-Manual](/docs/en/platform/openmanipulator_x/overview/) 
 
 # [OpenMANIPULATOR-PRO](#openmanipulator-pro)
  
@@ -82,4 +82,4 @@ sidebar:
 |        Communications         |                                                                                                                                                                                                    RS485                                                                                                                                                                                                     |
 |    Communication Baudrate     |                                                                                                                                                                                                 1000000 bps                                                                                                                                                                                                  |
 
-- [OpenMANIPULATOR-PRO's details](/docs/en/platform/openmanipulator_pro/overview/) 
+- [OpenMANIPULATOR-PRO e-Manual](/docs/en/platform/openmanipulator_pro/overview/) 

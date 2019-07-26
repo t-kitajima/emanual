@@ -5,7 +5,7 @@ ref: rh_p12_rn
 read_time: true
 share: true
 author_profile: false
-permalink: /docs/kr/platform/rh_p12_rn/
+permalink: /docs/kr/platform/rh_p12_rn
 sidebar:
   title: RH-P12-RN
   nav: "rh_p12_rn"
