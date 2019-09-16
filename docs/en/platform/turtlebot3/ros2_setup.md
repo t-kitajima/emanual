@@ -5,7 +5,7 @@ ref: ros_2
 read_time: true
 share: true
 author_profile: false
-permalink: /docs/en/platform/turtlebot3/ros2/
+permalink: /docs/en/platform/turtlebot3/ros2_setup/
 sidebar:
   title: TurtleBot3
   nav: "turtlebot3"
@@ -15,8 +15,7 @@ page_number: 26
 
 <div style="counter-reset: h1 14"></div>
 
-
-# [ROS 2](#ros-2)
+# [Setup](#setup)
 
 {% capture notice_01 %}
 **NOTE**:
@@ -31,19 +30,16 @@ page_number: 26
 
 This chapter shows demos using TurtleBot3 with **ROS 2** and **Gazebo 9**. In order to implement them, you need to install some packages.
 
+## [PC Setup](#pc-setup)
 
-## [Setup](#setup)
-
-### [PC Setup](#pc-setup)
-
-#### Install Ubuntu on Remote PC
+### Install Ubuntu on Remote PC
 
 To set ROS (Robot Operating System) on **Remote PC**, please install Ubuntu 18.04 on **Remote PC**. Tutorial guide will be helpful for you to install it.
 
 - [Download Ubuntu 18.04](http://releases.ubuntu.com/18.04/)
 - [Tutorial - Install Ubuntu Desktop](https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-desktop#0)
 
-#### Install ROS 2 on Remote PC
+### Install ROS 2 on Remote PC
 
 ![](/assets/images/platform/turtlebot3/logo_ros.png)
 
@@ -51,7 +47,7 @@ As TurtleBot3 operates on Robot Operating System(ROS), it requies to intall `ros
 
 - [ROS 2 Installation Guide](https://index.ros.org/doc/ros2/Installation/Dashing/)
 
-#### Install ROS 2 Dependency Packages
+### Install ROS 2 Dependency Packages
 
 Install ROS 2 dependency packages on **Remote PC**.
 
@@ -80,7 +76,7 @@ $ sudo apt install ros-dashing-nav2-bringup
 $ sudo apt install python3-vcstool
 ```
 
-#### Install TurtleBot3 ROS 2 Packages
+### Install TurtleBot3 ROS 2 Packages
 
 Download `turtlebot3` packages and install `turtlebot3` packages and ROS 2 dependency packages on **Remote PC**.
 
@@ -92,7 +88,7 @@ $ vcs import src < turtlebot3.repos
 $ colcon build --symlink-install
 ```
 
-#### Save Bash Command for Setup
+### Save Bash Command for Setup
 ```bash
 $ echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
 $ echo 'export ROS_DOMAIN_ID=30 #TURTLEBOT3' >> ~/.bashrc
@@ -109,9 +105,9 @@ Related documents will be helpful for you to fix the problem of any build errors
 {% endcapture %}
 <div class="notice--info">{{ notice_02 | markdownify }}</div>
 
-### [SBC Setup](#sbc-setup)
+## [SBC Setup](#sbc-setup)
 
-#### Download and Install Ubuntu Image File
+### Download and Install Ubuntu Image File
 
 **WARNING** : Do not proceed to this instruction on SBC in TurtleBot3. Please follow steps with **Remote PC**.
 {: .notice--warning}
@@ -123,7 +119,7 @@ Related documents will be helpful for you to fix the problem of any build errors
 **TIP** : You can use `GNOME Disks` to burn `Ubuntu Server 18.04 image` to microSD.
 {: .notice}
 
-#### Initialization Process for Raspberry Pi 3
+### Initialization Process for Raspberry Pi 3
 
 **WARNING** : Do not proceed to this instruction on remote PC. Please follow steps with **SBC in TurtleBot3**.
 {: .notice--warning}
@@ -138,7 +134,7 @@ To communicate between **Remote PC** and **TurtleBot3**, install `Ubuntu Server 
 **NOTE** : TurtleBot3 is a mobile robot to run [SLAM](/docs/en/platform/turtlebot3/slam/#slam) and [Navigation](/docs/en/platform/turtlebot3/navigation/#navigation) using wireless network, so that connecting TurtleBot3 to WIFI is recommanded.
 {: .notice}
 
-#### Example for Network Configuration
+### Example for Network Configuration
 
 1. Create a folder, and then open it with the following commands.
   ```bash
@@ -182,7 +178,7 @@ $ systemctl mask systemd-networkd-wait-online.service
 $ ssh ubuntu@<NETWORK IP of Raspberry PI>
 ```
 
-#### Add Swap Space
+### Add Swap Space
 
 1. Create a file while it will be used for swap
 ```bash
@@ -219,7 +215,7 @@ $ sudo nano /etc/fstab
 $ sudo free -h
 ```
 
-#### Intall ROS 2 Dashing Diademata
+### Intall ROS 2 Dashing Diademata
 
 **WARNING** : Do not proceed to this instruction on remote PC. Please follow steps with **SBC in TurtleBot3**.
 {: .notice--warning}
@@ -250,7 +246,7 @@ $ sudo apt update
 $ sudo apt install ros-dashing-ros-base
 ```
 
-#### Install TurtleBot3 Packages
+### Install TurtleBot3 Packages
 
 **WARNING** : Do not proceed to this instruction on remote PC. Please follow steps with **SBC in TurtleBot3**.
 {: .notice--warning}
@@ -269,9 +265,9 @@ $ source /opt/ros/dashing/setup.bash
 $ colcon build --symlink-install --parallel-workers 1
 ```
 
-#### Environment Setup
+### Environment Setup
 
-##### Domain ID Allocation
+#### Domain ID Allocation
 In DDS communication, `ROS_DOMAIN_ID` must be matched between **Remote PC** and **TurtleBot3** for wireless communication under the same network environment. Following commands shows how to assign a `ROS_DOMAIN_ID` to SBC in TurtleBot3.
 - A default ID of **TurtleBot3** is set as `0`.  
 - To configure the `ROS_DOMAIN_ID` of Remote PC and SBC in TurtleBot3 to `30` is recommendable.  
@@ -284,7 +280,7 @@ $ source ~/.bashrc
 **WARNING** : Do not **OVERLAP** any IDs between you and other users. It will cause a conflict of communication between users under the same network environment.
 {: .notice--warning}
 
-##### OpenCR Port Setup
+#### OpenCR Port Setup
 
 Following commands show how to assign OpenCR port authorization to TurtleBot3.
 ```bash
@@ -294,7 +290,7 @@ $ sudo udevadm control --reload-rules
 $ sudo udevadm trigger
 ```
 
-#### [References](#references)
+### [References](#references)
 
 [https://wiki.ubuntu.com/ARM/RaspberryPi](https://wiki.ubuntu.com/ARM/RaspberryPi)  
 [https://discourse.ros.org/t/setting-up-the-turtlebot3-with-ros2-on-ubuntu-server-iot-18-04/10090](https://discourse.ros.org/t/setting-up-the-turtlebot3-with-ros2-on-ubuntu-server-iot-18-04/10090)  
@@ -303,28 +299,28 @@ $ sudo udevadm trigger
 [https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/](https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/)  
 [https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/](https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/)
 
-### [OpenCR Setup](#opencr-setup)
+## [OpenCR Setup](#opencr-setup)
 
 **WARNING** : Do not proceed to this instruction on remote PC. Please follow steps with **SBC in TurtleBot3**.
 {: .notice--warning}
 
-#### Install Dependencies to Run 32bit Executables.
+### Install Dependencies to Run 32bit Executables.
 ```bash
 $ sudo dpkg --add-architecture armhf
 $ sudo apt-get update
 $ sudo apt-get install libc6:armhf
 ```
 
-#### Download OpenCR Binaries & Tools for Uploading.
+### Download OpenCR Binaries & Tools for Uploading.
 ```bash
 $ cd && rm -rf opencr_update.tar.bz2
 $ wget https://github.com/ROBOTIS-GIT/OpenCR-Binaries/raw/master/turtlebot3/ROS2/latest/opencr_update.tar.bz2
 $ tar -xjf ./opencr_update.tar.bz2
 ```
 
-#### Upload ROS 2 Firmware of TurtleBot3 to OpenCR.
+### Upload ROS 2 Firmware of TurtleBot3 to OpenCR.
 
-##### For TurtleBot3 Burger.
+#### For TurtleBot3 Burger.
 ```bash
 # Set a port for OpenCR 
 $ export OPENCR_PORT=/dev/ttyACM0
@@ -358,7 +354,7 @@ opencr_ld_main
 [OK] jump_to_fw
 ```
 
-##### For TurtleBot3 Waffle and Waffle Pi.
+#### For TurtleBot3 Waffle and Waffle Pi.
 
 ```bash
 # Set a port for OpenCR 
@@ -398,267 +394,3 @@ Reset OpenCR using RESET button.
 ![](/assets/images/parts/controller/opencr10/bootloader_19.png)
 
 After few seconds, particular sound will be played. 
-
-## [Bringup](#bringup)
-
-### [Bringup TurtleBot3](#bringup-turtlebot3)
-
-1. Launch a model of your TurtleBot3 including node of `robot_state_publisher` and `turtlebot3_node`.
-
-    **NOTE**: Before executing this command, you have to specify the model name of TurtleBot3. The `${TB3_MODEL}` is the name of the model you are using in `burger`, `waffle`, `waffle_pi`. If you want to permanently set the export settings, please refer to [Export TURTLEBOT3_MODEL][export_turtlebot3_model]{: .popup} page.
-    {: .notice}
-    
-    **NOTE**: Please follow steps with **SBC in TurtleBot3**.
-    {: .notice}
-
-    ```bash
-    $ export TURTLEBOT3_MODEL=${TB3_MODEL}
-    $ ros2 launch turtlebot3_bringup robot.launch.py
-    ```
-
-2. If the node is successfully launched, the following instruction will appeared on the terminal window.
-```bash
-[INFO] [launch]: All log files can be found below /home/ubuntu/.ros/log/2019-08-19-01-24-19-009803-ubuntu-15310
-[INFO] [launch]: Default logging verbosity is set to INFO
-urdf_file_name : turtlebot3_burger.urdf
-[INFO] [robot_state_publisher-1]: process started with pid [15320]
-[INFO] [hlds_laser_publisher-2]: process started with pid [15321]
-[INFO] [turtlebot3_ros-3]: process started with pid [15322]
-[robot_state_publisher-1] Initialize urdf model from file: /home/ubuntu/turtlebot_ws/install/turtlebot3_description/share/turtlebot3_description/urdf/turtlebot3_burger.urdf
-[robot_state_publisher-1] Parsing robot urdf xml string.
-[robot_state_publisher-1] Link base_link had 5 children
-[robot_state_publisher-1] Link caster_back_link had 0 children
-[robot_state_publisher-1] Link imu_link had 0 children
-[robot_state_publisher-1] Link base_scan had 0 children
-[robot_state_publisher-1] Link wheel_left_link had 0 children
-[robot_state_publisher-1] Link wheel_right_link had 0 children
-[robot_state_publisher-1] got segment base_footprint
-[robot_state_publisher-1] got segment base_link
-[robot_state_publisher-1] got segment base_scan
-[robot_state_publisher-1] got segment caster_back_link
-[robot_state_publisher-1] got segment imu_link
-[robot_state_publisher-1] got segment wheel_left_link
-[robot_state_publisher-1] got segment wheel_right_link
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Init TurtleBot3 Node Main
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Init DynamixelSDKWrapper
-[turtlebot3_ros-3] [INFO] [DynamixelSDKWrapper]: Succeeded to open the port(/dev/ttyACM0)!
-[turtlebot3_ros-3] [INFO] [DynamixelSDKWrapper]: Succeeded to change the baudrate!
-[robot_state_publisher-1] Adding fixed segment from base_footprint to base_link
-[robot_state_publisher-1] Adding fixed segment from base_link to caster_back_link
-[robot_state_publisher-1] Adding fixed segment from base_link to imu_link
-[robot_state_publisher-1] Adding fixed segment from base_link to base_scan
-[robot_state_publisher-1] Adding moving segment from base_link to wheel_left_link
-[robot_state_publisher-1] Adding moving segment from base_link to wheel_right_link
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Start Calibration of Gyro
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Calibration End
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Add Motors
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Add Wheels
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Add Sensors
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Succeeded to create battery state publisher
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Succeeded to create imu publisher
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Succeeded to create sensor state publisher
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Succeeded to create joint state publisher
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Add Devices
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Succeeded to create motor power server
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Succeeded to create reset server
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Succeeded to create sound server
-[turtlebot3_ros-3] [INFO] [turtlebot3_node]: Run!
-[turtlebot3_ros-3] [INFO] [diff_drive_controller]: Init Odometry
-[turtlebot3_ros-3] [INFO] [diff_drive_controller]: Run!
-```
-3. After then, you can check topic and service list as shown below  
-**Topic**
-```bash
-$ ros2 topic list
-/battery_state
-/cmd_vel
-/imu
-/joint_states
-/magnetic_field
-/odom
-/parameter_events
-/robot_description
-/rosout
-/scan
-/sensor_state
-/tf
-/tf_static
-```
-**Service List**
-```bash
-$ ros2 service list
-/diff_drive_controller/describe_parameters
-/diff_drive_controller/get_parameter_types
-/diff_drive_controller/get_parameters
-/diff_drive_controller/list_parameters
-/diff_drive_controller/set_parameters
-/diff_drive_controller/set_parameters_atomically
-/hlds_laser_publisher/describe_parameters
-/hlds_laser_publisher/get_parameter_types
-/hlds_laser_publisher/get_parameters
-/hlds_laser_publisher/list_parameters
-/hlds_laser_publisher/set_parameters
-/hlds_laser_publisher/set_parameters_atomically
-/launch_ros/describe_parameters
-/launch_ros/get_parameter_types
-/launch_ros/get_parameters
-/launch_ros/list_parameters
-/launch_ros/set_parameters
-/launch_ros/set_parameters_atomically
-/motor_power
-/reset
-/sound
-/turtlebot3_node/describe_parameters
-/turtlebot3_node/get_parameter_types
-/turtlebot3_node/get_parameters
-/turtlebot3_node/list_parameters
-/turtlebot3_node/set_parameters
-/turtlebot3_node/set_parameters_atomically
-```
-
-### [RViz2](#rviz2)
-
-**WARNING** : Do not proceed to this instruction on SBC in TurtleBot3. Please follow steps with **Remote PC**.
-{: .notice--warning}
-
-1. Run `RViz2` on **remote PC**
-```bash
-$ ros2 launch turtlebot3_bringup rviz2.launch.py
-```
-![](/assets/images/platform/turtlebot3/ros2/platform_teleop.png)
-
-## [Teleoperation](#teleoperation)
-
-1. Run teleoperation node on **remote PC**
-```bash
-$ export TURTLEBOT3_MODEL=${TB3_MODEL}
-$ ros2 run turtlebot3_teleop teleop_keyboard
-```
-
-2. If the node is successfully run, the following instruction will be appeared to the terminal window.  
-    ```bash
-    Control Your TurtleBot3!
-    ---------------------------
-    Moving around:
-            w
-       a    s    d
-            x
-
-    w/x : increase/decrease linear velocity (Burger : ~ 0.22, Waffle and Waffle Pi : ~ 0.26)
-    a/d : increase/decrease angular velocity (Burger : ~ 2.84, Waffle and Waffle Pi : ~ 1.82)
-
-    space key, s : force stop
-
-    CTRL-C to quit
-    ```
-
-## [Cartographer](#cartographer)
-**Cartographe related documents** :
-- [Cartographer](https://google-cartographer.readthedocs.io/en/latest/)
-- [Cartographer_ros](https://google-cartographer-ros.readthedocs.io/en/latest/)
-
-**WARNING** : Do not proceed to this instruction on SBC in TurtleBot3. Please follow steps with **Remote PC**.
-{: .notice--warning}
-
-**SLAM (Simultaneous Localization And Mapping)** is a technique to draw a map by estimating current location in an arbitrary space. The SLAM is a well-known feature of TurtleBot from its predecessors. The video here shows you how accurately TurtleBot3 can draw a map with its compact and affordable platform.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pJNSxDodhDk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-### [Run SLAM Nodes](#run-slam-nodes)
-
-```bash
-$ ros2 launch turtlebot3_cartographer cartographer.launch.py
-```
-    
-![](/assets/images/platform/turtlebot3/ros2/platform_cartographer.png)
-
-### [Save the Map](#save-the-map)
-
-```bash
-$ ros2 run nav2_map_server map_saver -f ~/map
-```
-
-## [Navigation2](#navigation2)
-
-**Navigation** is to move a robot from one location to the specified destination in a given environment. For this purpose, a map that contains geometry information of furniture, objects, and walls of the given environment is required. As described in the previous [Cartographer](/docs/en/platform/turtlebot3/ros2/#cartographer) section, the map was created with the distance information obtained by the sensor and the pose information of the robot itself.
-
-**Navigation** enables a robot to move from the current pose to the designated goal pose on the map by using the map, robot’s encoder, IMU sensor, and distance sensor. The procedure for performing this task is as follows.
-
-**Naviagation2 related document** :  
-- [Naviagation2](https://github.com/ros-planning/navigation2/blob/master/README.md)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VtyqUuuZAFA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-### [Run Navigation2 Nodes](#run-navigation2-nodes)
-
-```bash
-$ export TURTLEBOT3_MODEL=${TB3_MODEL}
-$ ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
-```
-
-- Click `2D Pose Estimate` button in a menu bar, and then point exact pose of TurtleBot3 on a map.
-
-![](/assets/images/platform/turtlebot3/ros2/tb3_navigation2_rviz_1.png)
-> 2D Pose Estimate
-
-- If TurtleBot3 is close to a costmap or nearby the costmap map, click `Navigation2 Goal` button in a menu bar, and then point goal pose on the map.
-
-![](/assets/images/platform/turtlebot3/ros2/tb3_navigation2_rviz_2.png)
-> Navigation2 Goal
-
-## [Simulation](#simulation)
-
-**WARNING** : Do not proceed to this instruction on SBC in TurtleBot3. Please follow steps with **Remote PC**.
-{: .notice--warning}
-
-1. Add GAZEBO_MODEL_PATH.
-```bash
-$ echo 'export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/turtlebot3_ws/src/turtlebot3/turtlebot3_simulations/turtlebot3_gazebo/models' >> ~/.bashrc
-$ source ~/.bashrc
-```
-    **NOTE**: Before executing this command, you have to specify the model name of TurtleBot3. The `${TB3_MODEL}` is the name of the model you are using in `burger`, `waffle`, `waffle_pi`. If you want to permanently set the export settings, please refer to [Export TURTLEBOT3_MODEL][export_turtlebot3_model]{: .popup} page.
-    {: .notice}
-
-1. Load TurtleBot3 on TurtleBot3 world.
-```bash
-$ export TURTLEBOT3_MODEL=${TB3_MODEL}
-$ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
-```
-    ![](/assets/images/platform/turtlebot3/ros2/gazebo_world.png)
-
-3. Launch Cartographer.
-```bash
-$ ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=True
-```
-
-4. Run teleoperation node.
-```bash
-$ export TURTLEBOT3_MODEL=${TB3_MODEL}
-$ ros2 run turtlebot3_teleop teleop_keyboard
-```
-
-5. Save the map.
-```bash
-$ ros2 run nav2_map_server map_saver -f ~/map
-```
-    ![](/assets/images/platform/turtlebot3/ros2/gazebo_cartographer.png)
-
-**NOTE** :
-You should set some parameters to use simulation time.
-If you need futher information about it, go on [navigation2 repo](https://github.com/ros-planning/navigation2/tree/master/nav2_bringup)
-{: .notice--info}
-
-6.Export the model of TurtleBot3, then launch Navigation2 with following commands.
-```bash
-$ export TURTLEBOT3_MODEL=${TB3_MODEL}
-$ ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=$HOME/map.yaml
-```
-**NOTE**: Before executing this command, you have to specify the model name of TurtleBot3. The `${TB3_MODEL}` is the name of the model you are using in `burger`, `waffle`, `waffle_pi`. If you want to permanently set the export settings, please refer to [Export TURTLEBOT3_MODEL][export_turtlebot3_model]{: .popup} page.
-{: .notice}
-
-- Click `2D Pose Estimate` button in a menu bar, and then point exact pose of turtlebot3 on a map.
-- If TurtleBot3 is close to a costmap or nearby the map, click `Navigation2 Goal` button in a menu bar, and then point goal pose on the map.
-
-![](/assets/images/platform/turtlebot3/ros2/gazebo_navigation2.png)
-
-[export_turtlebot3_model]: /docs/en/platform/turtlebot3/export_turtlebot3_model

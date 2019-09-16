@@ -10,10 +10,10 @@ sidebar:
   title: TurtleBot3
   nav: "turtlebot3"
 product_group: turtlebot3
-page_number: 27
+page_number: 32
 ---
 
-<div style="counter-reset: h1 15"></div>
+<div style="counter-reset: h1 20"></div>
 
 # [Locomotion](#locomotion)
 
