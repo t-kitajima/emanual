@@ -138,11 +138,11 @@ $ make
 
 ## [U2D2](#u2d2)
 
-### How to Setup
+### セットアップ方法
 
-[How to Setup](/docs/en/parts/interface/u2d2/)
+[セットアップ方法](/docs/en/parts/interface/u2d2/)
 
-### Copy rules file
+### ルールファイルのコピー
 
 ```
 $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/dynamixel-workbench/master/99-dynamixel-workbench-cdc.rules
@@ -151,44 +151,44 @@ $ sudo udevadm control --reload-rules
 $ sudo udevadm trigger
 ```
 
-### Check usb port
+### USBポートの確認
 
 ```
 $ ls /dev/tty*
 ```
 
-Then you can find `/dev/ttyUSB0` (The number of port may be different depending on setup)
+そうすると、`/dev/ttyUSB0`が見つかります。（ポートの番号は設定によって異なる場合があります）
 
 
 {% capture notice_01 %}
-**NOTE**:
-- Please run roscore before rosrun, because rosrun can't operate without roscore. The rosrun and roscore should be running in separate terminal windows.
-- This run file configures the usb latency timer to **1 ms**. If you want to check this setting, run the following command in a terminal window.  
+**注釈**:
+- rosrunはroscoreなしでは動作できないため、rosrunの前にroscoreを実行してください。その際にrosrunとroscoreは別々のターミナルウィンドウで実行してください。
+- この実行ファイルでは、USBレイテンシタイマを **1 ms** に設定しています。この設定を確認したい場合は、ターミナルウィンドウで以下のコマンドを実行してください。  
 `cat /sys/bus/usb-serial/devices/ttyUSB0/latency_timer`
 {% endcapture %}
 <div class="notice--info">{{ notice_01 | markdownify }}</div>
 
 ## [OpenCR](#opencr)
 
-### Connect power(12v) and TTL or RS485
+### 電源(12V)とTTLまたはRS485の接続
 
 ![](/assets/images/parts/controller/opencr10/opencr_pinout.png)
 
-**TIP**:  
-If you want to use OpenCR as U2D2, please upload `usb_to_dxl` firmware (`File` -> `Examples` -> `OpenCR` -> `10.Etc` -> `usb_to_dxl`)
-Then you can use `/dev/ttyACM0` port (The number of port may be different depending on setup).
+**ヒント**:  
+OpenCRをU2D2として使用したい場合は、`usb_to_dxl`ファームウェアをアップロードしてください。(`File` -> `Examples` -> `OpenCR` -> `10.Etc` -> `usb_to_dxl`)
+そうすると、`/dev/ttyACM0`ポートを使用することができます。（ポート番号は設定によって異なる場合があります）
 {: .notice--success}
 
 ## [OpenCM](#opencm)
 
-### Connect power(12v) and TTL(4 pin)or RS485(8 pin)  
+### 電源(12V)とTTL(4ピン)またはRS485(8ピン)の接続  
 
-**TIP**: Please follow a [link](/docs/en/parts/controller/opencm485exp/) for getting more information about pin
+**ヒント**: ピンについての詳細な情報については、[リンク](/docs/en/parts/controller/opencm485exp/)を参照してください。
 {: .notice--success}
 
 ![](/assets/images/parts/controller/opencm904/opencm485exp_01.jpg)
 
-# [Tutorials](#tutorials)
+# [チュートリアル](#tutorials)
 
 - [ROS](/docs/en/software/dynamixel/dynamixel_workbench/#ros-tutorials)
     - [Find Dynamixels](/docs/en/software/dynamixel/dynamixel_workbench/#find-dynamixels)
@@ -204,19 +204,19 @@ Then you can use `/dev/ttyACM0` port (The number of port may be different depend
     - [position](/docs/en/software/dynamixel/dynamixel_workbench/#position)
     - [bulk_read_write](/docs/en/software/dynamixel/dynamixel_workbench/#bulk_read_write)
 
-## [ROS Tutorials](#ros-tutorials)
+## [ROSチュートリアル](#ros-tutorials)
 
 ### [Find Dynamixels](#find-dynamixels)
 
-This node scans all ID with each Baudrate(9600, 57600, 115200, 1000000, 2000000, 3000000, 4000000) and shows how many dynamixels are connected.
+このノードは全てのIDをそれぞれのBaudrate(9600, 57600, 115200, 1000000, 2000000, 3000000, 4000000)ごとにスキャンし、接続しているDynamixelの数を表示します。
 
-Run find_dynamixel
+find_dynamixelの実行
 
 ```
 $ rosrun dynamixel_workbench_controllers find_dynamixel /dev/ttyUSB0
 ```
 
-Then you can see below texts.
+すると、以下のようなテキストが表示されます。
 
 ```
 [ INFO] [1544589715.841211668]: Succeed to init(9600)
@@ -244,15 +244,15 @@ Then you can see below texts.
 [ INFO] [1544589841.990120553]: Find 0 Dynamixels
 ```
 
-**TIP**: If you can't find any DYNAMIXEL, please check usb port, power. Even if it can't find anything, please check firmware to use ROBOTIS software ([R+ Manager 2.0](http://emanual.robotis.com/docs/en/software/rplus2/manager/) or [R+ Manager 1.0](http://emanual.robotis.com/docs/en/software/rplus2/manager/))
+**ヒント**: DYNAMIXELが見つからない場合は、USBポート、電源を確認してください。たとえ見つからない場合でも、ROBOTISソフトウェア([R+ Manager 2.0](http://emanual.robotis.com/docs/en/software/rplus2/manager/)もしくは[R+ Manager 1.0](http://emanual.robotis.com/docs/en/software/rplus2/manager/))を使用してファームウェアを確認してください。
 {: .notice--success}
 
 ### [Controllers](#controllers)
 
-This package is to control DYNAMIXEL by ROS API. You can load your DYNAMIXEL by simply creating yaml file.  
+本パッケージは、ROS APIを用いてDYNAMIXELを制御するためのパッケージです。yamlファイルを作成するだけで、DYNAMIXELを読み込むことができます。  
 
-The configuration of the yaml file is as follows. `name` is used for joint name of /joint_states topic as well as identifing DYNAMIXEL.  
-When controller is initialized, DYNAMIXEL information is loaded from the file and configures each `Control_Table_Item` with the `value` for each DYNAMIXEL based on `id`.
+yamlファイルの設定は以下の通りです。`name`は、/joint_statesトピックのジョイント名とDYNAMIXELを識別するために使用します。  
+コントローラが初期化されると、ファイルからDYNAMIXELの情報が読み込まれ、`id`を基にしたそれぞれの`Control_Table_Item`と`value`を共に各DYNAMIXELに設定します。
 
 ```
 [name]:
@@ -272,7 +272,7 @@ When controller is initialized, DYNAMIXEL information is loaded from the file an
   .
 ```
 
-Let's take a look at the `joint_2_0.yaml` file. This file indicates configuration for 2 DYNAMIXEL. The first DYNAMIXEL has the name of 'pan' and id is '1' whereas the second DYNAMIXEL has the name of 'tilt' and id is '2'. Both DYNAMIXEL will be set [Return_Delay_time](http://emanual.robotis.com/docs/en/dxl/x/xm430-w350/#return-delay-time9) to zero(0) and [Operating_Mode](http://emanual.robotis.com/docs/en/dxl/x/xm430-w350/#operating-mode11) to Position Control Mode(3).
+`joint_2_0.yaml`ファイルを見てみましょう。このファイルは2つのDYNAMIXELの設定を示しています。最初のDYNAMIXELは'pan'という名前でIDは'1'で、2番目のDYNAMIXELは'tilt'という名前でIDは'2'です。両方のDYNAMIXELは、  [Return_Delay_time](http://emanual.robotis.com/docs/en/dxl/x/xm430-w350/#return-delay-time9)をゼロ(0)に [Operating_Mode](http://emanual.robotis.com/docs/en/dxl/x/xm430-w350/#operating-mode11)位置制御モード(3)に設定します。
 
 ```
 pan:
@@ -289,16 +289,16 @@ tilt:
   Profile_Velocity: 0
 ```
 {% capture notice_02 %}
-**WARNING**: Be sure to keep the following for right use of the package.  
--`Torque Enable`, which is the data of [Control Table](/docs/en/faq/faq_dynamixel/) of DYNAMIXEL, is not supposed to be set by users, but it's enabled by itself during initialization.  
-- Control Table item has to follow [Camel_Case](https://en.wikipedia.org/wiki/Camel_case) without a blank.    
-- Be sure to set DYNAMIXEL ID before use of this package. Use 
-- 2XL430-W250 does not support this package (**Controllers**). By using this package with 2XL430-W250, one of Torque Enable (64) of a detected ID from two axles of 2XL430-W250 is automatically set as '1' (Torque on).  
-In this case, EEPROM of the other axle is deactivated, and the package can not access to the EEPROM field, which cause a connection error when you use the package.
+**警告**:  パッケージを正しく使用するために、以下のものを必ず保管してください。  
+-DYNAMIXELの[コントロールテーブル](/docs/en/faq/faq_dynamixel/)のデータである`Torque Enable`は、ユーザーが設定することは想定していませんが、初期化時に有効にしています。  
+- コントロールテーブルの項目は、[Camel_Case](https://en.wikipedia.org/wiki/Camel_case)に従って空白無しで設定する必要があります。  
+- 本パッケージを使用する前に、DYNAMIXELのIDを必ず設定してください。  
+- 2XL430-W250は、本パッケージ(**Controllers**)には対応していません。本パッケージを2XL430-W250で使用すると、2XL430-W250の2つの軸から検出されたIDのうち、Torque Enable(64)の片方が自動的に'1'(トルクオン)に設定されます。  
+この場合、もう一方の車軸のEEPROM非アクティブ化され、パッケージはEEPROMフィールドにアクセスできず、パッケージを使う際に接続エラーを引き起こします。  
 {% endcapture %}
 <div class="notice--info">{{ notice_02 | markdownify }}</div>
 
-Let's take a look at the `dynamixel_controller.launch` file
+`dynamixel_controller.launch`ファイルを見てください。
 
 ```
 <launch>
@@ -336,20 +336,20 @@ $ cd ~/catkin_ws && catkin_make
 $ roslaunch dynamixel_workbench_controllers dynamixel_controllers.launch
 ```
 
-If controller load your DYNAMIXEL, you can watch below texts
+コントローラがDYNAMIXELを読み込むと、以下のテキストが表示されます。
 
 ```
 [ INFO] [1544595828.276238724]: Name : pan, ID : 1, Model Number : 1020
 [ INFO] [1544595828.316198852]: Name : tilt, ID : 2, Model Number : 1020
 ```
 
-After initialization, DYNAMIXEL will be torque on. If you want to write value to DYNAMIXEL, you can use ROS service(`/dynamixel_command`).
+初期化をすると、DYNAMIXELはトルクオン状態になります。DYNAMIXELに値を書き込むには、ROS service(`/dynamixel_command`)を利用します。
 
-Open rqt and `Plugins` -> `Services` -> `Service Caller`
+rqtと`Plugins` -> `Services` -> `Service Caller`を開きます。
 
 ![](/assets/images/sw/dynamixel/dynamixel_workbench/controller_service_call.png)
 
-Or use command line
+またはコマンドラインを使います。
 
 ```
 $ rosservice call /dynamixel_workbench/dynamixel_command "command: ''
@@ -358,64 +358,65 @@ addr_name: 'Goal_Position'
 value: 2048"
 ```
 
-**Parameters List** :
+**パラメーターの一覧** :
 - `usb_port`  
-USB port name you used
+使用したUSBのポート名です。
 
 - `dxl_baud_rate`  
-Baud Rate of DYNAMIXEL
+DYNAMIXELのボーレートです。
 
 - `namespace`  
-Namespace of this package
+このパッケージの名前空間です。
 
 - `dynamixel_info`  
-YAML file path
+YAMLファイルのパスです。
 
 - `publish_period`  
-Period of publishing topic (msec)
+トピックの配信周期です。(msec)
 
 - `dxl_read_period`  
-Period of reading information of DYNAMIXEL (msec)
+DYNAMIXELの読み取り情報の周期です。(msec)
 
 - `dxl_write_period`  
-Period of writing value to DYNAMIXEL (msec)
+DYNAMIXELへの値の書き込み周期です。(msec)
 
 - `use_moveit`  
-If you use joint trajectory from calculated by MoveIt!, please set True
+MoveIt!によって計算した関節軌道を使用する場合は、Trueを設定してください。
 
 - `use_joint_states_topic`  
-If you want publish /joint_states, please set True
+/joint_statesを配信したい場合は、Trueを設定してください。
 
 - `use_cmd_vel_topic`  
-If you want subscribe /cmd_vel, please set True
+/cmd_velを購読したい場合は、Trueを設定してください。
 
 - `seperation_between_wheels`  
-This parameters is valid when `use_cmd_vel_topic` it True
+このパラメーターは、`use_cmd_vel_topic`がTrueの場合に有効です。
 
 - `radius_of_wheel`  
-This parameters is valid when `use_cmd_vel_topic` it True
+このパラメーターは、`use_cmd_vel_topic`がTrueの場合に有効です。
 
-**Topic List** :
+**トピック一覧** :
 - `/dynamixel_state`([dynamixel_workbench_msgs/DynamixelStateList]{: .popup})  
-Provides states of connected DYNAMIXEL
+接続されたDYNAMIXELの状態を提供します。  
 
 - `/joint_states`([sensor_msgs/JointState](http://docs.ros.org/melodic/api/sensor_msgs/html/msg/JointState.html))   
-Provides joint information about connected DYNAMIXEL  
+接続されたDYNAMIXELの関節情報を提供します。  
 
 - `/joint_trajectory`([trajectory_msgs/JointTrajectory](http://docs.ros.org/melodic/api/trajectory_msgs/html/msg/JointTrajectory.html))  
-Receives joint trajectory to control DYNAMIXEL
+DYNAMIXELを制御するための関節軌道を受信します。
 
-**Service List** :
+**サービス一覧** :
 - `/dynamixel_command`([dynamixel_workbench_msgs/DynamixelCommand]{: .popup})    
 Receives command to control DYNAMIXEL
+DYNAMIXELを生業するためのコマンドを受信します。
 
 ### [Operators](#operators)
 
 #### Joint Operators
 
-This package is to make ROS message and publish it to controllers
+本パッケージは、ROSメッセージを作成し、コントローラーに配信するためのパッケージです。
 
-The configuration of the yaml file is as follows. First, you register joint name when you load from `controllers`. Seconds, you register motion name. Each motion name has step and time from start. The step size should be same as joint name.
+yamlファイルの設定は以下の通りです。はじめに、`controllers`から読み込む際に関節名を登録します。次に、モーション名を登録してください。それぞれのモーション名には、開始からのステップと時間が設定されています。ステップの大きさは、ジョイント名と同じにします。
 
 ```
 joint:
@@ -433,7 +434,7 @@ motion:
   .
 ```
 
-Let's take a look at the `motion.yaml` file. This file indicates load 2 DYNAMIXEL. First DYNAMIXEL has name 'pan' and second DYNAMIXEL has name 'tilt'. In this file, three motion was registered.
+それでは、`motion.yaml`ファイルを見てみましょう。このファイルは2つのDYNAMIXELを読み込んでいることを示しています。1つ目のDYNAMIXELには'パン'、そして2つ目のDYNAMIXELには'チルト'という名前がついています。このファイルには、3つのモーションが登録されています。
 
 ```
 joint:
@@ -451,10 +452,10 @@ motion:
     time_from_start: 6.0
 ```
 
-Launch controller and joint_operator.  
+Launchコントローラーとjoint_operator  
 
 
-**WARNING**: The controller should be set **joint_2_0.yaml** or **joint_1_0.yaml**.
+**警告**: コントローラーは、**joint_2_0.yaml** もしくは **joint_1_0.yaml** を設定してください。
 {: .notice--warning}
 
 ```
@@ -463,14 +464,14 @@ $ roslaunch dynamixel_workbench_controllers dynamixel_controllers.launch
 $ roslaunch dynamixel_workbench_operators joint_operator.launch
 ```
 
-If controller load your DYNAMIXEL, you can watch below texts
+コントローラーがDYNAMIXELを読み込むと、以下のテキストを見ることができます。
 
 ```
 [ INFO] [1544595828.276238724]: Name : pan, ID : 1, Model Number : 1020
 [ INFO] [1544595828.316198852]: Name : tilt, ID : 2, Model Number : 1020
 ```
 
-If operator launch succeeded, you can watch below texts
+operator launchが成功した場合、以下のテキストを見ることができます。
 
 ```
 [ INFO] [1544598264.311365515]: motion_name : right, step : -3.140000
@@ -485,39 +486,38 @@ If operator launch succeeded, you can watch below texts
 [ INFO] [1544598264.313085881]: For now, you can use publish joint trajectory msgs by triggering service(/execution)
 ```
 
-When you execute command by ROS service, DYNAMIXEL will rotate.
+ROSサービスでコマンドを実行するとDYNAMIXELが回転します。
 
 ```
 $ rosservice call /dynamixel_workbench/execution "{}"
 ```
 
-**NOTE**: If you want to repeat motion, you can set True to `is_loop` argument.  
+**注釈**: モーションを繰り返させたい場合は、引数`is_loop`にTrueを設定してください。  
 `$ roslaunch dynamixel_workbench_operators joint_operator.launch is_loop:=true`
 {: .notice--info}
 
-**Parameters List** :
+**パラメーターの一覧** :
 - `namespace`  
-Namespace of this node
+このノードの名前空間です。
 
 - `trajectory_info`  
-Trajectory information file path
+軌道情報ファイルパスです。
 
-**Topic List** :
+**トピック一覧** :
 - `/joint_trajectory`([trajectory_msgs/JointTrajectory](http://docs.ros.org/melodic/api/trajectory_msgs/html/msg/JointTrajectory.html))  
-Send joint trajectory to control DYNAMIXEL
+DYNAMIXELを制御するために関節軌道を送ります。
 
-**Service List** :
+**サービス一覧** :
 - `/execution`([std_srvs/Trigger](http://docs.ros.org/melodic/api/std_srvs/html/srv/Trigger.html))    
-Send command to excute following joint trajectory
+関節軌道の追従を実行するためのコマンドを送信する。
 
 #### Wheel Operators
 
-This package is to make ROS message and publish it to controllers
+このパッケージは、ROSメッセージを作成し、コントローラに配信するためのパッケージです。
 
-Launch controller and joint_operator.   
+Launchコントローラーとjoint_operator   
 
-
-**WARNING**: The controller should be set **wheel_2_0.yaml** or **wheel_1_0.yaml** and set true to `use_cmd_vel` parameter.
+**警告**: コントローラーは、**wheel_2_0.yaml** もしくは **wheel_1_0.yaml** を設定し、`use_cmd_vel` パラメーターにtrueを設定する必要があります。
 {: .notice--warning}
 
 ```
@@ -526,14 +526,14 @@ $ roslaunch dynamixel_workbench_operators wheel_operator.launch
 $ roslaunch dynamixel_workbench_controllers dynamixel_controllers.launch use_cmd_vel:=true
 ```
 
-If controller load your DYNAMIXEL, you can watch below texts
+コントローラーがDYNAMIXELを読み込むと、以下のテキストを見ることができます。
 
 ```
 [ INFO] [1544595828.276238724]: Name : pan, ID : 1, Model Number : 1020
 [ INFO] [1544595828.316198852]: Name : tilt, ID : 2, Model Number : 1020
 ```
 
-If operator launch succeeded, you can watch below texts
+operator launchが成功した場合、以下のテキストを見ることができます。
 
 ```
 [ INFO] [1544600281.020523635]: You can set '-lin_vel_step' and  '-ang_vel_step' arguments (default is 0.01 and 0.1)
@@ -553,99 +553,99 @@ If operator launch succeeded, you can watch below texts
   CTRL-C to quit
 ```
 
-**Parameters List** :
+**パラメーターの一覧** :
 - `namespace`  
-Namespace of this node
+このノードの名前空間です。
 
-**Topic List** :
+**トピック一覧** :
 - `/cmd_vel`([geometry_msgs/Twist](http://docs.ros.org/melodic/api/geometry_msgs/html/msg/Twist.html))  
-Send command velocity to control DYNAMIXEL
+DYNAMIXELを制御するための速度司令コマンドを送信します。
  
 ## [OpenCR and OpenCM Tutorials](#opencr-and-opencm-tutorials)
 
-DYNAMIXEL Workbench firmware in OpenCR and OpenCM is completely same. You can select any example what you want and upload it.
+OpenCRとOpenCMのDYNAMIXEL Workbenchのファームウェアは全く同じです。好きな例を選択して、アップロードすることができます。
 
-**WARNING**: There are some examples that needs to be openned `Serial Monitor` before it is running. If this code (`while(!Serial)
-`) is activated, please open `Serial Monitor`.
+**警告**: いくつかの例がありますが、実行する前に`Serial Monitor`を開く必要があります。このコード (`while(!Serial)
+`)が有効になっている場合は、`Serial Monitor`
 {: .notice--warning}
 
 ### [o_Find_Dynamixel](#o_find_dynamixel)
 
-1. Open `o_Find_Dynamixel`
+1. `o_Find_Dynamixel`を開きます。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_1.png)  
 
-1. Select Port
+1. ポートを選択します。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_2.png)  
 
-1. Push `Upload` button or `CTRL+U`
+1. `Upload`ボタンを押すか、`CTRL+U`を押します。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_3.png)  
 
-1. You can show if the firmware upload successfully
+1. ファームウェアのアップロードが成功したかどうかを表示することができます。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_4.png)  
 
-1. Push `Serial Monitor` button
+1. `Serial Monitor`ボタンを押します。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_5.png)  
 
-1. Serial monitor starts to scan and find DYNAMIXEL
+1. シリアルモニタがスキャンを開始し、DYNAMIXELを検出します。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_6.png)  
 
 ### [p_Monitor](#p_monitor)
 
-1. Open `p_Monitor`
+1. `p_Monitor`を開きます。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_arduino_setup.png)  
 
-1. Select Port
+1. ポートを選びます。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_2.png)  
 
-1. Push `Upload` button or `CTRL+U`
+1. `Upload`ボタンを押すか、`CTRL+U`を押します。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_3.png)  
 
-1. You can show if the firmware upload successfully
+1. ファームウェアのアップロードが成功したかどうかを表示することができます。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_4.png)  
 
-1. Push `Serial Monitor` button
+1. `Serial Monitor`ボタンを押します。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_5.png)  
 
-1. Serial monitor shows dynamixel monitor
+1. シリアルモニタには、DYNAMIXELモニターが表示されます。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_7.png)  
 
-1. Type `begin 57600`
+1. `begin 57600`と入力します。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_8.png)  
 
-1. Type `scan 10`
+1. `scan 10`と入力します。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_9.png)  
 
-1. Type `torque_on 1` and `torque_on 2`
+1. `torque_on 1`と`torque_on 2`を入力します。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_10.png)  
 
-1. Type `sync_write_handler 1 Goal_Position`
+1. `sync_write_handler 1 Goal_Position`と入力します
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_11.png)  
 
-1. Type `sync_write 1 2 0 2048 2048` then DYNAMIXEL will rotate
+1. `sync_write 1 2 0 2048 2048`と入力すると、DYNAMIXELが回転します。
 
     ![](/assets/images/sw/dynamixel/dynamixel_workbench/opencr_example_12.png)  
 
-## [Linux and macOS Tutorials](#linux-and-macos-tutorials)
+## [LinuxとmacOS チュートリアル](#linux-and-macos-tutorials)
 
-You can select any example what you want and excute it.
+例は、任意のものを選択して表示できます。
 
-### Examples
+### 例題
 
 1. model_scan
 1. ping
@@ -664,25 +664,24 @@ You can select any example what you want and excute it.
 1. find_dynamixel
 1. monitor
 
-**TIP**: USB port name is different depend on OS. For example, `/dev/ttyUSB0`, `/dev/ttyACM0` in Linux and `/dev/cu.usbmodem1411` in macOS
+**ヒント**: USBポート名はOSによって異なります。例えば、Linuxでは`/dev/ttyUSB0`、`/dev/ttyACM0`となり、macOSでは`/dev/cu.usbmodem1411`となります。
 {: .notice--success}
 
 ### [position](#position)
 
-1. Open terminal and go to DYNAMIXEL Workbench build folder
+1. ターミナルを開き、DYNAMIXEL Workbenchビルドフォルダに移動します。
 
     ```
     $ cd ~/dynamixel-workbench/dynamixel_workbench_toolbox/examples/build
     ```
 
-1. Excute position (arguments : -port_name -baud_rate -dynamixel_id)
+1. positionを実行します。 (引数 : -port_name -baud_rate -dynamixel_id)
 
     ```
     $ ./position /dev/ttyUSB0 57600 1
     ```
 
-1. You can watch below texts and DYNAMIXEL will rotate 3 times
-
+1. あなたは以下のようなテキストを見ることができ、DYNAMIXELは3回回転します。
     ```
     Succeed to init(57600)
     Succeed to ping
@@ -693,19 +692,19 @@ You can select any example what you want and excute it.
 
 ### [bulk_read_write](#bulk_read_write)
 
-1. Open terminal and go to DYNAMIXEL Workbench build folder
+1. ターミナルを開き、DYNAMIXEL Workbenchビルドフォルダに移動します。
 
     ```
     $ cd ~/dynamixel-workbench/dynamixel_workbench_toolbox/examples/build
     ```
 
-1. Excute bulk_read_write (arguments : -port_name -baud_rate -dynamixel_id_1 -dynamixel_id_2)
+1. bulk_read_writeを実行します。 (引数 : -port_name -baud_rate -dynamixel_id_1 -dynamixel_id_2)
 
     ```
     $ ./bulk_read_write /dev/ttyUSB0 57600 1 2
     ```
 
-1. You can watch below texts and DYNAMIXEL(dynamixel_id_1) will change rotate direction and another DYNAMIXEL(dynamixel_id_2) will change LED status
+1. 下のテキストを見ると、DYNAMIXEL(dynamixel_id_1)回転方向を変更し、別のDYNAMIXEL(dynamixel_id_2)がLEDの状態を変更しています。
 
     ```
     Succeed to init(57600)
@@ -723,14 +722,14 @@ You can select any example what you want and excute it.
     [DynamixelDriver] Succeeded to add param for bulk write!
     ```
 
-# [API References](#api-references)
+# [APIリファレンス](#api-references)
 
-- [Github Repo](https://github.com/ROBOTIS-GIT/dynamixel-workbench)
+- [Githubリポジトリ](https://github.com/ROBOTIS-GIT/dynamixel-workbench)
 
-**NOTE**: We have a plan to publish Doxygen. It will be updated soon.
+**注釈**: Doxygenの公開予定があります。近日中に更新します。
 {: .notice--info}
 
-## [Function List](#function-list)
+## [関数一覧](#function-list)
 
 ```c++
 bool init(const char* device_name = "/dev/ttyUSB0",
@@ -895,7 +894,7 @@ float convertValue2Current(int16_t value);
 float convertValue2Load(int16_t value);
 ```  
 
-## [Function Reference](#function-reference)
+## [関数リファレンス](#function-reference)
 
 ### bool init(const char* device_name = "/dev/ttyUSB0", uint32_t baud_rate = 57600, const char **log = NULL)  
 
