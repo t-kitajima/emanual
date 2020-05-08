@@ -407,8 +407,7 @@ DYNAMIXELを制御するための関節軌道を受信します。
 
 **サービス一覧** :
 - `/dynamixel_command`([dynamixel_workbench_msgs/DynamixelCommand]{: .popup})    
-Receives command to control DYNAMIXEL
-DYNAMIXELを生業するためのコマンドを受信します。
+DYNAMIXELを制御するためのコマンドを受信します。
 
 ### [Operators](#operators)
 
@@ -681,7 +680,7 @@ OpenCRとOpenCMのDYNAMIXEL Workbenchのファームウェアは全く同じで�
     $ ./position /dev/ttyUSB0 57600 1
     ```
 
-1. あなたは以下のようなテキストを見ることができ、DYNAMIXELは3回回転します。
+1. あなたは以下のようなテキストを見ることができ、DYNAMIXELは3回転します。
     ```
     Succeed to init(57600)
     Succeed to ping
@@ -704,7 +703,7 @@ OpenCRとOpenCMのDYNAMIXEL Workbenchのファームウェアは全く同じで�
     $ ./bulk_read_write /dev/ttyUSB0 57600 1 2
     ```
 
-1. 下のテキストを見ると、DYNAMIXEL(dynamixel_id_1)回転方向を変更し、別のDYNAMIXEL(dynamixel_id_2)がLEDの状態を変更しています。
+1. 下記テキストを見ると、DYNAMIXEL(dynamixel_id_1)回転方向を変更し、別のDYNAMIXEL(dynamixel_id_2)がLEDの状態を変更しています。
 
     ```
     Succeed to init(57600)
