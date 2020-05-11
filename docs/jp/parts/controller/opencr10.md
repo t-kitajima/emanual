@@ -293,8 +293,8 @@ extern const Pin2PortMapArray g_Pin2PortMapArray[]=
 
 ## [Linuxにインストール](#install-on-linux)
 
-### [USBポート](#usb-port-settings)
-OpenCRのUSBポートにArduino IDEプログラムをroot権限無しでアップロードできるようにしました。  
+### [USBポートの設定](#usb-port-settings)
+OpenCRのUSBポートがroot権限無しでArduinoスケッチをアップできるようにします。  
 
 ```bash
 $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/99-opencr-cdc.rules
@@ -306,7 +306,7 @@ $ sudo udevadm trigger
 ![](/assets/images/platform/turtlebot3/preparation/7_1_1_usb_port_setting.png)
 
 ### [コンパイラの設定](#compiler-settings)
-OpenCRライブラリは、32ビットプラットフォーム用に構築されているため、64ビットPCではArduinoIDE用の32ビットコンパイラが必要になります。  
+OpenCRライブラリは、32ビットプラットフォーム用に構築されているため、64ビットPCではArduino IDE用の32ビットコンパイラが必要になります。  
 
 ```bash
 $ sudo apt-get install libncurses5-dev:i386
@@ -383,7 +383,7 @@ https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/arduino/opencr_relea
 
 ### [モデムマネージャの削除](#remove-modemmanager)
 
-Arduino IDEでプログラミングを行い、OpenCRにプログラムをアップロードすると、OpenCRが再起動して再接続されます。同時に、Linuxのモデム関連のパッケージから、デバイスを管理するためのATコマンドが送信されます。このように、OpenCR上で接続エラーが発生していることを示していますので、このステップは事前に行っておく必要があります。　　
+Arduino IDEでプログラミングを行い、OpenCRにプログラムをアップロードすると、OpenCRが再起動して再接続されます。同時に、Linuxのモデム関連のパッケージから、デバイスを管理するためのATコマンドが送信されます。このように、OpenCR上で接続エラーが発生していることを示していますので、このステップは事前に行っておく必要があります。 
 
 ```bash
 $ sudo apt-get purge modemmanager
@@ -476,7 +476,7 @@ https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/arduino/opencr_relea
 このステップでは、プログラムアップロード時のポート設定を行います。パソコンとOpenCRをUSBポートで接続する必要があります。  
 ツール→ポート→COM1を選択します。  
 
-**注意** : `COM1`の値は、PCに接続されている環境によって異なる場合があり  。　　
+**注意** : `COM1`の値は、PCに接続されている環境によって異なる場合があり  。  
 {: .notice--warning}
 
 
