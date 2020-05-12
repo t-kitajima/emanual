@@ -228,7 +228,8 @@ extern const Pin2PortMapArray g_Pin2PortMapArray[]=
   {GPIOC, GPIO_PIN_3,   &hADC3,   ADC_CHANNEL_13, NULL   ,   NO_PWM       , NO_EXTI },  // 30
   {GPIOF, GPIO_PIN_14,  NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 31 BDPIN_BUZZER
   {GPIOF, GPIO_PIN_15,  NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 32 BDPIN_DXL_PWR_EN
-  {GPIOG, GPIO_PIN_14,  NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 33
+  {GPIOG, GPIO_PIN_14,  NULL,  
+       NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 33
   {GPIOG, GPIO_PIN_3,   NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 34 BDPIN_PUSH_SW_1
   {GPIOC, GPIO_PIN_12,  NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 35 BDPIN_PUSH_SW_2
   {GPIOG, GPIO_PIN_9,   NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 36 BDPIN_LED_STATUS
@@ -480,14 +481,14 @@ https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/arduino/opencr_relea
 {: .notice--warning}
 
 
-# [Examples](#examples)
+# [例](#examples)
 
 ## [LED](#led)
-It is a built-in LED test on the OpenCR board.  
+OpenCRボードに内蔵されているLEDテストです。  
 
-### Code
-There are 5 LEDs available in OpenCR, USER1 ~ 4, and the LED connected to base 13 of Arduino.  
-USER1 ~ 4 arduino pin numbers are defined as follows. When the corresponding pin is output as High / Low, the LED turns on / off.
+### コード
+OpenCRには5つのLEDがあり、USER1～4とArduinoのベース13に接続されているLEDがあります。  
+USER1～4のArduinoのピン番号は以下のように定義されています。対応するピンがHigh/Lowとして出力されると、LEDが点灯/消灯します。  
 
 ```c++
 #define BDPIN_LED_USER_1        22
@@ -496,7 +497,7 @@ USER1 ~ 4 arduino pin numbers are defined as follows. When the corresponding pin
 #define BDPIN_LED_USER_4        25
 ```
 
-It is a code that sequentially turns on and off all the LEDs.
+すべてのLEDを順次点灯、消灯するコードです。  
 
 ```c++
 int led_pin = 13;
@@ -532,15 +533,15 @@ void loop() {
 }
 ```
 
-### Result
+### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VTz_iBqisFk" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-## [Button](#button)
-It is a built-in BUTTON test on the OpenCR board.  
+## [ボタン](#button)
+これは、OpenCRボードに内蔵されているBUTTONテストです。 　
 
-### Code
-There are Push switches SW1 ~ 2 and Dip switches 1 ~ 2 in OpenCR. The pin number is defined as below, so you can see the status of the current button when you input the data of that pin.
+### コード
+OpenCRにはプッシュスイッチSW1～2とディップスイッチ1～2があります。ピン番号は以下のように定義されており、そのピンのデータを入力すると現在のボタンの状態がわかります。  
 
 ```c++
 #define BDPIN_DIP_SW_1          26
@@ -549,7 +550,7 @@ There are Push switches SW1 ~ 2 and Dip switches 1 ~ 2 in OpenCR. The pin number
 #define BDPIN_PUSH_SW_2         35
 ```
 
-It is a code that outputs the button input status in serial.
+ボタンの入力状態をシリアルで出力するコードです。  
 
 ```c++
 void setup(){
@@ -582,16 +583,16 @@ void loop(){
 }
 ```
 
-### Result
+### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8RfEmWHOjlQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-## [Buzzer](#buzzer)
-It is a BUZZER related test built in the OpenCR board and uses the Tone function of Arduino.
+## [ブザー](#buzzer)
+OpenCRボードに内蔵されたBUZZER関連のテストで、ArduinoのTone機能を利用しています。  　
 
-### Code
-OpenCR has a built-in BUZZER, and the sound varies depending on the frequency.
-The built-in BUZZER is also mapped to the arduino pin number, and the arduino pin number is as follows. Arduino's Tone function is ported, so you can use BUZZER by using this function.
+### コード
+OpenCRにはブザーが内蔵されており、周波数に依存して音が変化します。
+また、内蔵されているブザーはArduinoのピン番号にマッピングされており、Arduinoのピン番号は以下のようになっています。Arduinoのトーン機能が移植されているので、この機能を使うことでブザーを使うことができます。  
 
 ```c++
 #define BDPIN_BUZZER            31
@@ -632,20 +633,19 @@ void setup() {
 }
 ```
 
-### Result
+### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gvICseDo0SQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ## [PWM](#pwm)
-This is the PWM output test from the Arundin pin of the OpenCR board.
+OpenCRボードのArundinピンからのPWM出力テストです。  
 
-### Code
-
-OpenCR has the same pin configuration as Arduino Uno. The PWM output is also mapped to the same port. Therefore, analogueWrite is used to output the PWM duty ratio to the corresponding ports. The resolution is 8 bits, from 0 to 255, and the frequency is 50 KHz.
+### コード
+OpenCRはArduino Unoと同じピン構成です。PWM出力も同じポートにマッピングされています。そのため、対応するポートにPWMのデューティー比を出力するため、analogueWriteを使用しています。分解能は0から255までの8ビットで、周波数は50KHzです。  
 
 ![](/assets/images/parts/controller/opencr10/exam_pwm_01.png)
 
-This is an example of PWM output on all six pins.
+これは6ピン全てにPWM出力を行った例です。  
 
 ```c++
 int pwm_pins[6] = { 3, 5, 6, 9, 10, 11 };
@@ -667,30 +667,29 @@ void loop() {
 }
 ```
 
-### Result
+### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/de_K0mpgVcE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ## [EEPROM](#eeprom)
-It is the EEPROM library test of OpenCR board.
+OpenCRボードのEEPROMライブラリテストです。
 
-OpenCR does not have EEPROM memory, so it emulates a part of flash memory built in STM32F746 into EEPROM. The method of emulation was provided by ST as an example.  
-The area used as EEPROM is 0x08010000 ~ 0x08020000 as shown below. Two sectors are used.
+OpenCRはEEPROMメモリを持っていないので、STM32F746に内蔵されているフラッシュメモリの一部をEEPROMにエミュレートします。エミュレーションの方法はSTさんから例として提供されたものです。  
+EEPROMとして使用する領域は、以下のように0x08010000～0x08020000です。2つのセクターが使用されています。  
 
 ![](/assets/images/parts/controller/opencr10/ex_eeprom_01.png)
-
-32 bits are used to store one data, the lower 16 bits are the data to be stored, and the upper 16 bits indicate the address of the corresponding data. When storing data, it is always stored in the new location. When you use one page while saving the data, only the latest values ​​from the saved page are copied to the new page and the existing page is deleted.
-As a result, the number of flash memory erasures is reduced, thereby increasing the write-through life.
+32ビットは1つのデータを格納するためのもので、下位16ビットは格納するデータ、上位16ビットは対応するデータのアドレスを示しています。データを保存する際には、常に新しい場所に保存されます。データ保存中に1ページを使用した場合、保存したページの最新値のみが新しいページにコピーされ、既存のページは削除されます。
+その結果、フラッシュメモリの消去回数が減り、書き込み寿命が長くなります。  
 
 ![](/assets/images/parts/controller/opencr10/ex_eeprom_02.png)
 
 ![](/assets/images/parts/controller/opencr10/ex_eeprom_03.png)
 
-To use the EEPROM library, a header must be added, and the maximum size of the current EEPROM is 1 KBytes. Since the EEPROM library has ported what is supported in Arduino, the basic usage method is the same as that used in other existing Arduino boards. For more information on how to use it, please refer to the Adunion site.
+EEPROMライブラリを使用するにはヘッダを追加する必要があり、現在のEEPROMの最大サイズは1KBytesです。EEPROMライブラリはArduinoでサポートされているものを移植しているので、基本的な使用方法は他の既存のArduinoボードで使用されているものと同じです。詳しい使い方はAdunionのサイトを参照してください。  
 
 [https://www.arduino.cc/en/Reference/EEPROM](https://www.arduino.cc/en/Reference/EEPROM)
 
-### Code
+### コード
 
 ```c++
 #include <EEPROM.h>
@@ -733,53 +732,53 @@ void loop() {
 }
 ```
 
-### Result
+### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wTTbqdFP8uc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ## [OP3](#op3)
-OpenCR is used for power and sensor control in OP3, a humanoid robot. If the OpenCR firmware for OP3 has been changed, follow the procedure below to update it.
+人型ロボットOP3では、電源やセンサー制御にOpenCRを使用しています。OP3のOpenCRのファームウェアが変更されている場合は、以下の手順でアップデートしてください。  
  
-**WARRNING** : Please turn off the power switch before connecting power source(battery or SMPS) to the product.
+**警告** : 本製品に電源(電池やSMPS)を接続する際は、必ず電源スイッチを切ってから行ってください。  
 {: .notice--warning}
 
-### Preparations
-OpenCR develops and downloads firmware through the Arduino IDE. Therefore, you must install the Arduino IDE in advance and install the OpenCR board package. Install through the following link document.
+### 準備
+OpenCRはArduino IDEを介してファームウェアの開発とダウンロードを行います。そのため、事前にArduino IDEをインストールしておき、OpenCRボードのパッケージをインストールする必要があります。以下のリンク先のドキュメントからインストールします。  
 
-- [Install Arduino IDE and OpenCR](#arduino-ide)
+- [Arduino IDEとOpenCRのインストール](#arduino-ide)
 
-### Download OP3 firmware
+### OP3ファームウェアのダウンロード
 
-1. To update OpenCR's firmware, open the front cover of OP3 and connect USB to PC as shown below.
+1. OpenCRのファームウェアをアップデートするには、下図のようにOP3のフロントカバーを開き、USBをPCに接続します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_01.png)
 
-2. After connecting USB, select Tools-> Board-> OpenCR Board in Arduino IDE.
-3. Change Tools-> Port to the port to which the board is connected.  
-4. In the Arduino IDE Examples, select the firmware for OP3.
+2. USB接続後にArduino IDEにて、ツール-> ボード-> OpenCRボードを選択します。  
+3. ツール-> ポートをボードが接続されているポートに変更します。  
+4. Arduino IDEの例で、OP3用のファームウェアを選択します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_02.png)
 
-5. Click on the icon in the Arduino IDE that displays the red circle in the following figure to build and download the firmware. When the download is completed, the firmware is automatically executed.
+5. 下図の赤丸が表示されているArduino IDEのアイコンをクリックして、ファームウェアをビルドしてダウンロードします。ダウンロードが完了すると、ファームウェアが自動的に実行されます。  
 
     ![](/assets/images/parts/controller/opencr10/op3_03.png)
 
-### Editing OP3 Firmware
-The firmware that is provided as a basic example of OpenCR is read-only. If you want to edit it, you have to save it to a new folder and work on it.  
+### OP3ファームウェアの編集
+OpenCRの基本例として提供されているファームウェアは読み込み専用です。編集したい場合は、新しいフォルダに保存して作業する必要があります。  
 
-1. Open the OP3 example.
+1. OP3の例を開きます。  
 
     ![](/assets/images/parts/controller/opencr10/op3_02.png)
 
-2. Select File-> Save.
+2. ファイル-> 保存を選択します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_05.png)
 
-3. Since the example provided is Read-Only, select OK to save it as a new file.
+3. 提供された例は読み取り専用なので、OKを選択して新規ファイルとして保存します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_06.png)
 
-4. Save it to a new folder and edit it. Once editing is complete, repeat the process of building and downloading the firmware.
+4. 新しいフォルダに保存して編集します。編集が完了したら、ファームウェアのビルドとダウンロードを繰り返します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_09.png)
 
