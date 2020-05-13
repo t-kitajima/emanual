@@ -598,7 +598,7 @@ OpenCRにはブザーが内蔵されており、周波数に依存して音が�
 #define BDPIN_BUZZER            31
 ```
 
-It outputs the melody according to the scale defined in the pitches.h header. The following code is a change from OpenCR's BUZZER to only the PIN number in the example provided in the Arduino IDE.
+pitches.hヘッダで定義されたスケールに従ってメロディを出力します。以下のコードは、Arduino IDEで提供されている例で、OpenCRのBUZZERをピン番号のみに変更したものです。  
 
 ```c++
 #include "pitches.h"
