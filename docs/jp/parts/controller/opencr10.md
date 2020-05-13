@@ -782,26 +782,26 @@ OpenCRの基本例として提供されているファームウェアは読み�
 
     ![](/assets/images/parts/controller/opencr10/op3_09.png)
 
-## [Sensors](#sensors)
+## [センサー](#sensors)
 
-### [Ambient Light Sensor](#ambient-light-sensor)
-It is ambient light sensor test on the OpenCR board.
+### [環境光センサー](#ambient-light-sensor)
+OpenCRボード上での環境光センサーテストです。  
 
-- Pinouts
-  - Green : Signal
-  - Red : Vcc
-  - Black : Gnd
+- ピン配置
+  - 緑 : 信号
+  - 赤 : Vcc
+  - 黒 : Gnd
 
-- Specification
+- 仕様
   - [ambient light sensor specification](https://www.dfrobot.com/wiki/index.php/DFRobot_Ambient_Light_Sensor_SKU:DFR0026#Application)
-  - Supply Voltage : 3.3V to 5V
-  - Illumination range : 1 Lux to 6000 Lux
-  - Interface : Analog
+  - 電源電圧 : 3.3V ~ 5V
+  - 照明範囲 : 1ルクス ~ 6000ルクス
+  - インターフェース : アナログ
 
-#### Code
-LED turns off/on sequentially depending on the light received by the sensor.  
-LED turns off in bright place. If it is dark place, the LED turns on.  
-This sensor is an analog sensor, connect it to port A0.
+#### コード
+センサーの受け取った光に応じてLEDが順次消灯/点灯します。  
+明るい場所ではLEDが消灯します。暗い場所では点灯します。  
+このセンサはアナログセンサのため、ポートA0に接続してください。  
 
 ```c++
 #define BDPIN_LED_USER_1     23
@@ -809,7 +809,7 @@ This sensor is an analog sensor, connect it to port A0.
 #define BDPIN_LED_USER_3     25
 ```
 
-It is a code that turns on/off the LED depending on the brightness of light changes.
+光の明るさの変化に応じてLEDをON/OFFするコードです。  
 
 ```c++
 
@@ -852,28 +852,28 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eqZsd12g0VI" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### [Tilt Sensor](#tilt-sensor)
-It is tilt sensor test on the OpenCR.
+### [チルトセンサー](#tilt-sensor)
+OpenCRのチルトセンサーのテストです。  
 
 ![](/assets/images/parts/controller/opencr10/tilt_sensor.png)
 
-- Pinouts
-  - Green : Signal
-  - Red : Vcc
-  - Black : Gnd
+- ピン配置
+  - 緑 : 信号
+  - 赤 : Vcc
+  - 黒 : Gnd
 
-- Specification
+- 仕様
   - [Tilt Sensor Specification](https://www.dfrobot.com/wiki/index.php/Digital_Tilt_Sensor_SKU:DFR0028)
-  - Supply Voltage : 3.3V to 5V
-  - Interface : Digital
+  - 電源電圧 : 3.3V ~ 5V
+  - インターフェース : デジタル
 
-#### Code
-tilt sensor and led are connected to OpenCR. so that red/blue led is on/off when tilted and red/blue led is off/on when not tilted.  
-Connect the Tilt Sensor, Led_blue, and Led_red signal pins to D0, D1, and D2.
+#### 結果
+チルトセンサーとLED はOpenCRに接続されており、チルトすると赤/青のLEDがON/OFF、チルトしない場合は赤/青のLEDがOFF/ONになります。  
+チルトセンサー、Led_blue、Led_redの信号ピンをD0、D1、D2に接続します。  
 
 ```c++
 #define tilt     0
@@ -905,26 +905,26 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VejyCWv4FLc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### [Rotation Sensor](#rotation-sensor)
+### [回転センサー](#rotation-sensor)
 
-It is rotation sensor test on the OpenCR board.
+OpenCRボードの回転センサーテストです。  
 
 ![](/assets/images/parts/controller/opencr10/rotation_sensor.png)
 
-- Specification
-  - [Rotation Sensor Specification](https://www.dfrobot.com/wiki/index.php/Digital_Tilt_Sensor_SKU:DFR0028)
-  - Rotation Angle : 3600 degrees
-  - Supply Voltage : 3.3V to 5V
-  - Interface : Analog
+- 仕様
+  - [回転センサー仕様](https://www.dfrobot.com/wiki/index.php/Digital_Tilt_Sensor_SKU:DFR0028)
+  - 回転角度 : 3600度
+  - 電源電圧 : 3.3V ~ 5V
+  - インターフェース : アナログ
 
-#### Code
-Rotation sensor is an analog sensor, the output value depending on the degree of rotation.  
-The LED turned on/off depending on the degree of rotation.  
-The signal pin is connected to A0 of OpenCR.
+#### コード
+回転センサはアナログセンサで、回転角度に応じて出力値が変わります。  
+回転角度に応じて LED が点灯/消灯します。  
+信号ピンは OpenCRのA0に接続されています。  
 
 ```c++
 #define BDPIN_LED_USER_1        22
@@ -984,28 +984,28 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/z2AbTL7R6rg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### [Capacitive Touch Sensor](#capacitive-touch-sensor)
-It is capacitive touch sensor test on the OpenCR board.
+### [静電容量式タッチセンサー](#capacitive-touch-sensor)
+OpenCRボードの静電容量式タッチセンサーテストです。  
 
 ![](/assets/images/parts/controller/opencr10/cap_sensor.jpg)
 
-- Pinouts
-  - Green : Signal
-  - Red : Vcc
-  - Black : Gnd
+- ピン配置
+  - 緑 : 信号
+  - 赤 : Vcc
+  - 黒 : Gnd
 
-- Specification
-  - [Capacitive Touch Sensor Specification](https://www.dfrobot.com/wiki/index.php/DFRobot_Capacitive_Touch_Sensor_SKU:DFR0030)
-  - Supply Voltage : 3.3V to 5V
-  - Interface : Digital
+- 仕様
+  - [静電容量式タッチセンサー仕様](https://www.dfrobot.com/wiki/index.php/DFRobot_Capacitive_Touch_Sensor_SKU:DFR0030)
+  - 電源電圧 : 3.3V ~ 5V
+  - インターフェース : デジタル
 
-#### Code
-When you put your hand on the sensor, the led turn on/off sequentially and then the LED turns off when you take your hand.  
-Tilt sensor is a digital sensor, signal of sensor is connected to D0 of OpenCR.
+#### コード
+センサーに手を乗せるとLEDが順次点灯/消灯し、手を離すとLEDが消灯します。  
+チルトセンサーはデジタルセンサーで、センサーの信号はOpenCRのD0に接続されています。  
 
 ```c++
 #define SensorINPUT             0
@@ -1050,31 +1050,31 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CtYwSdOD1wI" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### [Flame Sensor](#flame-sensor)
-It is flame sensor test on the OpenCR board.
+### [炎センサー](#flame-sensor)
+penCRボードの炎センサーのテストです。  
 
 ![](/assets/images/parts/controller/opencr10/flame_sensor.jpg)
 
-- Pinouts
-  - Blue : Signal
-  - Red : Vcc
-  - Black : Gnd
+- ピン配置
+  - 青 : 信号
+  - 赤 : Vcc
+  - 黒 : Gnd
 
-- Specification
-  - [Flame Sensor Specification](https://www.dfrobot.com/wiki/index.php/Flame_sensor_SKU:_DFR0076)
-  - Detection range : 20cm(4.8V) ~ 100cm(1V)
-  - Supply Voltage : 3.3V to 5V
-  - Interface : Analog
+- 仕様
+  - [炎センサー仕様](https://www.dfrobot.com/wiki/index.php/Flame_sensor_SKU:_DFR0076)
+  - 検出範囲 : 20cm(4.8V) ~ 100cm(1V)
+  - 電源電圧 : 3.3V ~ 5V
+  - インターフェース : アナログ
 
-#### Code
-If the flame is detected, turns on the led.  
-Fire near the sensor, it outputs a high value close to 1024.  
-If the output exceeds 800, led will turn on.  
-Signal is connected to A0 of Arduino.
+#### コード
+炎を検知するとLEDが点灯します。  
+センサーの近くで火をつけると1024に近い高い値を出力します。  
+出力が800を超えるとLEDが点灯します。  
+信号はArduinoのA0に接続されています。  
 
 ```c++
 #define BDPIN_LED_USER_1 22
@@ -1107,23 +1107,23 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DcDFl4UjUos" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### [Joystic Sensor](#joystick-sensor)
-It is joystic test on the OpenCR board.
+### [ジョイステックセンサー](#joystick-sensor)
+OpenCRボードでのジョイステックテストです。  
 
 ![](/assets/images/parts/controller/opencr10/joystick_sensor.png)
 
-- Specification
-  - [Joystic Sensor Specification](https://www.dfrobot.com/wiki/index.php/Joystick_Module_For_Arduino_(SKU:DFR0061))
-  - Interface : Analog
+- 仕様
+  - [ジョイステックセンサー仕様](https://www.dfrobot.com/wiki/index.php/Joystick_Module_For_Arduino_(SKU:DFR0061))
+  - インターフェース : アナログ
 
-#### Code
-Joystic is to get the output value according to the input.  
-We will look at the X Y Z values ​​that change depending on how we move.  
-Signal of x,y and z is connected to A0, A1, A2 of Arduino.
+#### コード
+入力に応じて出力値を取得するのがJジョイステックです。  
+動き方によって変化するx、y、zの値を見ていきます。  
+x、y、zの信号はArduinoのA0、A1、A2に接続しています。  
 
 ```c++
 #define X A0
@@ -1155,23 +1155,23 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7fOIeFTg7bY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ## [DYNMAIXEL Workbench](#dynamixel-workbench)
 
-- [DYNAMIXEL Workbench examples](/docs/en/software/dynamixel/dynamixel_workbench/#opencr-and-opencm-tutorials)
+- [DYNAMIXEL Workbenchの例](/docs/en/software/dynamixel/dynamixel_workbench/#opencr-and-opencm-tutorials)
 
 ## [OpenMANIPULATOR](#openmanipulator)
 
-- [OpenMANIPULATOR examples](/docs/en/platform/openmanipulator/#how-to-control-on-opencr)
+- [OpenMANIPULATORの例](/docs/en/platform/openmanipulator/#how-to-control-on-opencr)
 
-# [Downloads](#downloads)
+# [ダウンロード](#downloads)
 
-- `Download` [BOM](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/BOM)
-- `Download` [Schematic](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/Schematic)
-- `Download` [PCB](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/CAD)
+- `ダウンロード` [部品表](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/BOM)
+- `ダウンロード` [回路図](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/Schematic)
+- `ダウンロード` [PCB](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/CAD)
 
 # [References](#references)
 
