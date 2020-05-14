@@ -1172,65 +1172,64 @@ void loop()
 - `ダウンロード` [回路図](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/Schematic)
 - `ダウンロード` [PCB](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/CAD)
 
-# [References](#references)
+# [リファレンス](#references)
 
-## [Recovery Mode](#recovery-mode)
+## [リカバリーモード](#recovery-mode)
+不完全もしくは間違ったファームウェアがダウンロードされ、ボードがフリーズしたり、動作しなくなったりした場合は、正常なファームウェアをダウンロードできるようにするために、ブートローダーに入る必要があります。  
+ブートローダーを実行するには、以下の手順に従ってください。  
 
-If currupted or incompleted firmware is downloaded and the board freezes or does not work, you must enter the boot loader to be able to download the normal firmware.  
-To execute the boot loader, please follow the instruction below.
+1. `プッシュスイッチ2`ボタンを押したままにする。
+2. `リセット`ボタンを押してください。
+3. `リセット`ボタンを押す。
+4. `プッシュスイッチ2`ボタンを離す。
 
-1. Hold down the `PUSH SW2` button.
-2. Press the `Reset` button.
-3. Release the `Reset` button.
-4. Release the `PUSH SW2` button.
-
-OpenCR will enter the boot loader after reset. When the boot loader is running, the STATUS LED blinks every 100ms.
+OpenCRはリセット後、ブートローダーに入ります。ブートローダーが動作しているときは、ステータスLEDが100msごとに点滅します。  
 
 ![](/assets/images/parts/controller/opencr10/bootloader_19.png)
 
-You can download the normal firmware while the boot loader is running.
+ブートローダーが起動している間に通常のファームウェアをダウンロードすることができます。  
 
-## [Certifications](#certifications)
-Please inquire us for information regarding unlisted certifications.
+## [認証](#certifications)
+未登録の認証については、お問い合わせください。  
 
 ### [FCC](#fcc)
 {% include en/dxl/fcc_class_a.md %}
 
 
-# [Bootloader](#bootloader)
-The bootloader is responsible for initializing the board and downloading and executing the firmware into flash memory.  
+# [ブートローダー](#bootloader)
+ブートローダーは、ボードを初期化し、フラッシュメモリにファームウェアをダウンロードして実行する役割を担っています。
 
-The STM32F7xx, which is used for the main MCU on the OpenCR board, supports DFU(Device Firmware Upgrade).  
-This enables the built-in bootloader of the MCU by itself to boot the DFU protocol by using USB, primarily for the bootloader initialization, the recovery mode, and the bootloader update.  
-The biggest advantage to let the users be able to use bootloader with USB but no other JTAG equipment.  
-Write the firmware by using the DFU mode which is embedded in MCU without writing / debugging equipment, such as STLink.
+OpenCRボードのメインMCUに使用されているSTM32F7xxは、DFU(Device Firmware Upgrade)をサポートしています。  
+これにより、主にブートローダーの初期化、リカバリーモード、ブートローダーの更新をUSBで行うことで、MCUの内蔵ブートローダーを単体でDFUプロトコルで起動させることができるようになります。  
+USBでブートローダーを使用しても、他のJTAG機器を使用せずにブートローダーを使用できることが最大のメリットです。  
+STLinkなどの書き込み/デバッグ機器を使用せずに、MCUに内蔵されたDFUモードを使用してファームウェアを書き込みます。  
 
-|     Item     |     Description     |
+|     項目     |         説明         |
 |:------------:|:-------------------:|
-| Supported OS | Windows, Linux, Mac |
-|   Compiler   | gcc arm 5.4 2016q2  |
+|    対応OS    | Windows, Linux, Mac |
+|  コンパイラー  | gcc arm 5.4 2016q2  |
 
 ![](/assets/images/parts/controller/opencr10/bootloader_19.png)
 
-- USB Port
-  - Connected to PC and recognized as serial port
-  - A communication cable for downloading firmware through the bootloader.
+- USBポート
+  - PCに接続してシリアルポートとして認識されます。
+  - ブートローダー経由でファームウェアをダウンロードするための通信ケーブルです。
 
-- PUSH SW2
-  - Press and hold the button when the power is on or reset to execute the bootloader
-  - If the button is not pressed when the power is turned on, the bootloader is executed. If the firmware is in the flash memory, the bootloader executes the firmware.
+- プッシュスイッチ2
+  - 電源投入時やリセット時にボタンを長押しすると、ブートローダーが実行されます。
+  - 電源投入時にボタンが押されていない場合は、ブートローダーが実行されます。ファームウェアがフラッシュメモリにある場合は、ブートローダーがファームウェアを実行します。
 
-## [Memory Map](#memory-map)
+## [メモリマップ](#memory-map)
 
-The STM32F746 used in OpenCR has an internal flash memory of 1024KB, and each area is defined as follows. The bootloader is located at the lowest address in the flash memory and the bootloader is first executed when the power is turned on and reset.
+OpenCRで使用しているSTM32F746は、1024KBの内部フラッシュメモリを持ち、各領域は以下のように定義されています。ブートローダーはフラッシュメモリ内の最下位アドレスに配置されており、電源投入時とリセット時に最初にブートローダーが実行されます。  
 
 ![](/assets/images/parts/controller/opencr10/bootloader_01.png)
 
-## [Boot Sequence](#boot-sequence)
+## [ブートシーケンス](#boot-sequence)
 
 ![](/assets/images/parts/controller/opencr10/bootloader_03.png)
 
-If the board is powered on or reset, if the SW2 button is pressed, it waits for commands from the PC in the boot loader state. If the SW2 button is not pressed, jump to the firmware if the firmware exists in the firmware area of ​​the flash memory and execute it.
+ボードの電源投入やリセット時にスイッチ2ボタンを押すと、ブートローダー状態でPCからのコマンドを待ちます。スイッチ2ボタンが押されていない場合は、フラッシュメモリのファームウェア領域にファームウェアが存在する場合は、ファームウェアにジャンプして実行します。  
 
 ## [Communication Protocol](#communication-protocol)
 
