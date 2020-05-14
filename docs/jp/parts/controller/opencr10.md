@@ -228,8 +228,7 @@ extern const Pin2PortMapArray g_Pin2PortMapArray[]=
   {GPIOC, GPIO_PIN_3,   &hADC3,   ADC_CHANNEL_13, NULL   ,   NO_PWM       , NO_EXTI },  // 30
   {GPIOF, GPIO_PIN_14,  NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 31 BDPIN_BUZZER
   {GPIOF, GPIO_PIN_15,  NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 32 BDPIN_DXL_PWR_EN
-  {GPIOG, GPIO_PIN_14,  NULL,  
-       NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 33
+  {GPIOG, GPIO_PIN_14,  NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 33
   {GPIOG, GPIO_PIN_3,   NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 34 BDPIN_PUSH_SW_1
   {GPIOC, GPIO_PIN_12,  NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 35 BDPIN_PUSH_SW_2
   {GPIOG, GPIO_PIN_9,   NULL,     NO_ADC        , NULL   ,   NO_PWM       , NO_EXTI },  // 36 BDPIN_LED_STATUS
@@ -487,7 +486,7 @@ https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/arduino/opencr_relea
 OpenCRボードに内蔵されているLEDテストです。  
 
 ### コード
-OpenCRには5つのLEDがあり、USER1～4とArduinoのベース13に接続されているLEDがあります。  
+OpenCRには5つのLEDがあり、USER1～4とArduinoの13番ピンに接続されているLEDがあります。  
 USER1～4のArduinoのピン番号は以下のように定義されています。対応するピンがHigh/Lowとして出力されると、LEDが点灯/消灯します。  
 
 ```c++
@@ -541,7 +540,7 @@ void loop() {
 これは、OpenCRボードに内蔵されているBUTTONテストです。 　
 
 ### コード
-OpenCRにはプッシュスイッチSW1～2とディップスイッチ1～2があります。ピン番号は以下のように定義されており、そのピンのデータを入力すると現在のボタンの状態がわかります。  
+OpenCRにはプッシュスイッチ1〜2とディップスイッチ1〜2があります。ピン番号は以下のように定義されており、そのピンのデータを入力すると現在のボタンの状態がわかります。  
 
 ```c++
 #define BDPIN_DIP_SW_1          26
@@ -672,9 +671,9 @@ void loop() {
 <iframe width="560" height="315" src="https://www.youtube.com/embed/de_K0mpgVcE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ## [EEPROM](#eeprom)
-OpenCRボードのEEPROMライブラリテストです。
+OpenCRボートのEEPROMライブラリのテストです。  
 
-OpenCRはEEPROMメモリを持っていないので、STM32F746に内蔵されているフラッシュメモリの一部をEEPROMにエミュレートします。エミュレーションの方法はSTさんから例として提供されたものです。  
+OpenCRはEEPROMメモリを持っていないので、STM32F746に内蔵されているフラッシュメモリの一部をEEPROMにエミュレートします。エミュレーションの方法はSTマイクロエレクトロニクス社から例として提供されたものです。  
 EEPROMとして使用する領域は、以下のように0x08010000～0x08020000です。2つのセクターが使用されています。  
 
 ![](/assets/images/parts/controller/opencr10/ex_eeprom_01.png)
@@ -754,7 +753,7 @@ OpenCRはArduino IDEを介してファームウェアの開発とダウンロー
     ![](/assets/images/parts/controller/opencr10/op3_01.png)
 
 2. USB接続後にArduino IDEにて、ツール-> ボード-> OpenCRボードを選択します。  
-3. ツール-> ポートをボードが接続されているポートに変更します。  
+3. ツール-> ボードが接続されているポートに変更します。  
 4. Arduino IDEの例で、OP3用のファームウェアを選択します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_02.png)
@@ -917,7 +916,7 @@ OpenCRボードの回転センサーテストです。
 
 - 仕様
   - [回転センサー仕様](https://www.dfrobot.com/wiki/index.php/Digital_Tilt_Sensor_SKU:DFR0028)
-  - 回転角度 : 3600度
+  - 回転角度 : 360度
   - 電源電圧 : 3.3V ~ 5V
   - インターフェース : アナログ
 
@@ -1055,7 +1054,7 @@ void loop()
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CtYwSdOD1wI" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ### [炎センサー](#flame-sensor)
-penCRボードの炎センサーのテストです。  
+OpenCRボードの炎センサーのテストです。  
 
 ![](/assets/images/parts/controller/opencr10/flame_sensor.jpg)
 
