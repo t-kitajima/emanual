@@ -480,14 +480,14 @@ https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/arduino/opencr_relea
 {: .notice--warning}
 
 
-# [Examples](#examples)
+# [例](#examples)
 
 ## [LED](#led)
-It is a built-in LED test on the OpenCR board.  
+OpenCRボードに内蔵されているLEDテストです。  
 
-### Code
-There are 5 LEDs available in OpenCR, USER1 ~ 4, and the LED connected to base 13 of Arduino.  
-USER1 ~ 4 arduino pin numbers are defined as follows. When the corresponding pin is output as High / Low, the LED turns on / off.
+### コード
+OpenCRには5つのLEDがあり、USER1～4とArduinoの13番ピンに接続されているLEDがあります。  
+USER1～4のArduinoのピン番号は以下のように定義されています。対応するピンがHigh/Lowとして出力されると、LEDが点灯/消灯します。  
 
 ```c++
 #define BDPIN_LED_USER_1        22
@@ -496,7 +496,7 @@ USER1 ~ 4 arduino pin numbers are defined as follows. When the corresponding pin
 #define BDPIN_LED_USER_4        25
 ```
 
-It is a code that sequentially turns on and off all the LEDs.
+すべてのLEDを順次点灯、消灯するコードです。  
 
 ```c++
 int led_pin = 13;
@@ -532,15 +532,15 @@ void loop() {
 }
 ```
 
-### Result
+### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VTz_iBqisFk" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-## [Button](#button)
-It is a built-in BUTTON test on the OpenCR board.  
+## [ボタン](#button)
+これは、OpenCRボードに内蔵されているBUTTONテストです。 　
 
-### Code
-There are Push switches SW1 ~ 2 and Dip switches 1 ~ 2 in OpenCR. The pin number is defined as below, so you can see the status of the current button when you input the data of that pin.
+### コード
+OpenCRにはプッシュスイッチ1〜2とディップスイッチ1〜2があります。ピン番号は以下のように定義されており、そのピンのデータを入力すると現在のボタンの状態がわかります。  
 
 ```c++
 #define BDPIN_DIP_SW_1          26
@@ -549,7 +549,7 @@ There are Push switches SW1 ~ 2 and Dip switches 1 ~ 2 in OpenCR. The pin number
 #define BDPIN_PUSH_SW_2         35
 ```
 
-It is a code that outputs the button input status in serial.
+ボタンの入力状態をシリアルで出力するコードです。  
 
 ```c++
 void setup(){
@@ -582,22 +582,22 @@ void loop(){
 }
 ```
 
-### Result
+### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8RfEmWHOjlQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-## [Buzzer](#buzzer)
-It is a BUZZER related test built in the OpenCR board and uses the Tone function of Arduino.
+## [ブザー](#buzzer)
+OpenCRボードに内蔵されたBUZZER関連のテストで、ArduinoのTone機能を利用しています。  　
 
-### Code
-OpenCR has a built-in BUZZER, and the sound varies depending on the frequency.
-The built-in BUZZER is also mapped to the arduino pin number, and the arduino pin number is as follows. Arduino's Tone function is ported, so you can use BUZZER by using this function.
+### コード
+OpenCRにはブザーが内蔵されており、周波数に依存して音が変化します。
+また、内蔵されているブザーはArduinoのピン番号にマッピングされており、Arduinoのピン番号は以下のようになっています。Arduinoのトーン機能が移植されているので、この機能を使うことでブザーを使うことができます。  
 
 ```c++
 #define BDPIN_BUZZER            31
 ```
 
-It outputs the melody according to the scale defined in the pitches.h header. The following code is a change from OpenCR's BUZZER to only the PIN number in the example provided in the Arduino IDE.
+pitches.hヘッダで定義されたスケールに従ってメロディを出力します。以下のコードは、Arduino IDEで提供されている例で、OpenCRのBUZZERをピン番号のみに変更したものです。  
 
 ```c++
 #include "pitches.h"
@@ -632,20 +632,19 @@ void setup() {
 }
 ```
 
-### Result
+### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gvICseDo0SQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ## [PWM](#pwm)
-This is the PWM output test from the Arundin pin of the OpenCR board.
+OpenCRボードのArundinピンからのPWM出力テストです。  
 
-### Code
-
-OpenCR has the same pin configuration as Arduino Uno. The PWM output is also mapped to the same port. Therefore, analogueWrite is used to output the PWM duty ratio to the corresponding ports. The resolution is 8 bits, from 0 to 255, and the frequency is 50 KHz.
+### コード
+OpenCRはArduino Unoと同じピン構成です。PWM出力も同じポートにマッピングされています。そのため、対応するポートにPWMのデューティー比を出力するため、analogueWriteを使用しています。分解能は0から255までの8ビットで、周波数は50KHzです。  
 
 ![](/assets/images/parts/controller/opencr10/exam_pwm_01.png)
 
-This is an example of PWM output on all six pins.
+これは6ピン全てにPWM出力を行った例です。  
 
 ```c++
 int pwm_pins[6] = { 3, 5, 6, 9, 10, 11 };
@@ -667,30 +666,29 @@ void loop() {
 }
 ```
 
-### Result
+### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/de_K0mpgVcE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ## [EEPROM](#eeprom)
-It is the EEPROM library test of OpenCR board.
+OpenCRボートのEEPROMライブラリのテストです。  
 
-OpenCR does not have EEPROM memory, so it emulates a part of flash memory built in STM32F746 into EEPROM. The method of emulation was provided by ST as an example.  
-The area used as EEPROM is 0x08010000 ~ 0x08020000 as shown below. Two sectors are used.
+OpenCRはEEPROMメモリを持っていないので、STM32F746に内蔵されているフラッシュメモリの一部をEEPROMにエミュレートします。エミュレーションの方法はSTマイクロエレクトロニクス社から例として提供されたものです。  
+EEPROMとして使用する領域は、以下のように0x08010000～0x08020000です。2つのセクターが使用されています。  
 
 ![](/assets/images/parts/controller/opencr10/ex_eeprom_01.png)
-
-32 bits are used to store one data, the lower 16 bits are the data to be stored, and the upper 16 bits indicate the address of the corresponding data. When storing data, it is always stored in the new location. When you use one page while saving the data, only the latest values ​​from the saved page are copied to the new page and the existing page is deleted.
-As a result, the number of flash memory erasures is reduced, thereby increasing the write-through life.
+32ビットは1つのデータを格納するためのもので、下位16ビットは格納するデータ、上位16ビットは対応するデータのアドレスを示しています。データを保存する際には、常に新しい場所に保存されます。データ保存中に1ページを使用した場合、保存したページの最新値のみが新しいページにコピーされ、既存のページは削除されます。
+その結果、フラッシュメモリの消去回数が減り、書き込み寿命が長くなります。  
 
 ![](/assets/images/parts/controller/opencr10/ex_eeprom_02.png)
 
 ![](/assets/images/parts/controller/opencr10/ex_eeprom_03.png)
 
-To use the EEPROM library, a header must be added, and the maximum size of the current EEPROM is 1 KBytes. Since the EEPROM library has ported what is supported in Arduino, the basic usage method is the same as that used in other existing Arduino boards. For more information on how to use it, please refer to the Adunion site.
+EEPROMライブラリを使用するにはヘッダを追加する必要があり、現在のEEPROMの最大サイズは1KBytesです。EEPROMライブラリはArduinoでサポートされているものを移植しているので、基本的な使用方法は他の既存のArduinoボードで使用されているものと同じです。詳しい使い方はAdunionのサイトを参照してください。  
 
 [https://www.arduino.cc/en/Reference/EEPROM](https://www.arduino.cc/en/Reference/EEPROM)
 
-### Code
+### コード
 
 ```c++
 #include <EEPROM.h>
@@ -733,76 +731,76 @@ void loop() {
 }
 ```
 
-### Result
+### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wTTbqdFP8uc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ## [OP3](#op3)
-OpenCR is used for power and sensor control in OP3, a humanoid robot. If the OpenCR firmware for OP3 has been changed, follow the procedure below to update it.
+人型ロボットOP3では、電源やセンサー制御にOpenCRを使用しています。OP3のOpenCRのファームウェアが変更されている場合は、以下の手順でアップデートしてください。  
  
-**WARRNING** : Please turn off the power switch before connecting power source(battery or SMPS) to the product.
+**警告** : 本製品に電源(電池やSMPS)を接続する際は、必ず電源スイッチを切ってから行ってください。  
 {: .notice--warning}
 
-### Preparations
-OpenCR develops and downloads firmware through the Arduino IDE. Therefore, you must install the Arduino IDE in advance and install the OpenCR board package. Install through the following link document.
+### 準備
+OpenCRはArduino IDEを介してファームウェアの開発とダウンロードを行います。そのため、事前にArduino IDEをインストールしておき、OpenCRボードのパッケージをインストールする必要があります。以下のリンク先のドキュメントからインストールします。  
 
-- [Install Arduino IDE and OpenCR](#arduino-ide)
+- [Arduino IDEとOpenCRのインストール](#arduino-ide)
 
-### Download OP3 firmware
+### OP3ファームウェアのダウンロード
 
-1. To update OpenCR's firmware, open the front cover of OP3 and connect USB to PC as shown below.
+1. OpenCRのファームウェアをアップデートするには、下図のようにOP3のフロントカバーを開き、USBをPCに接続します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_01.png)
 
-2. After connecting USB, select Tools-> Board-> OpenCR Board in Arduino IDE.
-3. Change Tools-> Port to the port to which the board is connected.  
-4. In the Arduino IDE Examples, select the firmware for OP3.
+2. USB接続後にArduino IDEにて、ツール-> ボード-> OpenCRボードを選択します。  
+3. ツール-> ボードが接続されているポートに変更します。  
+4. Arduino IDEの例で、OP3用のファームウェアを選択します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_02.png)
 
-5. Click on the icon in the Arduino IDE that displays the red circle in the following figure to build and download the firmware. When the download is completed, the firmware is automatically executed.
+5. 下図の赤丸が表示されているArduino IDEのアイコンをクリックして、ファームウェアをビルドしてダウンロードします。ダウンロードが完了すると、ファームウェアが自動的に実行されます。  
 
     ![](/assets/images/parts/controller/opencr10/op3_03.png)
 
-### Editing OP3 Firmware
-The firmware that is provided as a basic example of OpenCR is read-only. If you want to edit it, you have to save it to a new folder and work on it.  
+### OP3ファームウェアの編集
+OpenCRの基本例として提供されているファームウェアは読み込み専用です。編集したい場合は、新しいフォルダに保存して作業する必要があります。  
 
-1. Open the OP3 example.
+1. OP3の例を開きます。  
 
     ![](/assets/images/parts/controller/opencr10/op3_02.png)
 
-2. Select File-> Save.
+2. ファイル-> 保存を選択します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_05.png)
 
-3. Since the example provided is Read-Only, select OK to save it as a new file.
+3. 提供された例は読み取り専用なので、OKを選択して新規ファイルとして保存します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_06.png)
 
-4. Save it to a new folder and edit it. Once editing is complete, repeat the process of building and downloading the firmware.
+4. 新しいフォルダに保存して編集します。編集が完了したら、ファームウェアのビルドとダウンロードを繰り返します。  
 
     ![](/assets/images/parts/controller/opencr10/op3_09.png)
 
-## [Sensors](#sensors)
+## [センサー](#sensors)
 
-### [Ambient Light Sensor](#ambient-light-sensor)
-It is ambient light sensor test on the OpenCR board.
+### [環境光センサー](#ambient-light-sensor)
+OpenCRボード上での環境光センサーテストです。  
 
-- Pinouts
-  - Green : Signal
-  - Red : Vcc
-  - Black : Gnd
+- ピン配置
+  - 緑 : 信号
+  - 赤 : Vcc
+  - 黒 : Gnd
 
-- Specification
+- 仕様
   - [ambient light sensor specification](https://www.dfrobot.com/wiki/index.php/DFRobot_Ambient_Light_Sensor_SKU:DFR0026#Application)
-  - Supply Voltage : 3.3V to 5V
-  - Illumination range : 1 Lux to 6000 Lux
-  - Interface : Analog
+  - 電源電圧 : 3.3V ~ 5V
+  - 照明範囲 : 1ルクス ~ 6000ルクス
+  - インターフェース : アナログ
 
-#### Code
-LED turns off/on sequentially depending on the light received by the sensor.  
-LED turns off in bright place. If it is dark place, the LED turns on.  
-This sensor is an analog sensor, connect it to port A0.
+#### コード
+センサーの受け取った光に応じてLEDが順次消灯/点灯します。  
+明るい場所ではLEDが消灯します。暗い場所では点灯します。  
+このセンサはアナログセンサのため、ポートA0に接続してください。  
 
 ```c++
 #define BDPIN_LED_USER_1     23
@@ -810,7 +808,7 @@ This sensor is an analog sensor, connect it to port A0.
 #define BDPIN_LED_USER_3     25
 ```
 
-It is a code that turns on/off the LED depending on the brightness of light changes.
+光の明るさの変化に応じてLEDをON/OFFするコードです。  
 
 ```c++
 
@@ -853,28 +851,28 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eqZsd12g0VI" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### [Tilt Sensor](#tilt-sensor)
-It is tilt sensor test on the OpenCR.
+### [チルトセンサー](#tilt-sensor)
+OpenCRのチルトセンサーのテストです。  
 
 ![](/assets/images/parts/controller/opencr10/tilt_sensor.png)
 
-- Pinouts
-  - Green : Signal
-  - Red : Vcc
-  - Black : Gnd
+- ピン配置
+  - 緑 : 信号
+  - 赤 : Vcc
+  - 黒 : Gnd
 
-- Specification
+- 仕様
   - [Tilt Sensor Specification](https://www.dfrobot.com/wiki/index.php/Digital_Tilt_Sensor_SKU:DFR0028)
-  - Supply Voltage : 3.3V to 5V
-  - Interface : Digital
+  - 電源電圧 : 3.3V ~ 5V
+  - インターフェース : デジタル
 
-#### Code
-tilt sensor and led are connected to OpenCR. so that red/blue led is on/off when tilted and red/blue led is off/on when not tilted.  
-Connect the Tilt Sensor, Led_blue, and Led_red signal pins to D0, D1, and D2.
+#### 結果
+チルトセンサーとLED はOpenCRに接続されており、チルトすると赤/青のLEDがON/OFF、チルトしない場合は赤/青のLEDがOFF/ONになります。  
+チルトセンサー、Led_blue、Led_redの信号ピンをD0、D1、D2に接続します。  
 
 ```c++
 #define tilt     0
@@ -906,26 +904,26 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VejyCWv4FLc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### [Rotation Sensor](#rotation-sensor)
+### [回転センサー](#rotation-sensor)
 
-It is rotation sensor test on the OpenCR board.
+OpenCRボードの回転センサーテストです。  
 
 ![](/assets/images/parts/controller/opencr10/rotation_sensor.png)
 
-- Specification
-  - [Rotation Sensor Specification](https://www.dfrobot.com/wiki/index.php/Digital_Tilt_Sensor_SKU:DFR0028)
-  - Rotation Angle : 3600 degrees
-  - Supply Voltage : 3.3V to 5V
-  - Interface : Analog
+- 仕様
+  - [回転センサー仕様](https://www.dfrobot.com/wiki/index.php/Digital_Tilt_Sensor_SKU:DFR0028)
+  - 回転角度 : 360度
+  - 電源電圧 : 3.3V ~ 5V
+  - インターフェース : アナログ
 
-#### Code
-Rotation sensor is an analog sensor, the output value depending on the degree of rotation.  
-The LED turned on/off depending on the degree of rotation.  
-The signal pin is connected to A0 of OpenCR.
+#### コード
+回転センサはアナログセンサで、回転角度に応じて出力値が変わります。  
+回転角度に応じて LED が点灯/消灯します。  
+信号ピンは OpenCRのA0に接続されています。  
 
 ```c++
 #define BDPIN_LED_USER_1        22
@@ -985,28 +983,28 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/z2AbTL7R6rg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### [Capacitive Touch Sensor](#capacitive-touch-sensor)
-It is capacitive touch sensor test on the OpenCR board.
+### [静電容量式タッチセンサー](#capacitive-touch-sensor)
+OpenCRボードの静電容量式タッチセンサーテストです。  
 
 ![](/assets/images/parts/controller/opencr10/cap_sensor.jpg)
 
-- Pinouts
-  - Green : Signal
-  - Red : Vcc
-  - Black : Gnd
+- ピン配置
+  - 緑 : 信号
+  - 赤 : Vcc
+  - 黒 : Gnd
 
-- Specification
-  - [Capacitive Touch Sensor Specification](https://www.dfrobot.com/wiki/index.php/DFRobot_Capacitive_Touch_Sensor_SKU:DFR0030)
-  - Supply Voltage : 3.3V to 5V
-  - Interface : Digital
+- 仕様
+  - [静電容量式タッチセンサー仕様](https://www.dfrobot.com/wiki/index.php/DFRobot_Capacitive_Touch_Sensor_SKU:DFR0030)
+  - 電源電圧 : 3.3V ~ 5V
+  - インターフェース : デジタル
 
-#### Code
-When you put your hand on the sensor, the led turn on/off sequentially and then the LED turns off when you take your hand.  
-Tilt sensor is a digital sensor, signal of sensor is connected to D0 of OpenCR.
+#### コード
+センサーに手を乗せるとLEDが順次点灯/消灯し、手を離すとLEDが消灯します。  
+チルトセンサーはデジタルセンサーで、センサーの信号はOpenCRのD0に接続されています。  
 
 ```c++
 #define SensorINPUT             0
@@ -1051,31 +1049,31 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CtYwSdOD1wI" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### [Flame Sensor](#flame-sensor)
-It is flame sensor test on the OpenCR board.
+### [炎センサー](#flame-sensor)
+OpenCRボードの炎センサーのテストです。  
 
 ![](/assets/images/parts/controller/opencr10/flame_sensor.jpg)
 
-- Pinouts
-  - Blue : Signal
-  - Red : Vcc
-  - Black : Gnd
+- ピン配置
+  - 青 : 信号
+  - 赤 : Vcc
+  - 黒 : Gnd
 
-- Specification
-  - [Flame Sensor Specification](https://www.dfrobot.com/wiki/index.php/Flame_sensor_SKU:_DFR0076)
-  - Detection range : 20cm(4.8V) ~ 100cm(1V)
-  - Supply Voltage : 3.3V to 5V
-  - Interface : Analog
+- 仕様
+  - [炎センサー仕様](https://www.dfrobot.com/wiki/index.php/Flame_sensor_SKU:_DFR0076)
+  - 検出範囲 : 20cm(4.8V) ~ 100cm(1V)
+  - 電源電圧 : 3.3V ~ 5V
+  - インターフェース : アナログ
 
-#### Code
-If the flame is detected, turns on the led.  
-Fire near the sensor, it outputs a high value close to 1024.  
-If the output exceeds 800, led will turn on.  
-Signal is connected to A0 of Arduino.
+#### コード
+炎を検知するとLEDが点灯します。  
+センサーの近くで火をつけると1024に近い高い値を出力します。  
+出力が800を超えるとLEDが点灯します。  
+信号はArduinoのA0に接続されています。  
 
 ```c++
 #define BDPIN_LED_USER_1 22
@@ -1108,23 +1106,23 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DcDFl4UjUos" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### [Joystic Sensor](#joystick-sensor)
-It is joystic test on the OpenCR board.
+### [ジョイステックセンサー](#joystick-sensor)
+OpenCRボードでのジョイステックテストです。  
 
 ![](/assets/images/parts/controller/opencr10/joystick_sensor.png)
 
-- Specification
-  - [Joystic Sensor Specification](https://www.dfrobot.com/wiki/index.php/Joystick_Module_For_Arduino_(SKU:DFR0061))
-  - Interface : Analog
+- 仕様
+  - [ジョイステックセンサー仕様](https://www.dfrobot.com/wiki/index.php/Joystick_Module_For_Arduino_(SKU:DFR0061))
+  - インターフェース : アナログ
 
-#### Code
-Joystic is to get the output value according to the input.  
-We will look at the X Y Z values ​​that change depending on how we move.  
-Signal of x,y and z is connected to A0, A1, A2 of Arduino.
+#### コード
+入力に応じて出力値を取得するのがJジョイステックです。  
+動き方によって変化するx、y、zの値を見ていきます。  
+x、y、zの信号はArduinoのA0、A1、A2に接続しています。  
 
 ```c++
 #define X A0
@@ -1156,83 +1154,82 @@ void loop()
 }
 ```
 
-#### Result
+#### 結果
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7fOIeFTg7bY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ## [DYNMAIXEL Workbench](#dynamixel-workbench)
 
-- [DYNAMIXEL Workbench examples](/docs/en/software/dynamixel/dynamixel_workbench/#opencr-and-opencm-tutorials)
+- [DYNAMIXEL Workbenchの例](/docs/en/software/dynamixel/dynamixel_workbench/#opencr-and-opencm-tutorials)
 
 ## [OpenMANIPULATOR](#openmanipulator)
 
-- [OpenMANIPULATOR examples](/docs/en/platform/openmanipulator/#how-to-control-on-opencr)
+- [OpenMANIPULATORの例](/docs/en/platform/openmanipulator/#how-to-control-on-opencr)
 
-# [Downloads](#downloads)
+# [ダウンロード](#downloads)
 
-- `Download` [BOM](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/BOM)
-- `Download` [Schematic](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/Schematic)
-- `Download` [PCB](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/CAD)
+- `ダウンロード` [部品表](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/BOM)
+- `ダウンロード` [回路図](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/Schematic)
+- `ダウンロード` [PCB](https://github.com/ROBOTIS-GIT/OpenCR-Hardware/tree/master/CAD)
 
-# [References](#references)
+# [リファレンス](#references)
 
-## [Recovery Mode](#recovery-mode)
+## [リカバリーモード](#recovery-mode)
+不完全もしくは間違ったファームウェアがダウンロードされ、ボードがフリーズしたり、動作しなくなったりした場合は、正常なファームウェアをダウンロードできるようにするために、ブートローダーに入る必要があります。  
+ブートローダーを実行するには、以下の手順に従ってください。  
 
-If currupted or incompleted firmware is downloaded and the board freezes or does not work, you must enter the boot loader to be able to download the normal firmware.  
-To execute the boot loader, please follow the instruction below.
+1. `プッシュスイッチ2`ボタンを押したままにする。
+2. `リセット`ボタンを押す。
+3. `リセット`ボタンを離す。
+4. `プッシュスイッチ2`ボタンを離す。
 
-1. Hold down the `PUSH SW2` button.
-2. Press the `Reset` button.
-3. Release the `Reset` button.
-4. Release the `PUSH SW2` button.
-
-OpenCR will enter the boot loader after reset. When the boot loader is running, the STATUS LED blinks every 100ms.
+OpenCRはリセット後、ブートローダーに入ります。ブートローダーが動作しているときは、ステータスLEDが100msごとに点滅します。  
 
 ![](/assets/images/parts/controller/opencr10/bootloader_19.png)
 
-You can download the normal firmware while the boot loader is running.
+ブートローダーが起動している間に通常のファームウェアをダウンロードすることができます。  
 
-## [Certifications](#certifications)
-Please inquire us for information regarding unlisted certifications.
+## [認証](#certifications)
+未登録の認証については、お問い合わせください。  
 
 ### [FCC](#fcc)
 {% include en/dxl/fcc_class_a.md %}
 
 
-# [Bootloader](#bootloader)
-The bootloader is responsible for initializing the board and downloading and executing the firmware into flash memory.  
+# [ブートローダー](#bootloader)
+ブートローダーは、ボードを初期化し、フラッシュメモリにファームウェアをダウンロードして実行する役割を担っています。
 
-The STM32F7xx, which is used for the main MCU on the OpenCR board, supports DFU(Device Firmware Upgrade).  
-This enables the built-in bootloader of the MCU by itself to boot the DFU protocol by using USB, primarily for the bootloader initialization, the recovery mode, and the bootloader update.  
-The biggest advantage to let the users be able to use bootloader with USB but no other JTAG equipment.  
-Write the firmware by using the DFU mode which is embedded in MCU without writing / debugging equipment, such as STLink.
+OpenCRボードのメインMCUに使用されているSTM32F7xxは、DFU(Device Firmware Upgrade)をサポートしています。  
+これにより、主にブートローダーの初期化、リカバリーモード、ブートローダーの更新をUSBで行うことで、MCUの内蔵ブートローダーを単体でDFUプロトコルで起動させることができるようになります。  
+USBでブートローダーを使用しても、他のJTAG機器を使用せずにブートローダーを使用できることが最大のメリットです。  
+STLinkなどの書き込み/デバッグ機器を使用せずに、MCUに内蔵されたDFUモードを使用してファームウェアを書き込みます。  
 
-|     Item     |     Description     |
+|     項目     |         説明         |
 |:------------:|:-------------------:|
-| Supported OS | Windows, Linux, Mac |
-|   Compiler   | gcc arm 5.4 2016q2  |
+|    対応OS    | Windows, Linux, Mac |
+|  コンパイラー  | gcc arm 5.4 2016q2  |
 
 ![](/assets/images/parts/controller/opencr10/bootloader_19.png)
 
-- USB Port
-  - Connected to PC and recognized as serial port
-  - A communication cable for downloading firmware through the bootloader.
+- USBポート
+  - PCに接続してシリアルポートとして認識されます。
+  - ブートローダー経由でファームウェアをダウンロードするための通信ケーブルです。
 
-- PUSH SW2
-  - Press and hold the button when the power is on or reset to execute the bootloader
-  - If the button is not pressed when the power is turned on, the bootloader is executed. If the firmware is in the flash memory, the bootloader executes the firmware.
+- プッシュスイッチ2
+  - 電源投入時やリセット時にボタンを長押しすると、ブートローダーが実行されます。
+  - 電源投入時にボタンが押されていない場合は、ブートローダーが実行されます。ファームウェアがフラッシュメモリにある場合は、ブートローダーがファームウェアを実行します。
 
-## [Memory Map](#memory-map)
+## [メモリマップ](#memory-map)
 
-The STM32F746 used in OpenCR has an internal flash memory of 1024KB, and each area is defined as follows. The bootloader is located at the lowest address in the flash memory and the bootloader is first executed when the power is turned on and reset.
+OpenCRで使用しているSTM32F746は、1024KBの内部フラッシュメモリを持ち、各領域は以下のように定義されています。ブートローダーはフラッシュメモリ内の最下位アドレスに配置されており、電源投入時とリセット時に最初にブートローダーが実行されます。  
 
 ![](/assets/images/parts/controller/opencr10/bootloader_01.png)
 
-## [Boot Sequence](#boot-sequence)
+## [ブートシーケンス](#boot-sequence)
 
 ![](/assets/images/parts/controller/opencr10/bootloader_03.png)
 
-If the board is powered on or reset, if the SW2 button is pressed, it waits for commands from the PC in the boot loader state. If the SW2 button is not pressed, jump to the firmware if the firmware exists in the firmware area of ​​the flash memory and execute it.
+ボードの電源投入やリセット時にスイッチ2ボタンを押すと、ブートローダー状態でPCからのコマンドを待ちます。スイッチ2ボタンが押されていない場合は、フラッシュメモリのファームウェア領域にファームウェアが存在する場合は、ファームウェアにジャンプして実行します。  
 
 ## [Communication Protocol](#communication-protocol)
 
