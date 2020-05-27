@@ -15,48 +15,50 @@ page_number: 1
 
 <div style="counter-reset: h1 0"></div>
 
-# [Overview](#overview)
+# [概要](#overview)
 
 ![](/assets/images/platform/turtlebot3/overview/turtlebot3_with_logo.png)
 
 ## [TurtleBot](#turtlebot)
 
-[TurtleBot][turtlebot] is a [ROS][ros] standard platform robot. Turtle is derived from the Turtle robot, which was driven by the educational computer programming language [Logo][logo] in 1967. In addition, the [turtlesim node][turtlesim], which first appears in the basic tutorial of ROS, is a program that mimics the command system of the [Logo turtle program][logo_primer]. It is also used to create the [Turtle icon][tuturtle] as a symbol of ROS. The nine dots used in the ROS logo derived from the back shell of the turtle. TurtleBot, which originated from the Turtle of Logo, is designed to easily teach people who are new to ROS through TurtleBot as well as to teach computer programming language using Logo. Since then TurtleBot has become the standard platform of ROS, which is the most popular platform among developers and students.
+[TurtleBot][turtlebot]は、[ROS][ros]標準のプラットフォームロボットです。タートルは、1967年に教育用コンピュータープログラミング言語[Logo][logo]によって駆動されたタートルロボットに由来しています。また、ROSの基本チュートリアルにて最初に登場する[turtlesim node][turtlesim]は、[ロゴタートルプログラム][logo_primer]のコマンドシステムを模倣したプログラムです。ROSのシンボルである[タートルアイコン][tuturtle]の作成にも使われています。ROSのロゴに使われている9つのドットは、亀の背中の甲羅に由来しています。Logoのタートルから派生したTurtleBotは、Logoを使ったコンピュータプログラミング言語を教えるだけでなく、TurtleBotを通してROSを初めて学ぶ人にも簡単に教えることができるように設計されています。それ以来、TurtleBotは、ROSの標準プラットフォームとして、開発者や学生の間で最も人気のあるプラットフォームとなっています。
 
 ## [TurtleBot3](#turtlebot3)
 
-There are 3 versions of the [TurtleBot][turtlebot] series. TurtleBot1 was developed by Tully (Platform Manager at Open Robotics) and Melonee (CEO of Fetch Robotics) from Willow Garage on top of the iRobot’s Roomba-based research robot, Create, for ROS deployment. It was developed in 2010 and has been on sale since 2011. In 2012, TurtleBot2 was developed by Yujin Robot based on the research robot, iClebo Kobuki. In 2017, TurtleBot3 was developed with features to supplement the lacking functions of its predecessors, and the demands of users. The TurtleBot3 adopts ROBOTIS smart actuator [DYNAMIXEL][dynamixel] for driving. For more information on the TurtleBot series, please see the following [link][history].
+[TurtleBot][turtlebot] シリーズには3つのバージョンがあります。TurtleBot1は、Willow GarageのTully（Open Roboticsのプラットフォームマネージャー）とMelonee（Fetch RoboticsのCEO）が、iRobotのRoombaをベースにした研究用ロボットである「Create」の上にROS展開用に開発したものです。2010年に開発され、2011年から販売されています。2012年には、研究用ロボット「iClebo Kobuki」をベースにした「TurtleBot2」をYujin Robotが開発しました。2017年には、先代に不足していた機能を補うための機能や、ユーザーの要求を取り入れたTurtleBot3が開発されました。TurtleBot3は、走行にROBOTISスマートアクチュエータ[DYNAMIXEL][DYNAMIXEL]を採用しています。TurtleBotシリーズのより詳細な情報は、以下の [リンク][history]をご覧ください。
 
-TurtleBot3 is a small, affordable, programmable, ROS-based mobile robot for use in education, research, hobby, and product prototyping. The goal of TurtleBot3 is to dramatically reduce the size of the platform and lower the price without having to sacrifice its functionality and quality, while at the same time offering expandability. The TurtleBot3 can be customized into various ways depending on how you reconstruct the mechanical parts and use optional parts such as the computer and sensor. In addition, TurtleBot3 is evolved with cost-effective and small-sized SBC that is suitable for robust embedded system, 360 degree distance sensor and 3D printing technology.
+TurtleBot3は、教育、研究、ホビー、製品プロトタイピングなどで使用するための、小型で手頃、プログラマブルなROSベースの移動ロボットです。TurtleBot3の目標は、機能性と品質を犠牲にすることなく、プラットフォームのサイズを劇的に小さくして価格を下げると同時に、拡張性を提供することです。TurtleBot3は、メカニカルパーツの再構成方法や、コンピューターやセンサーなどのオプションパーツの使用方法によって、様々なカスタマイズが可能です。また、堅牢な組込みシステムや360度距離センサ、3Dプリント技術などに適した、コストパフォーマンスに優れた小型SBCに進化しています。
 
-The TurtleBot3’s core technology is [SLAM][slam], [Navigation][navigation] and [Manipulation][manipulation], making it suitable for home service robots. The TurtleBot can run SLAM(simultaneous localization and mapping) algorithms to build a map and can drive around your room. Also, it can be controlled remotely from a laptop, joypad or Android-based smart phone. The TurtleBot can also follow a person’s legs as they walk in a room. Also the TurtleBot3 can be used as a mobile manipulator capable of manipulating an object by attaching a manipulator like OpenMANIPULATOR. The [OpenMANIPULATOR][openmanipulator] has the advantage of being compatible with TurtleBot3 Waffle and Waffle Pi. Through this compatibility can compensate for the lack of freedom and can have greater completeness as a service robot with the the SLAM and navigation capabilities that the TurtleBot3 has.
+TurtleBot3のコア技術は、[SLAM][SLAM]、[Navigation][Navigation]、[Manipulation][Manipulation]で、家庭内サービスロボットに適しています。SLAM(Simultaneous localization and mapping)アルゴリズムを実行して地図を作成し、部屋の中を走り回ることができます。また、ノートパソコンやジョイパッド、Androidベースのスマートフォンから遠隔操作が可能です。TurtleBotは、部屋の中を歩く人の足を追いかけることもできます。また、OpenMANIPULATORのようなマニピュレータを装着することで、対象物を操作することができるモバイルマニピュレータとしても利用することができます。 [OpenMANIPULATOR][openmanipulator] は、TurtleBot3のWaffleやWaffle Piと互換性があるという利点があります。この互換性により、自由度の低さを補い、TurtleBot3が持つSLAMやナビゲーション機能でサービスロボットとしての完成度を高めることができます。
 
-## [TurtleBot3 Introduction Video](#turtlebot3-introduction-video)
+## [TurtleBot3 紹介ビデオ](#turtlebot3-introduction-video)
 
 <iframe width="640" height="360" src="https://www.youtube.com/embed/9OC3J53RUsk" frameborder="0" allowfullscreen></iframe>
 
-## [TurtleBot3 Collaboration Project](#turtlebot3-collaboration-project)
+## [TurtleBot3 コラボレーションプロジェクト](#turtlebot3-collaboration-project)
 
-TurtleBot3 is a collaboration project among [Open Robotics][open_robotics], [ROBOTIS][robotis], and more partners like [The Construct][the_construct], [Intel][intel], [Onshape][onshape], [OROCA][oroca], [AuTURBO][auturbo], [ROS in Robotclub Malaysia][ros_in_robotclub_malaysia], [Astana Digital][astana digital], [Polariant Experiment][polariant_experiment], [Tokyo University of Agriculture and Technology, GVlab][gvlab], [Networked Control Robotics Lab at National Chiao Tung University][nctu], [SIM Group at TU Darmstadt][sim_group]. The Open Robotics is in charge of software and community activities, while ROBOTIS is in charge of manufacturing and global distribution.
+TurtleBot3は、[Open Robotics][open_robotics]、[ROBOTIS][robotis]の他、[The Construct][the_construct],
+[Intel][intel]、[Onshape][onshape]、[OROCA][oroca]、[AuTURBO][auturbo]、[ROS in Robotclub Malaysia][ros_in_robotclub_malaysia]、 [Astana Digital][astana digital]、[Polariant Experiment][polariant_experiment]、[東京農工大学 GVlab][gvlab]、[国立交通大学ネットワーク制御ロボティクス研究室][nctu]、[ダルムシュタット工科大学SIMグループ][sim_group]などのパートナーとのコラボレーションプロジェクトです。オープンロボティクスはソフトウェアやコミュニティ活動を担当し、ROBOTISは製造やグローバル流通を担当しています。
 
-The most important part of this TurtleBot3 collaboration project is open source based software, hardware, and content. We are encouraging more partners and research collaborators to participate in this project to enrich the robotics field.
+このTurtleBot3コラボレーションプロジェクトの最も重要な部分は、オープンソースベースのソフトウェア、ハードウェア、コンテンツです。ロボット工学分野をより豊かにするために、より多くのパートナーや共同研究者の参加を呼びかけています。
 
-If you are interested in partnership with us to realize open source robotics, please fill out form [here][partners].
+オープンソースロボティクスを実現するために、私たちとのパートナーシップに興味をお持ちの方は、フォーム [こちら][partners] にご記入ください。
 
-### TurtleBot3 Providers
+
+### TurtleBot3 プロバイダ
 ![](/assets/images/platform/turtlebot3/logo_platform_providers.png)
 
-### TurtleBot3 Partners and Research Collaborators
+### TurtleBot3 パートナーと共同研究先
 ![](/assets/images/platform/turtlebot3/logo_platform_sponsors.png)
 
-\* Each collaboration member's web page can be found [here][partners].
+\* 各コラボメンバーのWebページは [こちら][partners] からご覧いただけます。
 
-### TurtleBot3 Distributors
+### TurtleBot3 ディストリビュータ
 ![](/assets/images/platform/turtlebot3/logo_platform_players.png)
 
-\* Each collaboration member's web page can be found [here][partners].
+\* 各コラボメンバのWebページは [こちら][partners] からご覧いただけます。
 
-### TurtleBot3 Map
+### TurtleBot3 マップ
 <div>
 <script type="text/javascript" src="https://embed.githubusercontent.com/view/geojson/turtlebot/map/master/Distributors.geojson"></script>
 </div>
