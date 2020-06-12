@@ -15,48 +15,45 @@ page_number: 3
 
 <div style="counter-reset: h1 2"></div>
 
-# [Features](#features)
+# [特徴](#features)
 
 ![](/assets/images/platform/turtlebot3/features/features_with_icons.png)
 
-## [World's Most Popular ROS Platform](#worlds-most-popular-ros-platform)
+## [世界で最も人気のあるROSプラットフォーム](#worlds-most-popular-ros-platform)
 
-`TurtleBot` is the most popular open source robot for education and research. The new generation `TurtleBot3` is a `small`, `low cost`, `fully programmable`, `ROS based mobile robot`. It is intended to be used for education, research, hobby and product prototyping.
+`TurtleBot`は、教育や研究のための最も人気のあるオープンソースのロボットです。新世代の`TurtleBot3`は、`小型`、`低コスト`で、`完全にプログラム可能`な`ROSベースの移動ロボット`です。教育、研究、ホビー、製品のプロトタイピングに使用することを目的としています。
 
-## [Affordable Cost](#affordable-cost)
+## [お手頃な価格](#affordable-cost)
 
-TurtleBot was developed to meet the cost-conscious needs of schools, laboratories and companies. TurtleBot3 is the most affordable robot among the SLAM-able mobile robots equipped with a 360&deg; Laser Distance Sensor LDS-01.
+TurtleBotは、学校や研究室、企業のコスト意識の高いニーズに応えるために開発されました。TurtleBot3は、360&deg; レーザー距離センサーLDS-01を搭載したSLAM対応の移動ロボットの中で最も低価格なロボットです。
 
-## [Small Size](#small-size)
+## [小型サイズ](#small-size)
 
-The dimension of TurtleBot3 Burger is only 138mm x 178mm x 192mm (L x W x H). Its size is about 1/4 of the size of the predecessor. Imagine keeping TurtleBot3 in your backpack and develop your program and test it anywhere you go.
+TurtleBot3 Burgerの寸法は、わずか138mm×178mm×192mm（長さ×幅×高さ）。そのサイズは、前身（TurtleBot2）のサイズの約1/4です。TurtleBot3をバックパックに入れておいて、プログラムを開発し、どこへ行ってもテストができることを想像してみてください。
 
-## [ROS Standard](#ros-standard)
+## [ROSスタンダード](#ros-standard)
 
-The TurtleBot brand is managed by [Open Robotics][open_robotics], which develops and maintains ROS. Nowadays, ROS has become the go-to platform for all the roboticists around the world. TurtleBot can be integrated with existing ROS-based robot components, but TurtleBot3 can be an affordable platform for whom want to get started learning ROS.
+TurtleBotブランドは、ROSを開発・保守する[Open Robotics][open_robotics]が運営しています。現在では、ROSは世界中のすべてのロボット技術者のための go - to プラットフォームとなっています。TurtleBotは、既存のROSベースのロボットコンポーネントと統合することができますが、TurtleBot3は、ROSの学習を始めたい人のための手頃な価格のプラットフォームになります。
 
-## [Extensibility](#extensibility)
+## [拡張性](#extensibility)
 
-TurtleBot3 encourages users to customize its mechanical structure with some alternative options: open source embedded board (as a control board), computer and sensors. TurtleBot3 Burger is a two-wheeled differential drive type platform but it is able to be structurally and mechanically customized in many ways: Cars, Bikes, Trailers and so on. Extend your ideas beyond imagination with various SBC, sensors and motors on a scalable structure.
+TurtleBot3は、オープンソースの組み込みボード（制御ボードとして）、コンピュータ、センサなど、いくつかの代替オプションによって機械的な構造をカスタマイズすることをユーザーに勧めています。TurtleBot3 Burgerは、2輪差動駆動型のプラットフォームですが、構造的にも機械的にも車、バイク、トレーラーというように様々なカスタマイズが可能です。スケーラブルな構造の上に様々なSBC、センサ、モータを搭載して、想像を超えるアイデアを広げましょう。
 
-## [Modular Actuator for Mobile Robot](#modular-actuator-for-mobile-robot)
+## [移動ロボット用モジュラーアクチュエータ](#modular-actuator-for-mobile-robot)
 
-TurtleBot3 is able to get a precise spatial data by using 2 DYNAMIXEL's in the wheel joints. DYNAMIXEL XM series can be operated by one of 6 operating modes(XL series: 4 operating modes): Velocity control mode for wheels, Torque control mode or Position control mode for joint, etc. DYNAMIXEL can be used even to make a mobile manipulator which is light but can be precisely controlled with velocity, torque and position control. DYNAMIXEL is a core component that makes TurtleBot3 perfect. It is easy to assemble, maintain, replace and reconfigure.
+TurtleBot3は、ホイールジョイントに2台のDYNAMIXELを使用することで、正確な空間データを取得することができます。DYNAMIXEL XMシリーズは、6つの動作モード（XLシリーズは4つの動作モード）のいずれかで動作します。ホイールの速度制御モード、トルク制御モード、ジョイントの位置制御モードなどがあります。軽量でありながら、速度制御、トルク制御、位置制御などの精密な制御が可能なモバイルマニピュレーターとしても使用できます。DYNAMIXELは、TurtleBot3を完成させるコアコンポーネントであり、組み立て、メンテナンス、交換、再構成が容易です。
 
-## [Open Control Board for ROS](#open-control-board-for-ros)
+## [ROS用オープン制御ボード](#open-control-board-for-ros)
 
-The control board is open-sourced in hardware wise and in software wise for ROS communication. The open source control board OpenCR1.0 is powerful enough to control not only DYNAMIXEL's but also [ROBOTIS][robotis] sensors that are frequently being used for basic recognition tasks in cost effective way. Various sensors such as Touch sensor, Infrared sensor, Color sensor and a handful more are available. The OpenCR1.0 has an IMU sensor inside the board so that it can enhance precise control for countless applications. The board has 3.3V, 5V, 12V power supplies to reinforce the available computer device lineups.
+制御ボードは、ROS通信用にハードウェアとソフトウェアの両方でオープンソース化されています。オープンソースの制御ボードOpenCR1.0は、DYNAMIXELだけでなく、基本的な認識タスクに頻繁に使用される[ROBOTIS][robotis]センサをコスト効率の良い方法で制御するのに十分なパワーを持っています。タッチセンサ、赤外線センサ、カラーセンサなど、様々なセンサを搭載しています。OpenCR1.0は、ボード内部にIMUセンサーを搭載しており、無数のアプリケーションの精密な制御を強化することができます。ボードには、3.3V、5V、12Vの電源があり、利用可能なコンピュータデバイスのラインナップを強化します。
 
-## [Strong Sensor Lineups](#strong-sensor-lineups)
+## [強力なセンサのラインナップ](#strong-sensor-lineups)
 
-TurtleBot3 Burger uses enhanced 360&deg; LiDAR, 9-Axis Inertial Measurement Unit and precise encoder for your research and development. TurtleBot3 Waffle is equipped with an identical 360&deg; LiDAR as well but additionally proposes a powerful Intel® RealSense™ with the recognition SDK. TurtleBot3 Waffle Pi uses high utilized Raspberry Pi Camera. This will be the best hardware solution for making a mobile robot.
+TurtleBot3 Burgerは、研究、開発のために、強化された 360&deg; LiDAR、9軸慣性計測ユニット、精密なエンコーダを搭載しています。TurtleBot3 Waffleは、同じ 360&deg; LiDARを搭載していますが、さらにrecognition SDKで強力なIntel® RealSense™の追加を提案しています。TurtleBot3 Waffle Pi は、高利用Raspberry Piカメラを使用しています。これは、移動ロボットを作るための最高のハードウェアソリューションになります。
 
-## [Open Source](#open-source)
+## [オープンソース](#open-source)
 
-The hardware, firmware and software of TurtleBot3 are open source which means that users are welcomed to download, modify and share source codes. All components of TurtleBot3 are manufactured with injection molded plastic to achieve low cost, however, the 3D CAD data is also available for 3D printing.
-The 3D CAD data is released via Onshape which is a full-cloud 3D CAD editor. Users can get an access with a web browser on desktop PC, laptop and even portable devices. Onshape allows to draw 3D models and to assemble them with colleagues.
-Besides, for the users who want to make OpenCR1.0 board by themselves, all details of the OpenCR1.0 board such as schematics, PCB gerber files, BOM and firmware source code are fully opened under the open-source licenses for users and ROS community.
-You can modify downloaded source code and hardware to share it with your friends.
+TurtleBot3のハードウェア、ファームウェア、ソフトウェアは、オープンソースであり、ユーザーはソースコードをダウンロード、変更、共有することが出来ます。TurtleBot3のすべてのコンポーネントは、低コストを実現するために射出成形プラスチックで製造されていますが、3D CADデータは、3Dプリントにも対応しているため、Onshapeというフルクラウド3Dエディタで公開されています。3D CADデータは、フルクラウドの3D CADエディタであるOnshapeを介して公開されています。ユーザーは、デスクトップPCやノートPC、携帯端末からWebブラウザでアクセスすることができます。Onshapeでは、3Dモデルを作成したり、同僚と一緒に3Dモデルを組み立てることができます。また、OpenCR1.0ボードを自作したいユーザーのために、回路図、PCBガーバーファイル、BOM、ファームウェアのソースコードなど、OpenCR1.0ボードのすべての詳細は、ユーザーとROSコミュニティのためのオープンソースライセンスの下で完全に公開されています。ダウンロードしたソースコードやハードウェアを変更して、友人と共有することができます。
 
 [open_robotics]: https://www.openrobotics.org/
 [robotis]: http://www.robotis.com/
