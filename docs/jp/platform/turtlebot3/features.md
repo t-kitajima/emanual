@@ -33,7 +33,7 @@ TurtleBot3 Burgerの寸法は、わずか138mm×178mm×192mm（長さ×幅×高�
 
 ## [ROSスタンダード](#ros-standard)
 
-TurtleBotブランドは、ROSを開発・保守する[Open Robotics][open_robotics]が運営しています。現在では、ROSは世界中のすべてのロボット技術者のための go - to プラットフォームとなっています。TurtleBotは、既存のROSベースのロボットコンポーネントと統合することができますが、TurtleBot3は、ROSの学習を始めたい人のための手頃な価格のプラットフォームになります。
+TurtleBotブランドは、ROSを開発・保守する[Open Robotics][open_robotics]が運営しています。ROSは世界中のすべてのロボット技術者にとって頼りになるプラットフォームとなりました。TurtleBotは、既存のROSベースのロボットコンポーネントと統合することができますが、TurtleBot3は、ROSの学習を始めたい人のための手頃な価格のプラットフォームになります。
 
 ## [拡張性](#extensibility)
 
