@@ -15,110 +15,108 @@ page_number: 5
 
 <div style="counter-reset: h1 4"></div>
 
-# [Getting Started](#getting-started)
-This page is for beginners to TurtleBot3. The manual has an enormous amount of contents, but this page explains how information is divided.
+# [はじめに](#getting-started)
+このページは、TurtleBot3の初心者の方ためのページです。マニュアルの内容は膨大な量になりますが、このページでは、その内容の構成（章立て）について説明します。
 
-## [About TurtleBot3](#about-turtlebot3)
-First of all, collect information from the [Overview][overview], [Notices][notices], [Features][features], and [Specifications][specifications] pages to get an overall understanding of TurtleBot3.
+## [TurtleBot3について](#about-turtlebot3)
+まずは、[Overview][overview]、[Notices][notices]、[Features][features]、そして [Specifications][specifications]のページから情報を集めて、TurtleBot3の全体像を把握しましょう。
 
 ![](/assets/images/platform/turtlebot3/hardware_setup/turtlebot3_models_800.png)
 
-## [First steps for using TurtleBot3](#first-steps-for-using-turtlebot3)
+## [TurtleBot3を使用するための最初のステップ](#first-steps-for-using-turtlebot3)
 
-**NOTICE**: This page is written based on ROS 1. In order to use ROS 2 with TurtleBot3, see the related pages on e-Manual
-{: .notice--warning}
+**注意**: このページは、ROS1をベースに書かれています。TurtleBot3でROS2を使用する場合は、e-Manualの関連ページを参照してください。
 
-When you have enough understanding about TurtleBot3 from above step, here is guide for software and hardware setups. Be aware that it is a time-saver to set up the SBC and your PC first, rather than assembling the robot. It is recommended to proceed in the following order.
+上記の手順でTurtleBot3についての理解が深まったところで、ソフトウェアとハードウェアのセットアップを行います。ロボットを組み立てるよりも、先にSBCとPCをセットアップしておいた方が時間の節約になります。以下の順番で進めていくことをお勧めします。
 
-1. [PC Setup](/docs/en/platform/turtlebot3/pc_setup/)
-  - Install some applications (ROS 1, particular Linux version, dependent packages) on **Remote PC** that is the one you mainly use to comunicate with TurtleBot3.
-2. [SBC Setup](/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup)
-  - Install some applications (ROS 1, particular Linux version, dependent packages) on **Single Board Computer** (SBC), which is used to communicate with **Remote PC**.
-  
-    **NOTE**: If you want to use different SBC and sensors with TurtleBot3, see [Compatible Devices][compatible_devices] page. 
-    {: .notice}
-  
-3. [OpenCR Setup](/docs/en/platform/turtlebot3/opencr_setup/#opencr-setup)
-  - Upload latest firmware of TurtleBot3 to OpenCR embedded board.
-4. [Hardware Setup][hardware_setup] 
-  - Assemble TurtleBot3 using the instructions. 
+1. [PCのセットアップ](/docs/en/platform/turtlebot3/pc_setup/)
+  - 主にTurtleBot3との通信に使用している **Remote PC** にアプリケーション（ROS 1、特定のLinuxバージョン、依存パッケージ）をインストールします。
+2. [SBCのセットアップ](/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup)
+  - **リモートPC** との通信に使用される **Single Board Computer**（SBC）に、いくつかのアプリケーション（ROS 1、特定のLinuxバージョン、依存パッケージ）をインストールします。
+
+    **注釈**：TurtleBot3で異なる種類のSBCやセンサを使用したい場合には、[Compatible Devices][compatible_devices]ページを参照してください。
+
+3. [OpenCRのセットアップ](/docs/en/platform/turtlebot3/opencr_setup/#opencr-setup)
+  - TurtleBot3の最新のファームウェアをOpenCR組み込みボードにアップロードします。
+4. [ハードウェアのセットアップ][hardware_setup]
+  - 説明書を参考にして、TurtleBot3を組み立てます。
 
   ![](/assets/images/platform/turtlebot3/setup/setup.png)
 
-## [Let's try the basic operation](#lets-try-the-basic-operation)
-Once you have completed the above steps, run the robot through the provided [Bringup][bringup] package, and remotely move the robot with the teleoperation feature.  
-Next, let's check various sensors' value mounted on the robot or learn how to control the robot by reading [Basic Operation][basic_operation] page.
+## [基本操作を始める](#lets-try-the-basic-operation)
+以上の手順が完了したら、付属の[Bringup][bringup]パッケージを使ってロボットを動かし、遠隔操作機能を使ってロボットを遠隔操作してみましょう。  
+次に、ロボットに搭載されている各種センサの値を確認したり、[基本操作][basic_operation]ページを読んでロボットの制御方法を学んでみましょう。
 
 - [Bringup][bringup]
-- [Basic Operation][basic_operation]
+- [基本操作][basic_operation]
 
 ![](/assets/images/platform/turtlebot3/example/operation.png)
 
-## [Keep TurtleBot3's various technologies with you](#keep-turtlebot3s-various-technologies-with-you)
-The TurtleBot3’s core technology is [SLAM][slam], [Navigation][navigation] and [Manipulation][manipulation], making it suitable for home service robots. These technologies can be applied either on a real robot or a virtual robot with [Simulation][simulation] feature.  
-Of course, they can be implemented in TurtleBot3, such as [Autonomous Driving][autonomous_driving] and [Machine Learning][machine_learning]. In addition, we are introducing 12 different types of [Locomotion][locomotion] as TurtleBot3 Friends, as well as differential drive mobile robot. With this openended component, handful of TurtleBot3 friends with various characteristics could be built. You can create a totally new robot that is never seen before. Also interesting applications such as Follower Demo, Panoramic Demo, and Automatic Parking are available. See [Applications][applications] page for more application examples.
+## [TurtleBot3の要素技術](#keep-turtlebot3s-various-technologies-with-you)
+TurtleBot3のコア技術は、[SLAM][SLAM]、[ナビゲーション][Navigation]、[マニピュレーション][Manipulation]であり、家庭内のサービスロボットに適しています。これらの技術は、実在するロボットにも、[シミュレーション][simulation]機能を備えた仮想ロボットにも適用できます。  
+もちろん、[自動駐車][autonomous_driving]や[機械学習][machine_learning]などをTurtleBot3に実装することも可能です。また、TurtleBot3 Friendsとして12種類の[Locomotion][locomotion]と共に差動駆動型の移動ロボットを紹介しています。このオープンエンドコンポーネントにより、様々な特徴を持ったTurtleBot3 Frendsを作ることができます。今までにない全く新しいロボットを作ることができます。また、Followerデモ、パノラマデモ、自動駐車などの面白いアプリケーションも用意されています。応用例は[応用編][応用編]ページをご覧ください。
 
 - [[ROS 1] SLAM][slam]
-- [[ROS 1] Navigation][navigation]
-- [[ROS 1] Simulation][simulation]
-- [[ROS 1] Manipulation][manipulation]
-- [[ROS 1] Autonomous Driving][autonomous_driving]
-- [[ROS 1] Machine Learning][machine_learning]
-- [Locomotion][locomotion]
-- [Applications][applications]
+- [[ROS 1] ナビゲーション][navigation]
+- [[ROS 1] シミュレーションn][simulation]
+- [[ROS 1] マニピュレーション][manipulation]
+- [[ROS 1] 自動運転][autonomous_driving]
+- [[ROS 1] 機械学習][machine_learning]
+- [ロコモーション][locomotion]
+- [アプリケーション][applications]
 
 ![](/assets/images/platform/turtlebot3/example/technologies.png)
 
-## [Learn and Explore more](#learn-and-explore-more)
-The above are just a few examples of using TurtleBot3. You can learn more and challenge yourself with the following information.
+## [より学び、調べる](#learn-and-explore-more)
+上記はTurtleBot3の使用例です。以下の情報を参考にして、より多くのことを学び、挑戦することができます。
 
-You can [Learn][learn] more through the ROS courses provided by the Construct, the various lectures created by TurtleBot3 users, web content, YouTube courses, free books, and more. In addition, various [Videos][videos] produced by ROBOTIS will be helpful, and use cases using TurtleBot3 can be checked through various [Projects][projects] released by TurtleBot3 research collaborators and TurtleBot3 users. You can also try a variety of challenges through [Challenges][challenges].
+コンストラクトが提供するROS講座や、TurtleBot3ユーザーが作成した各種講座、Webコンテンツ、YouTube講座、無料書籍などを利用することで、より多くのことを[学ぶ][learn]ことができます。また、ROBOTISが制作した様々な[ビデオ][videos]も参考になり、TurtleBot3研究協力者やTurtleBot3ユーザーが公開している様々な[プロジェクト][projects]でTurtleBot3を利用したユースケースを確認することができます。また、[チャレンジ][challenges]では様々なチャレンジに挑戦することができます。
 
-- [Learn][learn]
-- [Videos][videos]
-- [Projects][projects]
-- [Challenges][challenges]
+- [学ぶ][learn]
+- [ビデオ][videos]
+- [プロジェクト][projects]
+- [チャレンジ][challenges]
 
 ![](/assets/images/platform/turtlebot3/example/projects.png)
 
-## [References and Contacts](#references-and-contacts)
-The [Appendixes][appendixes] contains information on components used in TurtleBot3 such as DYNAMIXEL, OpenCR and LDS. The open source used by TurtleBot3 is listed on [OpenSource and Licenses][opensource_and_licenses] page and this page contains information about each license. If you have any questions about TurtleBot3, please refer to our [FAQ][faq] or leave your [Contact information][contact_us].
+## [参考文献と連絡先](#references-and-contacts)
+[付録][appendixes]には、TurtleBot3で使用されているDYNAMIXEL、OpenCR、LDSなどのコンポーネントの情報が掲載されています。TurtleBot3で使用されているオープンソースは、[オープンソースとライセンス][opensource_and_licenses]ページに記載されており、このページには各ライセンスの情報が記載されています。TurtleBot3についてご不明な点があれば、[FAQ][faq]をご覧になるか、[問い合わせ先][contact_us]からご連絡ください。  
 
-- [Appendixes][appendixes]
-- [OpenSource and Licenses][opensource_and_licenses]
+- [付録][appendixes]
+- [オープンソースとライセンス][opensource_and_licenses]
 - [FAQ][faq]
-- [Contact US][contact_us]
+- [お問い合わせ][contact_us]
 
-[overview]: /docs/en/platform/turtlebot3/overview/
-[notices]: /docs/en/platform/turtlebot3/notices/
-[features]: /docs/en/platform/turtlebot3/features/
-[specifications]: /docs/en/platform/turtlebot3/specifications/
+[概要]: /docs/en/platform/turtlebot3/overview/
+[お知らせ]: /docs/en/platform/turtlebot3/notices/
+[特徴]: /docs/en/platform/turtlebot3/features/
+[仕様]: /docs/en/platform/turtlebot3/specifications/
 
-[getting_started]: /docs/en/platform/turtlebot3/getting_started/
+[はじめに]: /docs/en/platform/turtlebot3/getting_started/
 
-[setup]: /docs/en/platform/turtlebot3/setup/
-[pc_setup]: /docs/en/platform/turtlebot3/pc_setup/
-[sbc_setup]: /docs/en/platform/turtlebot3/sbc_setup/
-[opencr_setup]: /docs/en/platform/turtlebot3/opencr_setup/
-[hardware_setup]: /docs/en/platform/turtlebot3/hardware_setup/
-[compatible_devices]: /docs/en/platform/turtlebot3/compatible_devices/
+[セットアップ]: /docs/en/platform/turtlebot3/setup/
+[PCのセットアップ]: /docs/en/platform/turtlebot3/pc_setup/
+[SBCのセットアップ]: /docs/en/platform/turtlebot3/sbc_setup/
+[OpenCRのセットアップ]: /docs/en/platform/turtlebot3/opencr_setup/
+[ハードウェアのセットアップ]: /docs/en/platform/turtlebot3/hardware_setup/
+[対応機器]: /docs/en/platform/turtlebot3/compatible_devices/
 
 [bringup]: /docs/en/platform/turtlebot3/bringup/
-[basic_operation]: /docs/en/platform/turtlebot3/basic_operation/
+[基本操作]: /docs/en/platform/turtlebot3/basic_operation/
 
-[slam]: /docs/en/platform/turtlebot3/slam/
-[navigation]: /docs/en/platform/turtlebot3/navigation/
-[simulation]: /docs/en/platform/turtlebot3/simulation/
-[manipulation]: /docs/en/platform/turtlebot3/manipulation/
-[autonomous_driving]: /docs/en/platform/turtlebot3/autonomous_driving/
-[machine_learning]: /docs/en/platform/turtlebot3/machine_learning/
-[locomotion]: /docs/en/platform/turtlebot3/locomotion/
-[applications]: /docs/en/platform/turtlebot3/applications/
+[SLAM]: /docs/en/platform/turtlebot3/slam/
+[ナビゲーション]: /docs/en/platform/turtlebot3/navigation/
+[シミュレーション]: /docs/en/platform/turtlebot3/simulation/
+[マニピュレーション]: /docs/en/platform/turtlebot3/manipulation/
+[自動運転]: /docs/en/platform/turtlebot3/autonomous_driving/
+[機械学習]: /docs/en/platform/turtlebot3/machine_learning/
+[移動]: /docs/en/platform/turtlebot3/locomotion/
+[応用]: /docs/en/platform/turtlebot3/applications/
 
-[learn]: /docs/en/platform/turtlebot3/learn/
-[videos]: /docs/en/platform/turtlebot3/videos/
-[projects]: /docs/en/platform/turtlebot3/projects/
-[challenges]: /docs/en/platform/turtlebot3/challenges/
+[ラーニング]: /docs/en/platform/turtlebot3/learn/
+[ビデオ]: /docs/en/platform/turtlebot3/videos/
+[プロジェクト]: /docs/en/platform/turtlebot3/projects/
+[チャレンジ]: /docs/en/platform/turtlebot3/challenges/
 
 [appendixes]: /docs/en/platform/turtlebot3/appendixes/
 [opensource_and_licenses]: /docs/en/platform/turtlebot3/opensource/
