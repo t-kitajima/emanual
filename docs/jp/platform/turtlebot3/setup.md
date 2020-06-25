@@ -15,25 +15,25 @@ page_number: 6
 
 <div style="counter-reset: h1 5"></div>
 
-# [Setup](#setup)
+# [セットアップ](#setup)
 
-## [PC Setup](#pc-setup)
-[PC Setup][pc_setup]: Install Linux, ROS and application packages for TurtleBot3 on your `Remote PC`.
+## [PCのセットアップ](#pc-setup)
+[PCのセットアップ][pc_setup]：`リモートPC`にLinuxもしくはWindows、ROS、そしてTurtleBot3用のアプリケーションパッケージをインストールします。
 
-## [SBC Setup](#sbc-setup)
-[SBC Setup][sbc_setup]: Install Linux, ROS and hardware related packages to control the TurtleBot3 on your `TurtleBot PC`.
+## [SBCのセットアップ](#sbc-setup)
+[SBCのセットアップ][sbc_setup]：LinuxもしくはWindows、ROS、そしてTurtleBot3を制御するために必要なハードウェア関連のパッケージを`TurtleBot PC`にインストールします。
 
-## [OpenCR Setup](#opencr-setup)
-[OpenCR Setup][opencr_setup]: Upload latest firmware of TurtleBot3 to embedded board OpenCR.
+## [OpenCRのセットアップ](#opencr-setup)
+[OpenCRのセットアップ][opencr_setup]：TurtleBot3の最新ファームウェアを組み込みボードOpenCRにアップロードします。
 
-## [Hardware Setup](#hardware-setup)
-[Hardware Setup][hardware_setup]: TurtleBots3 is delivered as unassembled parts in the boxes. Follow the instructions to assemble TurtleBot3. At this time, the prepared SBC and OpenCR are mounted on the robot.
+## [ハードウェアのセットアップ](#hardware-setup)
+[ハードウェアのセットアップ][hardware_setup]：TurtleBot3は、組立てられていない状態で箱に梱包されて届きます。マニュアルの指示通りにTurtleBot3を組み立てます。この時、準備しておいたSBCとOpenCRをロボットに取り付けます。
 
-## [Compatible Devices](#compatible-devices)
-[Compatible Devices][compatible_devices]: If you want to use other products instead of SBCs and Sensors included in the basic configuration, please refer to the this page.
+## [対応機器](#compatible-devices)
+[対応機器][compatible_devices]：もし、TurtleBot3の基本構成（デフォルト）に含まれているSBCやセンサーではなく、他の製品を使用したい場合には、こちらのページを参照してください。
 
-[pc_setup]: /docs/en/platform/turtlebot3/pc_setup/
-[sbc_setup]: /docs/en/platform/turtlebot3/sbc_setup/
-[opencr_setup]: /docs/en/platform/turtlebot3/opencr_setup/
-[hardware_setup]: /docs/en/platform/turtlebot3/hardware_setup/
-[compatible_devices]: /docs/en/platform/turtlebot3/compatible_devices/ 
+[PCのセットアップ]: /docs/en/platform/turtlebot3/pc_setup/
+[SBCのセットアップ]: /docs/en/platform/turtlebot3/sbc_setup/
+[PEN]: /docs/en/platform/turtlebot3/opencr_setup/
+[ハードウェアセットアップ]: /docs/en/platform/turtlebot3/hardware_setup/
+[対応機器]: /docs/en/platform/turtlebot3/compatible_devices/
