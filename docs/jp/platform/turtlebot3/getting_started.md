@@ -58,7 +58,7 @@ TurtleBot3のコア技術は、[SLAM][SLAM]、[ナビゲーション][Navigation
 
 - [[ROS 1] SLAM][slam]
 - [[ROS 1] ナビゲーション][navigation]
-- [[ROS 1] シミュレーションn][simulation]
+- [[ROS 1] シミュレーション][simulation]
 - [[ROS 1] マニピュレーション][manipulation]
 - [[ROS 1] 自動運転][autonomous_driving]
 - [[ROS 1] 機械学習][machine_learning]
@@ -110,8 +110,8 @@ TurtleBot3のコア技術は、[SLAM][SLAM]、[ナビゲーション][Navigation
 [マニピュレーション]: /docs/en/platform/turtlebot3/manipulation/
 [自動運転]: /docs/en/platform/turtlebot3/autonomous_driving/
 [機械学習]: /docs/en/platform/turtlebot3/machine_learning/
-[移動]: /docs/en/platform/turtlebot3/locomotion/
-[応用]: /docs/en/platform/turtlebot3/applications/
+[ロコモーション]: /docs/en/platform/turtlebot3/locomotion/
+[アプリケーション]: /docs/en/platform/turtlebot3/applications/
 
 [ラーニング]: /docs/en/platform/turtlebot3/learn/
 [ビデオ]: /docs/en/platform/turtlebot3/videos/
