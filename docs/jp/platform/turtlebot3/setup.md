@@ -34,6 +34,6 @@ page_number: 6
 
 [PCのセットアップ]: /docs/en/platform/turtlebot3/pc_setup/
 [SBCのセットアップ]: /docs/en/platform/turtlebot3/sbc_setup/
-[PEN]: /docs/en/platform/turtlebot3/opencr_setup/
+[OpenCRのセットアップ]: /docs/en/platform/turtlebot3/opencr_setup/
 [ハードウェアセットアップ]: /docs/en/platform/turtlebot3/hardware_setup/
 [対応機器]: /docs/en/platform/turtlebot3/compatible_devices/
