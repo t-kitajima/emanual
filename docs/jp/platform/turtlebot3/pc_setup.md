@@ -20,31 +20,32 @@ page_number: 7
   <h1 id="pc-setup"><a href="#pc-setup">PC Setup</a></h1>
 <![end dummy Header 1]-->
 
-## [PC Setup](#pc-setup)
+## [PC セットアップ](#pc-setup)
 
 ![](/assets/images/platform/turtlebot3/software/remote_pc_and_turtlebot.png)
 
-**WARNING**: The contents in this chapter corresponds to the `Remote PC` (your desktop or laptop PC) which will control TurtleBot3. Do not apply this instruction to your TurtleBot3.
+**警告**: この章の内容は、TurtleBot3を制御する`リモートPC'(デスクトップまたは、ラップトップPC)に対応しています。 この手順は、TurtleBot3で実施しないでください。
 {: .notice--warning}
 
-**NOTE**: This instruction was tested on `Ubuntu 16.04` and `ROS Kinetic Kame`.
+**注釈**: この手順は、`Ubuntu 16.04` and `ROS Kinetic Kame`でテスト済みです。
 {: .notice--info}
 
-### [Install Ubuntu on Remote PC](#install-ubuntu-on-remote)
+### [リモートPCへのUbuntuのインストール](#install-ubuntu-on-remote)
 
-Download and install the `Ubuntu 16.04` on the `Remote PC (your desktop or laptop PC)` from the following link.
+下記のリンクから`Ubuntu 16.04`をダウンロードし、`リモートPC(デスクトップまたは、ラップトップPC)`にインストールします。
 
-- [Download link][ubuntu_download_link]
+- [ダウンロードリンク][ubuntu_download_link]
 
-If you need more help for installing Ubuntu, check out the step-by-step guide from the link below.
+Ubuntuのインストールについてさらに助けが必要な場合は、下記リンクのステップバイステップガイドを確認してください。
 
-- [Install ubuntu desktop](https://www.ubuntu.com/download/desktop/install-ubuntu-desktop)
+- [デスクトップ用Ubuntuのインストール](https://www.ubuntu.com/download/desktop/install-ubuntu-desktop)
 
-### [Install ROS 1 on Remote PC](#install-ros-1-on-remote-pc)
+### [リモートPCへのROS1のインストール](#install-ros-1-on-remote-pc)
 
 ![](/assets/images/platform/turtlebot3/logo_ros.png)
 
-The following script will allow you to simplify ROS 1 installation procedure. Run the following command in a terminal window. The terminal application can be found with the Ubuntu search icon on the top left corner of the screen, or you can use shortcut key for terminal is `Ctrl`-`Alt`-`T`. After install ROS 1, please reboot Remote PC.
+下記のスクリプトを使用すると、ROS1のインストール手順を簡略化できます。
+ターミナルウィンドウでこのスクリプトを実行します。ターミナルアプリケーションは、画面の左上隅にあるUbuntu検索アイコンから起動できます。もしくは、ターミナルのショートカットキー('Ctrl'-'Alt'-'t')を使用して起動できます。 ROS1をインストールした後、リモートPCを再起動してください。
 
 ``` bash
 $ sudo apt-get update
@@ -52,23 +53,23 @@ $ sudo apt-get upgrade
 $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh && chmod 755 ./install_ros_kinetic.sh && bash ./install_ros_kinetic.sh
 ```
 
-If you prefer manual installation, please following the link below.
+手動インストールの場合は、下記のリンクに従ってください。
 
-- [Manual installation of ROS 1 Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu)  
+- [ROS1 Kineticの手動インストール](http://wiki.ros.org/kinetic/Installation/Ubuntu)  
 
-**NOTE**: In order to check which packages are installed, please check this link out. [install_ros_kinetic.sh](https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh)
+**注釈**: インストールされるパッケージを確認するには、このリンクを確認してください。[install_ros_kinetic.sh](https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh)
 {: .notice--info}
 
 {% capture info_01 %}
-**NOTE**:  
- - ROBOTIS ROS packages support Melodic Morenia, however, it is recommended to use ROS Kinetic Kame for TurtleBot3.
- - In case of upgrading ROS to Melodic Morenia, please make sure that third party ROS packages are fully supported.
+**注釈**:  
+ - ROBOTISのROSパッケージはMelodic Moreniaをサポートしていますが、TurtleBot3にはROS Kinetic Kameを使用することをお勧めします。
+ - ROSをMelodic Moreniaにアップグレードする場合は、サードパーティのROSパッケージが完全にサポートされていることを確認してください。
 {% endcapture %}
 <div class ="notice--info">{{info_01 | markdownify}}</div>
 
-### [Install Dependent ROS 1 Packages](#install-dependent-ros-1-packages)
+### [ROS1 依存パッケージのインストール](#install-dependent-ros-1-packages)
 
-The next step is to install dependent packages for TurtleBot3 control on Remote PC.
+リモートPCにTurtleBot3を制御するための依存パッケージのインストールする手順です。
 
 ``` bash
 $ sudo apt-get install ros-kinetic-joy ros-kinetic-teleop-twist-joy ros-kinetic-teleop-twist-keyboard ros-kinetic-laser-proc ros-kinetic-rgbd-launch ros-kinetic-depthimage-to-laserscan ros-kinetic-rosserial-arduino ros-kinetic-rosserial-python ros-kinetic-rosserial-server ros-kinetic-rosserial-client ros-kinetic-rosserial-msgs ros-kinetic-amcl ros-kinetic-map-server ros-kinetic-move-base ros-kinetic-urdf ros-kinetic-xacro ros-kinetic-compressed-image-transport ros-kinetic-rqt-image-view ros-kinetic-gmapping ros-kinetic-navigation ros-kinetic-interactive-markers
@@ -81,38 +82,38 @@ $ git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 $ cd ~/catkin_ws && catkin_make
 ```
 
-If `catkin_make` command is completed without any errors, the preparation for TurtleBot3 is done.
+`catkin_make`コマンドがエラー無しで完了した場合、TurtleBot3の準備は完了です。
 
-
-### [Network Configuration](#network-configuration)
+### [ネットワーク構成](#network-configuration)
 
 ![](/assets/images/platform/turtlebot3/software/network_configuration.png)
 
-ROS 1 requires IP addresses in order to communicate between TurtleBot PC and the remote PC. The remote PC and TurtleBot PC should be connected to the same wifi router.
+ROS1では、TurtleBot PCとリモートPCの間で通信をするためにIPアドレスが必要です。 リモートPCとTurtleBot PCは、同じwifiルーターに接続する必要があります。
 
-Enter the below command on the terminal window of the remote PC to find out the IP address of the remote PC.
+リモートPCのターミナルウィンドウで次のコマンドを入力し、リモートPCのIPアドレスを確認します。
 
 ``` bash
 $ ifconfig
 ```
 
-Text strings in the rectangle is the IP address of the `Remote PC`.
+長方形の赤い枠で囲っている文字列が、`リモートPC`のIPアドレスです。
 
 ![](/assets/images/platform/turtlebot3/software/network_configuration2.png)
 
-Enter the below command.
+以下のコマンドを入力します。
 
 ``` bash
 $ nano ~/.bashrc
 ```
 
-Press `alt+/` to end line of the file.
+`Alt + /`を入力するとファイルの最終行へ移動します。
 
-Modify the address of `localhost` in the `ROS_MASTER_URI` and `ROS_HOSTNAME` with the IP address acquired from the above terminal window.
+`ROS_MASTER_URI`と`ROS_HOSTNAME`の`localhost`のIPアドレスを、上記のターミナルウィンドウから取得したIPアドレスに変更します。
+
 
 ![](/assets/images/platform/turtlebot3/software/network_configuration3.png)
 
-Then, source the bashrc with below command.
+次に、以下のコマンドでbashrcを実行します。
 
 ``` bash
 $ source ~/.bashrc
