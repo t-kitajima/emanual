@@ -1,11 +1,11 @@
 ---
 layout: archive
-lang: en
+lang: jp
 ref: compatible_devices
 read_time: true
 share: true
 author_profile: false
-permalink: /docs/en/platform/turtlebot3/compatible_devices/
+permalink: /docs/jp/platform/turtlebot3/compatible_devices/
 sidebar:
   title: TurtleBot3
   nav: "turtlebot3"

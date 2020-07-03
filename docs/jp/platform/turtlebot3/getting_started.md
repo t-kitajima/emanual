@@ -1,11 +1,11 @@
 ---
 layout: archive
-lang: en
+lang: jp
 ref: getting_started
 read_time: true
 share: true
 author_profile: false
-permalink: /docs/en/platform/turtlebot3/getting_started/
+permalink: /docs/jp/platform/turtlebot3/getting_started/
 sidebar:
   title: TurtleBot3
   nav: "turtlebot3"

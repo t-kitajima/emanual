@@ -1,11 +1,11 @@
 ---
 layout: archive
-lang: en
+lang: jp
 ref: hardware_setup
 read_time: true
 share: true
 author_profile: false
-permalink: /docs/en/platform/turtlebot3/hardware_setup/
+permalink: /docs/jp/platform/turtlebot3/hardware_setup/
 sidebar:
   title: TurtleBot3
   nav: "turtlebot3"
