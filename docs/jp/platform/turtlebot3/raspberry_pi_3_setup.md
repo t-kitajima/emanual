@@ -1,6 +1,6 @@
 ---
 layout: archive
-lang: jp
+lang: jpパッケージ
 ref: raspberry_pi_3_setup
 read_time: true
 share: true
@@ -22,51 +22,51 @@ page_number: 9
   <h2 id="sbc-setup"><a href="#sbc-setup">SBC Setup</a></h2>
 <![end dummy Header 1]-->
 
-### [Raspberry Pi 3 Setup](#raspberry_pi_3_setup)
+### [Raspberry Pi 3 セットアップ](#raspberry_pi_3_setup)
 
 {% capture notice_01 %}
-**WARNING**:
-- The contents in this chapter corresponds to the `Raspberry Pi 3` which will be the main computer of **TurtleBot3 Burger and Waffle Pi**. Do **NOT** apply this instruction to your Remote PC (your desktop PC or laptop).
-- Setup work requires Power and Time. So battery is not suitable. We recommend using SMPS (AC adapter) during this work.
+**警告**:
+- この章の内容は、**TurtleBot3 BurgerとWaffle Pi**のメインコンピューターとなる `Raspberry Pi 3`に対応しています。 この指示をリモートPC（デスクトップPCまたは、ラップトップ）で**実施しないでください。**
+- セットアップ作業には、電源と時間が必要です。そのため、バッテリーは適していません。この作業では、SMPS(ACアダプタ)の使用をお勧めします。
 {% endcapture %}
 <div class="notice--warning">{{ notice_01 | markdownify }}</div>
 
 
 {% capture info_01 %}
-**NOTE**: Use either of 3 ways to install Linux and ROS on Raspberry Pi 3
-1. For Ubuntu Mate installation, read `Install Linux (Ubuntu MATE)` guide. Be sure to install ROS and dependency packages after installing the Linux images on SBC of TurtleBot. The instruction takes about 1 hour to install ROS and related packages for TurtleBot3.
-2. For Linux distro image installation based on Raspbian, read  `Install Linux (Raspbian)` guide. You do not have to do additional installations as the distro image contains ROS and ROS packages related to TurtleBot3.  
-3. For webOS Robotics Platform, read `webOS Robotics Platform` guide. You do not need to compile packages on TurtleBot3. They will be cross-compiled using OpenEmbedded on a higher performance PC, Ubuntu 18.04 based and an image file created from them.
+**注釈**: Raspberry Pi 3にLinuxとROSをインストールする3つの方法のいずれかを使用します。
+1. Ubuntu Mateのインストールについては、`Linuxのインストール（Ubuntu MATE）`ガイドをお読みください。 TurtleBotのSBCにLinuxイメージをインストールした後、ROSおよび依存パッケージを必ずインストールしてください。 TurtleBot3のROSおよび関連パッケージをインストールするのに、約1時間かかります。
+2. RaspbianベースのLinuxディストリビューションイメージのインストールについては、`Linuxのインストール（Raspbian）`ガイドをお読みください。 ディストリビューションイメージにはTurtleBot3に関連するROSおよびROSパッケージが含まれているため、追加のインストールを行う必要はありません。  
+3. webOS Robotics Platformについては、`webOS Robotics Platform`ガイドをご覧ください。 TurtleBot3でパッケージをコンパイルする必要はありません。 これらは、OpenEmbeddedを使用して、高性能PC、Ubuntu 18.04ベース、およびそれらから作成されたイメージファイルでクロスコンパイルされます。
 {% endcapture %}
 <div class="notice--info">{{ info_01 | markdownify }}</div>
 
 {% capture info_02 %}
-**NOTE**: Raspberry Pi 3 B+ is available in TurtleBot3 Burger and Waffle Pi. If you use Raspberry Pi 3 B+, please refer to the following.
+**注釈**: Raspberry Pi 3 B +はTurtleBot3 BurgerとWaffle Piで利用できます。 Raspberry Pi 3 B +をご利用の場合は、以下をご参照ください。
 {% endcapture %}
 <div class="notice--info">{{ info_02 | markdownify }}</div>
 
-  1. [Install Linux (Ubuntu MATE)][install_linux_ubuntu_mate]
+  1. [Linuxのインストール(Ubuntu MATE)][install_linux_ubuntu_mate]
 
-  2. [Install Linux (Raspbian)][install_linux_based_on_raspbian]
+  2. [Linuxのインストール(Raspbian)][install_linux_based_on_raspbian]
 
-  3. [Install Linux (webOS Robotics Platform)](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions)
+  3. [Linuxのインストール(webOS Robotics Platform)](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions)
 
 
-#### [Install Linux (Ubuntu MATE)](#install-linux-ubuntu-mate)
+#### [Linuxのインストール(Ubuntu MATE)](#install-linux-ubuntu-mate)
 
-##### [1) Install Ubuntu MATE on TurtleBot PC](#1-install-ubuntu-mate-on-turtlebot-pc)
+##### [1) TurtleBot PCへUbuntu MATEのインストール](#1-install-ubuntu-mate-on-turtlebot-pc)
 
-**WARNING**: `Ubuntu Mate` does not correspond to `Raspberry Pi 3 B +` at present. If you have it, please install `Raspbian` instead.
+**警告**: `Ubuntu Mate`は現在`Raspberry Pi 3B+`に対応していません。 お持ちの場合は、代わりに`Raspbian`をインストールしてください。
 {: .notice--warning}
 
-**WARNING**: The microSD card should have at least **8 GB** of empty space in order to install Linux (Ubuntu MATE) on Raspberry Pi 3.
+**警告**: Raspberry Pi 3にLinux（Ubuntu MATE）をインストールするには、microSDカードに少なくとも**8GB**の空き容量が必要です。
 {: .notice--warning}
 
-**[Remote PC]** Download `Ubuntu MATE 16.04` image for the Raspberry Pi 3 on your remote PC from the link below.
+**[リモートPC]** 以下のリンクからリモートPCにRaspberry Pi 3の`Ubuntu MATE 16.04`イメージをダウンロードします。
 
-- [Direct download link](https://ubuntu-mate.org/raspberry-pi/ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz)
+- [ダウンロードリンク](https://ubuntu-mate.org/raspberry-pi/ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz)
 
-**[Remote PC]** In order to write an Ubuntu MATE image to microSD, it is recommended using `GNOME Disks` with `Restore Disk Image...` option, which natively supports XZ compressed image.
+**[リモートPC]** Ubuntu MATEイメージをmicroSDに書き込むには、XZ圧縮イメージをネイティブでサポートする`GNOME Disks`と「ディスクイメージの復元...」オプションを使用することをお勧めします。
 
 ``` bash
 $ sudo apt-get install gnome-disk-utility
@@ -74,7 +74,7 @@ $ sudo apt-get install gnome-disk-utility
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/V_6GNyL6Dac" frameborder="0" allowfullscreen></iframe>
 
-**TIP**: It is recommended using `GNOME Disks`, but other applications such as `ddrescue` on Linux can be used.
+**ヒント**: `GNOME Disks`を使用することをお勧めしますが、Linuxの` ddrescue`などの他のアプリケーションも使用できます。
 {: .notice--info}
 
 ``` bash
@@ -83,17 +83,19 @@ $ unxz ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz
 $ sudo ddrescue -D --force ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img /dev/sdx
 ```
 
-**TIP**: It is recommended using `GNOME Disks`, but other applications such as `Win32 Disk Imager` on Windows can be used. [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/)
+**ヒント**: `GNOME Disks`の使用をお勧めしますが、Windowsの` Win32 Disk Imager`などの他のアプリケーションも使用できます。 [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/)
 {: .notice--info}
 
-##### [2) Install ROS on TurtleBot PC](#2-install-ros-on-turtlebot-pc)
+##### [2) TurtleBot PCへのROSインストール](#2-install-ros-on-turtlebot-pc)
 
 ![](/assets/images/platform/turtlebot3/logo_ros.png)
 
-**NOTE**: This instruction takes about 1 hours to install ROS and related packages for TurtleBot3. Elapsed time may vary depending on network environment.
+**注釈**: この手順でTurtleBot3のROSおよび関連パッケージをインストールするのに約1時間かかります。 経過時間はネットワーク環境によって異なります。
 {: .notice--info}
 
-**[TurtleBot]** The following script will allow you to simplify the ROS installation procedure. Run the following command in a terminal window on TurtleBot PC. The terminal application can be found with the Ubuntu search icon on the top left corner of the screen. Shortcut key for terminal is `Ctrl`-`Alt`-`T`. After install ROS, please reboot TurtleBot PC.
+**[TurtleBot]** 下記のスクリプトを使用すると、ROSのインストール手順を簡略化できます。
+TurtleBot PCのターミナルウィンドウでこのスクリプトを実行します。ターミナルアプリケーションは、画面の左上隅にあるUbuntu検索アイコンから起動できます。もしくは、ターミナルのショートカットキー('Ctrl'-'Alt'-'t')を使用して起動できます。 ROSをインストールした後、TurtleBot PCを再起動してください。
+
 
 ``` bash
 $ sudo apt-get update
@@ -101,18 +103,18 @@ $ sudo apt-get upgrade
 $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic_rp3.sh && chmod 755 ./install_ros_kinetic_rp3.sh && bash ./install_ros_kinetic_rp3.sh
 ```
 
-**NOTE**: In order to check which packages are installed, please check this link out. [install_ros_kinetic_rp3.sh](https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic_rp3.sh)
+**注釈**: インストールされているパッケージを確認するには、このリンクを確認してください。 [install_ros_kinetic_rp3.sh](https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic_rp3.sh)
 {: .notice--info}
 
-If you prefer manual installation, please following the link below.
+マニュアルインストールの場合は、以下のリンクを参照してください。
 
-- [Manual installation of ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu)
+- [ROS Kineticのマニュアルインストール](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 
-##### [3) Install Dependent Packages on TurtleBot PC](#3-install-dependent-packages-on-turtlebot-pc)
+##### [3) TurtleBot PCへの依存パッケージのインストール](#3-install-dependent-packages-on-turtlebot-pc)
 
-The next step is to install dependent packages for TurtleBot3 control.
+TurtleBot3を制御するための依存パッケージのインストールする手順です。
 
-**[TurtleBot]** Download packages from github
+**[TurtleBot]** githubからパッケージをダウンロードします
 
 ``` bash
 $ cd ~/catkin_ws/src
@@ -121,70 +123,71 @@ $ git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
 $ git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 ```
 
-**NOTE**: If you want to use Raspberry Pi Camera, please check related appendix for [Raspberry Pi Camera][appendix_raspi_cam]
+**注釈**: Raspberry Pi Cameraを使用する場合は、関連する付録を確認してください。 [Raspberry Pi Camera][appendix_raspi_cam]
 {: .notice--info}
 
-**[TurtleBot]** Delete some packages that are not needed in TurtleBot PC
+**[TurtleBot]** TurtleBot PCに必要の無いパッケージを削除します。
 
-``` bash
+``` bash、
 $ cd ~/catkin_ws/src/turtlebot3
 $ sudo rm -r turtlebot3_description/ turtlebot3_teleop/ turtlebot3_navigation/ turtlebot3_slam/ turtlebot3_example/
 ```
 
-**[TurtleBot]** Install dependent packages
+**[TurtleBot]** 依存パッケージのインストールをします。
 
 ``` bash
 $ sudo apt-get install ros-kinetic-rosserial-python ros-kinetic-tf
 ```
 
-**[TurtleBot]** After install packages, please reboot Raspberry Pi 3.
+**[TurtleBot]** パッケージのインストール後、Raspberry Pi 3を再起動してください。
 
-**[TurtleBot]** Build packages
+**[TurtleBot]** パッケージをビルドします。
 
 ``` bash
 $ source /opt/ros/kinetic/setup.bash
 $ cd ~/catkin_ws && catkin_make -j1
 ```
 
-If `catkin_make` command is completed without any errors, the preparation for TurtleBot3 is done.
+`catkin_make`コマンドがエラー無しで完了した場合、TurtleBot3の準備は完了です。
 
-##### [4) USB Settings](#4-usb-settings)
+##### [4) USB設定](#4-usb-settings)
 
-**[TurtleBot]** The following commands allow to use USB port for OpenCR without acquiring root permission.
+**[TurtleBot]** 次のコマンドを使用すると、ルート権限を取得せずにOpenCRのUSBポートを使用できます。
 
 ``` bash
 $ rosrun turtlebot3_bringup create_udev_rules
 ```
 
-##### [5) Network Configuration](#5-network-configuration)
+##### [5) ネットワーク設定](#5-network-configuration)
 
 ![](/assets/images/platform/turtlebot3/software/network_configuration.png)
 
-ROS requires IP addresses in order to communicate between TurtleBot PC and the remote PC. The remote PC and TurtleBot PC should be connected to the same wifi router.
+ROSでは、TurtleBot PCとリモートPCの間で通信をするためにIPアドレスが必要です。 リモートPCとTurtleBot PCは、同じwifiルーターに接続する必要があります。
 
-Enter the below command on the terminal window of the TurtleBot PC to find out the IP address of TurtleBot.
+TurtleBot PCのターミナルウィンドウで次のコマンドを入力し、TurtleBot PCのIPアドレスを確認します。
 
 ``` bash
 $ ifconfig
 ```
 
-Texts in the rectangle is the IP address of the `TurtleBot PC`.
+長方形の赤い枠で囲っている文字列が、`TurtleBot PC`です。
 
 ![](/assets/images/platform/turtlebot3/software/network_configuration4.png)
 
-Enter the following command.
+次のコマンドを入力します。
 
 ``` bash
 $ nano ~/.bashrc
 ```
 
-Press `alt+/` to end line of the file.
+`Alt + /`を入力するとファイルの最終行へ移動します。
 
-Replace the `localhost` in the `ROS_MASTER_URI` address with the Remote PC's IP address acquired from [Remote PC Network Configuration][network_configuration]. Also replace the `localhost` in the `ROS_HOSTNAME` address with the IP address acquired from the above terminal window, which is the IP address of TurtleBot PC.
+`ROS_MASTER_URI`アドレスの` localhost`を[リモートPCのネットワーク構成][network_configuration]から取得したリモートPCのIPアドレスに置き換えます。 また、`ROS_HOSTNAME`アドレスの`localhost`を、上記のターミナルウィンドウから取得したIPアドレスに置き換えます。これは、TurtleBot PCのIPアドレスです。
 
 ![](/assets/images/platform/turtlebot3/software/network_configuration5.png)
 
-Then, source the bashrc with below command.
+次に、以下のコマンドでbashrcを実行します。
+
 
 ``` bash
 $ source ~/.bashrc
@@ -192,49 +195,49 @@ $ source ~/.bashrc
 
 [ros]: http://wiki.ros.org
 
-#### [Install Linux based on Raspbian](#install-linux-based-on-raspbian)
+#### [RaspbianベースのLinuxをインストールする](#install-linux-based-on-raspbian)
 
-**WARNING**: The SDcard should have at least **8 GB** of empty space in order to install Linux on Raspberry Pi 3.
+**警告**: Raspberry Pi 3にLinuxをインストールするには、SDカードに少なくとも**8GB**の空き容量が必要です。
 {: .notice--warning}
 
-We provide the Linux distro image based on Raspbian. They are pre-installed with ROS and ROS-packages related TurtleBot3. It supports the TurtleBot3 Burger and Waffle Pi model. In this distro image, non-free software like Wolfram, Mathematica, Minecraft Pi and Oracle Java SE are removed.
+RaspbianベースのLinuxディストリビューションイメージを提供しています。 それらはTurtleBot3に関連するROSおよびROSパッケージと共にプリインストールされています。 TurtleBot3 BurgerおよびWaffle Piモデルをサポートしています。 このディストリビューションイメージでは、Wolfram、Mathematica、Minecraft Pi、Oracle Java SEなどの非フリーソフトウェアが削除されています。
 
-##### Remote PC
-- Download the Linux distro image based on Raspbian for TurtleBot3
-  - [download link](http://www.robotis.com/service/download.php?no=1738)
+##### リモートPC
+- Raspbian for TurtleBot3に基づくLinuxディストリビューションイメージをダウンロードします。
+  - [ダウンロードリンク](http://www.robotis.com/service/download.php?no=1738)
   - SHA256 (image_rpi_20190429.img.zip) : eb8173f3727db08087990b2c4e2bb211e70bd54644644834771fc8b971856b97
   - SHA256 (image_rpi_20190429.img): 7a868c275169b1f02c04617cc0cce9654fd8222623c78b22d0a27c73a9609398
-- After download, unzip the downloaded file.
-- Guide to burn the image to SD card
-  - Visit [etcher.io](https://etcher.io/) and download and install the Etcher SD card image utility.
-  - Run Etcher and select the Linux image you downloaded on your computer or laptop.
-  - Select the SD card drive.
-  - Click Burn to transfer the image to the SD card.
-- (other methods to burn) You can use 'dd' command in Linux or use application 'win32 Disk Imager' in Windows. For a complete guide, take a look [here](https://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Linux_command_line) (for Linux users) and [here](https://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Win32DiskImager_program) (for Windows users)
+- ダウンロード後、ダウンロードしたファイルを解凍します。
+- SDカードのイメージを書き込み手順
+  - [etcher.io](https://etcher.io/)にアクセスし、Etcher SDカードイメージユーティリティをダウンロードしてインストールします。
+  - Etcherを実行し、コンピューターまたはラップトップにダウンロードしたLinuxイメージを選択します。
+  - SDカードドライブを選択します。
+  - 書き込みを選択して、イメージをSDカードに転送します。
+- （他の書き込み方法）Linuxでは`dd`コマンドを使用できます。Windowsではアプリケーション`win32 Disk Imager`を使用できます。 完全な手順については、[こちら](https://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Linux_command_line)（Linuxユーザーの場合）および[こちら](https://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Win32DiskImager_program)（Windowsユーザーの場合）をご覧ください。
 
 ##### TurtleBot PC
-- After the installation, you can login with username **pi** and password **turtlebot**. In this case, you have to connect your Raspberry Pi to your monitor using an HDMI cable, and connect your keyboard and mouse to the Raspberry Pi.
+- インストール後、ユーザー名**pi**とパスワード**turtlebot**でログインできます。 この場合、Raspberry PiをモニターにHDMIケーブルで接続し、キーボードとマウスをRaspberry Piに接続する必要があります。
 
-- Expand filesystem to use a whole SD card.
+- SDカード全体を使用するようにファイルシステムを拡張します。
   ```
   sudo raspi-config
   (select 7 Advanced Options > A1 Expand Filesystem)
   ```
 
-- [Guide to connecting to a wireless network](https://www.raspberrypi.org/learning/software-guide/wifi/)
+- [ワイヤレス・ネットワークへの接続ガイド](https://www.raspberrypi.org/learning/software-guide/wifi/)
 
-- Synchronize and set computers' date and time by querying a Network Time Protocol (NTP) server
+- ネットワークタイムプロトコル（NTP）サーバーにクエリを送信して、コンピューターの日付と時刻を同期および設定します。
   ```
   sudo apt-get install ntpdate
   sudo ntpdate ntp.ubuntu.com
   ```
 
-- If you want to change the Password, Locale and Timezone setting (Optional):
+- パスワード、ロケール、タイムゾーンを変更したい場合(オプション):
   1. sudo raspi-config > 1 Change User Password
   1. sudo raspi-config > 4 Localisation Options > I1 Change Locale
   1. sudo raspi-config > 4 Localisation Options > I2 Change Timezone
 
-- Network configuration for ROS [(reference link)][network_configuration]
+- ROSのネットワーク設定 [(reference link)][network_configuration]
 	```
 	nano ~/.bashrc
 	(modify `localhost` to REMOTE_PC_IP and RASPBERRY_PI_3_IP)
@@ -247,25 +250,26 @@ We provide the Linux distro image based on Raspbian. They are pre-installed with
 	source ~/.bashrc
 	```
 
-##### Remote PC
-- Once you're done the wireless configuration, you can connect to Raspberry Pi via SSH from your desktop or laptop [(reference link)][enable_ssh_server_in_raspberry_pi]:
+##### リモートPC
+- ワイヤレス構成が完了したら、デスクトップまたはラップトップからSSH経由でRaspberry Piに接続できます。[(参照リンク)][enable_ssh_server_in_raspberry_pi]:
   ```
   ssh pi@192.168.xxx.xxx (The IP 192.168.xxx.xxx is your Raspberry Pi's IP or hostname)
   ```
 
 {% capture notice_03 %}
-**NOTE**: **Differences from the official Raspbian Stretch**
-- It based on [Raspbian Stretch with desktop](https://www.raspberrypi.org/downloads/raspbian/), the Raspbian based on Debian Stretch
-- Removed non-free software like Wolfram, Mathematica, Minecraft Pi and Oracle Java SE
-- Removed libreoffice to reduce image size
-- Enabled SSH and Camera function using raspi-config
-- Change the password: **turtlebot**
-- Installed software for ROS and TurtleBot3
-  - [ROS Kinetic Kame](http://wiki.ros.org/kinetic) and dependency software
-  - [raspicam_node](https://github.com/UbiquityRobotics/raspicam_node) package for Raspberry Pi Camera
-  - [hls_lfcd_lds_driver](https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver) package for Laser Distance Sensor
-  - [turtlebot3](https://github.com/ROBOTIS-GIT/turtlebot3) and [turtlebot3_msgs](https://github.com/ROBOTIS-GIT/turtlebot3_msgs) packages for TutleBot3
-  - Installed ROS Packages (132 packages): actionlib, actionlib_msgs, angles, bond, bond_core, bondcpp, bondpy, camera_calibration_parsers, camera_info_manager, catkin, class_loader, cmake_modules, collada_parser, collada_urdf, common_msgs, compressed_image_transport, control_msgs, cpp_common, cv_bridge, diagnostic_aggregator, diagnostic_analysis, diagnostic_common_diagnostics, diagnostic_msgs, diagnostic_updater, diagnostics, dynamic_reconfigure, eigen_conversions, eigen_stl_containers, executive_smach, filters, gencpp, geneus, genlisp, genmsg, gennodejs, genpy, geometric_shapes, geometry, geometry_msgs, hls_lfcd_lds_driver, image_transport, joint_state_publisher, kdl_conversions, kdl_parser, message_filters, message_generation, message_runtime, mk, nav_msgs, nodelet, nodelet_core, nodelet_topic_tools, octomap (plain cmake), opencv3 (plain cmake), orocos_kdl (plain cmake), pluginlib, python_orocos_kdl (plain cmake), python_qt_binding, random_numbers, raspicam_node, resource_retriever, robot, robot_model, robot_state_publisher, ros, ros_base, ros_comm, ros_core, rosbag, rosbag_migration_rule, rosbag_storage, rosbash, rosboost_cfg, rosbuild, rosclean, rosconsole, rosconsole_bridge, roscpp, roscpp_core, roscpp_serialization, roscpp_traits, roscreate, rosgraph, rosgraph_msgs, roslang, roslaunch, roslib, roslint, roslisp, roslz4, rosmake, rosmaster, rosmsg, rosnode, rosout, rospack, rosparam, rospy, rosserial_msgs, rosserial_python, rosservice, rostest, rostime, rostopic, rosunit, roswtf, self_test, sensor_msgs, shape_msgs, smach, smach_msgs, smach_ros, smclib, std_msgs, std_srvs, stereo_msgs, tf, tf_conversions, tf2, tf2_kdl, tf2_msgs, tf2_py, tf2_ros, topic_tools, trajectory_msgs, turtlebot3_bringup, turtlebot3_msgs, urdf, urdf_parser_plugin, visualization_msgs, xacro, xmlrpcpp
+**注釈**: **公式Raspbian Stretchとの変更点**
+- [Raspbian Stretch with desktop](https://www.raspberrypi.org/downloads/raspbian/)をベースにしています。 RaspbianはDebian Stretchをベースにしています。
+- Wolfram、Mathematica、Minecraft Pi、Oracle Java SEなどの非フリーソフトウェアを削除しています。
+- libreofficeを削除してイメージのサイズを小さくしています。
+- raspi-configを使用してSSHおよびカメラ機能を有効化しています。
+- パスワードを変更しています: **turtlebot**
+- ROSおよびTurtleBot3のソフトウェアがインストール済みです。
+  - [ROS Kinetic Kame](http://wiki.ros.org/kinetic)と依存パッケージ
+  - [raspicam_node](https://github.com/UbiquityRobotics/raspicam_node) Raspberry Pi Cameraの依存パッケージ
+  - [hls_lfcd_lds_driver](https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver)レーザ距離センサの依存パッケージ
+  - [turtlebot3](https://github.com/ROBOTIS-GIT/turtlebot3)および、 [turtlebot3_msgs](https://github.com/ROBOTIS-GIT/turtlebot3_msgs)
+  のパッケージ
+  - インストール済みのROSパッケージ (132パッケージ): actionlib, actionlib_msgs, angles, bond, bond_core, bondcpp, bondpy, camera_calibration_parsers, camera_info_manager, catkin, class_loader, cmake_modules, collada_parser, collada_urdf, common_msgs, compressed_image_transport, control_msgs, cpp_common, cv_bridge, diagnostic_aggregator, diagnostic_analysis, diagnostic_common_diagnostics, diagnostic_msgs, diagnostic_updater, diagnostics, dynamic_reconfigure, eigen_conversions, eigen_stl_containers, executive_smach, filters, gencpp, geneus, genlisp, genmsg, gennodejs, genpy, geometric_shapes, geometry, geometry_msgs, hls_lfcd_lds_driver, image_transport, joint_state_publisher, kdl_conversions, kdl_parser, message_filters, message_generation, message_runtime, mk, nav_msgs, nodelet, nodelet_core, nodelet_topic_tools, octomap (plain cmake), opencv3 (plain cmake), orocos_kdl (plain cmake), pluginlib, python_orocos_kdl (plain cmake), python_qt_binding, random_numbers, raspicam_node, resource_retriever, robot, robot_model, robot_state_publisher, ros, ros_base, ros_comm, ros_core, rosbag, rosbag_migration_rule, rosbag_storage, rosbash, rosboost_cfg, rosbuild, rosclean, rosconsole, rosconsole_bridge, roscpp, roscpp_core, roscpp_serialization, roscpp_traits, roscreate, rosgraph, rosgraph_msgs, roslang, roslaunch, roslib, roslint, roslisp, roslz4, rosmake, rosmaster, rosmsg, rosnode, rosout, rospack, rosparam, rospy, rosserial_msgs, rosserial_python, rosservice, rostest, rostime, rostopic, rosunit, roswtf, self_test, sensor_msgs, shape_msgs, smach, smach_msgs, smach_ros, smclib, std_msgs, std_srvs, stereo_msgs, tf, tf_conversions, tf2, tf2_kdl, tf2_msgs, tf2_py, tf2_ros, topic_tools, trajectory_msgs, turtlebot3_bringup, turtlebot3_msgs, urdf, urdf_parser_plugin, visualization_msgs, xacro, xmlrpcpp
 {% endcapture %}
 <div class="notice--info">{{ notice_03 | markdownify }}</div>
 
