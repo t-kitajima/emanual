@@ -20,22 +20,22 @@ page_number: 14
 ![](/assets/images/platform/turtlebot3/software/remote_pc_and_turtlebot.png)
 
 {% capture notice_01 %}
-**WARNING**: 
-1. This instruction is intended to be run on the remote PC. If you are following the instruction on **TurtleBot**, please do **NOT** run *roscore* command on TurtleBot PC.
-2. Make sure that IP address on each device is set correctly.
-3. When the battery voltage is lower than 11V, the buzzer alarm will continuously sound and actuators will be disabled. The battery must be recharged when the buzzer alarm sounds.
+**警告**：
+1. **[TurtleBot]** の指示に従っている場合は、TurtleBot側のPC上で roscore を **実行しないでください。**
+2. 各デバイスのIPアドレスが正しく設定されているかどうかを確認してください。
+3. バッテリー電圧が11V以下になるとブザーアラームが鳴り続け、アクチュエータが作動しなくなります。ブザーアラームが鳴った場合は、バッテリーを充電する必要があります。
 {% endcapture %}
 <div class="notice--warning">{{ notice_01 | markdownify }}</div>
 
-**NOTE**: This instruction was tested on `Ubuntu 16.04` and `ROS Kinetic Kame`.
+**注釈**：このコマンドは、`Ubuntu 16.04`、`ROS Kinetic Kame`でテストを行いました。
 {: .notice--info}
 
-## [Run roscore](#run-roscore)
+## [roscoreの実行](#run-roscore)
 
-**NOTE**: The terminal application can be found with the Ubuntu search icon on the top left corner of the screen. Shortcut key for terminal is `Ctrl`-`Alt`-`T`.
+**注釈**：ターミナルアプリは、画面左上のUbuntuの検索アイコンで見つけることが出来ます。ターミナルのショートカットキーは、`Ctrl`-`Alt`-`T`です。
 {: .notice--info}
 
-**[Remote PC]** Run roscore.
+**[リモートPC]** roscoreを実行します。
 
 ``` bash
 $ roscore
@@ -43,13 +43,13 @@ $ roscore
 
 ## [Bringup a TurtleBot3](#bringup-a-turtlebot3)
 
-**[TurtleBot]** Bring up basic packages to start TurtleBot3 applications.
+**[TurtleBot]** TurtleBot3のアプリケーションを起動するための基本的なパッケージを起動します。
 
 ``` bash
 $ roslaunch turtlebot3_bringup turtlebot3_robot.launch
 ```
 
-If model of TurtleBot3 is `burger`, the terminal will represent below messages.
+TurtleBot3のモデルが`burger`の場合は、以下のようなメッセージが表示されます。
 
 ```
 SUMMARY
@@ -60,7 +60,7 @@ PARAMETERS
  * /rosversion: 1.12.13
  * /turtlebot3_core/baud: 115200
  * /turtlebot3_core/port: /dev/ttyACM0
- * /turtlebot3_core/tf_prefix: 
+ * /turtlebot3_core/tf_prefix:
  * /turtlebot3_lds/frame_id: base_scan
  * /turtlebot3_lds/port: /dev/ttyUSB0
 
@@ -105,7 +105,7 @@ process[turtlebot3_diagnostics-3]: started with pid [14200]
 ```
 
 {% capture bringup_tip_01 %}
-**TIP**: If you want to launch Lidar sensor, Raspberry Pi Camera, Intel® RealSense™ R200 or core separately, please use below commands.
+**ヒント**：LiDARセンサ、Raspberry Pi Camera、Intel® RealSense™ R200、もしくはコアを別々に起動したい場合は、以下のコマンドを使用してください。
   - $ roslaunch turtlebot3_bringup turtlebot3_lidar.launch
   - $ roslaunch turtlebot3_bringup turtlebot3_rpicamera.launch
   - $ roslaunch turtlebot3_bringup turtlebot3_realsense.launch
@@ -114,14 +114,14 @@ process[turtlebot3_diagnostics-3]: started with pid [14200]
 
 <div class="notice--info">{{ bringup_tip_01 | markdownify }}</div>
 
-**NOTE**: If `lost sync with device` error message is displayed on the terminal window, the sensor device of TurtleBot3 might not be securely connected.
+**注釈**：ターミナルウィンドウに`lost sync with device`というエラーメッセージが表示された場合は、TurtleBot3 のセンサデバイスが正しく接続されていない可能性があります。
 {: .notice--info}
 
-## [Load a TurtleBot3 on Rviz](#load-a-turtlebot3-on-rviz)
+## [Rviz上でTurtleBot3をロードする](#load-a-turtlebot3-on-rviz)
 
-**[Remote PC]** Launch robot state publisher and Run RViz.
+**[リモートPC]** robot state publisherとRVizを実行します。
 
-**TIP**: Before executing this command, you have to specify the model name of TurtleBot3. The `${TB3_MODEL}` is the name of the model you are using in `burger`, `waffle`, `waffle_pi`. If you want to permanently set the export settings, please refer to [Export TURTLEBOT3_MODEL][export_turtlebot3_model]{: .popup} page.
+**ヒント**：このコマンドを実行する前に、TurtleBot3のモデル名を指定する必要があります。`${TB3_MODEL}`は`burger`、`waffle`、`waffle_pi`という使用しているモデル名です。エクスポートの設定を次回以降にも反映させたい場合は、[turtlebot3モデルのエクスポート][export_turtlebot3_model]{: .popup}のページを参照してください。
 {: .notice--success}
 
 ``` bash
@@ -129,7 +129,7 @@ $ export TURTLEBOT3_MODEL=${TB3_MODEL}
 $ roslaunch turtlebot3_bringup turtlebot3_remote.launch
 ```
 
-Open a new terminal window and enter the below command.
+新しいターミナルウィンドウを開き、以下のコマンドを入力します。   
 
 ```bash
 $ rosrun rviz rviz -d `rospack find turtlebot3_description`/rviz/model.rviz
@@ -137,7 +137,7 @@ $ rosrun rviz rviz -d `rospack find turtlebot3_description`/rviz/model.rviz
 
 ![](/assets/images/platform/turtlebot3/bringup/run_rviz.jpg)
 
-In the next chapter, you will be able to test TurtleBot3 with various teleoperation methods and run various applications.
+次の章では、TurtleBot3を様々な遠隔操作方法でテストし、色々なアプリケーションを動かすことができるようになります。
 
 [intel_realsense]: /docs/en/platform/turtlebot3/appendix_realsense/#installation
 [raspberry_pi_camera]: /docs/en/platform/turtlebot3/appendix_raspi_cam/#installation
