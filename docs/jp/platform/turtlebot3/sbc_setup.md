@@ -20,38 +20,38 @@ page_number: 8
   <h1 id="pc-setup"><a href="#pc-setup">PC Setup</a></h1>
 <![end dummy Header 1]-->
 
-## [SBC Setup](#sbc-setup)
+## [SBC セットアップ](#sbc-setup)
 
-**WARNING**: Setup work requires Power and Time. So battery is not suitable. We recommend using SMPS (AC adapter) during this work.
+**警告**: セットアップ作業には、電源と時間が必要です。そのため、バッテリーは適していません。この作業では、SMPS(ACアダプタ)の使用をお勧めします。
 {: .notice--warning}
 
-**NOTE**: We are offering three models of TurtleBot3. TurtleBot3 Burger and Waffle Pi use Raspberry Pi 3 B and B+, and TurtleBot3 Waffle uses Intel Joule 570x. Choose from the following pages according to the SBC used in your model.
+**注釈**: TurtleBot3の3つのモデルを提供しています。TurtleBot3 BurgerとWaffle PiはRaspberryPi3BおよびB+を使用し、TurtleBot3 WaffleはIntel Joule 570xを使用しています。各モデルで使用されているSBCに応じて、下記のページから選択してください。
 {: .notice--info}
 
 ### [Raspberry Pi 3](#raspberry-pi-3)
 
 {% capture info_01 %}
-**NOTE**: Use either of 3 ways to install Linux and ROS on Raspberry Pi 3
-1. For Ubuntu Mate installation, read `Install Linux (Ubuntu MATE)` guide. Be sure to install ROS and dependency packages after installing the Linux images on SBC of TurtleBot. The instruction takes about 1 hour to install ROS and related packages for TurtleBot3.
-2. For Linux distro image installation based on Raspbian, read `Install Linux (Raspbian)` guide. You do not have to do additional installations as the distro image contains ROS and ROS packages related to TurtleBot3.  
-3. For webOS Robotics Platform, read `webOS Robotics Platform` guide. You do not need to compile packages on TurtleBot3. They will be cross-compiled using OpenEmbedded on a higher performance PC, Ubuntu 18.04 based and an image file created from them.
+**注釈**: Raspberry Pi 3にLinuxとROSをインストールする3つの方法のいずれかを使用します。
+1. Ubuntu Mateのインストールについては、`Linuxのインストール（Ubuntu MATE）`ガイドをお読みください。 TurtleBotのSBCにLinuxイメージをインストールした後、ROSおよび依存パッケージを必ずインストールしてください。 TurtleBot3のROSおよび関連パッケージをインストールするのに、約1時間かかります。
+2. RaspbianベースのLinuxディストリビューションイメージのインストールについては、`Linuxのインストール（Raspbian）`ガイドをお読みください。 ディストリビューションイメージにはTurtleBot3に関連するROSおよびROSパッケージが含まれているため、追加のインストールを行う必要はありません。
+3. webOS Robotics Platformについては、`webOS Robotics Platform`ガイドをご覧ください。 TurtleBot3でパッケージをコンパイルする必要はありません。 これらは、OpenEmbeddedを使用して、高性能PC、Ubuntu 18.04ベース、およびそれらから作成されたイメージファイルでクロスコンパイルされます。
 {% endcapture %}
 <div class="notice--info">{{ info_01 | markdownify }}</div>
 
 {% capture info_02 %}
-**NOTE**: Raspberry Pi 3 B+ is available in TurtleBot3 Burger and Waffle Pi. If you use Raspberry Pi 3 B+, please refer to the following.
+**注釈**: Raspberry Pi 3 B +はTurtleBot3 BurgerとWaffle Piで利用できます。 Raspberry Pi 3 B +をご利用の場合は、以下をご参照ください。
 {% endcapture %}
 <div class="notice--info">{{ info_02 | markdownify }}</div>
 
-  1. [Install Linux (Ubuntu MATE)][install_linux_ubuntu_mate]
+  1. [Linuxのインストール(Ubuntu MATE)][install_linux_ubuntu_mate]
 
-  2. [Install Linux (Raspbian)][install_linux_based_on_raspbian]
+  2. [Linuxのインストール(Raspbian)][install_linux_based_on_raspbian]
 
-  3. [Install Linux (webOS Robotics Platform)](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions)
+  3. [Linuxのインストール(webOS Robotics Platform)](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions)
 
 ### [Intel Joule 570x](#intel-joule-570x)
 
-  - [Install Linux (Ubuntu)][install_ubuntu]
+  - [Linuxのインストール(Ubuntu)][install_ubuntu]
 
 [install_linux_ubuntu_mate]: /docs/en/platform/turtlebot3/raspberry_pi_3_setup/#install-linux-ubuntu-mate
 [install_linux_based_on_raspbian]: /docs/en/platform/turtlebot3/raspberry_pi_3_setup/#install-linux-based-on-raspbian
