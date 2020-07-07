@@ -22,55 +22,55 @@ page_number: 10
   <h2 id="sbc-setup"><a href="#sbc-setup">SBC Setup</a></h2>
 <![end dummy Header 1]-->
 
-### [Joule Setup](#joule-setup)
+### [Joule セットアップ](#joule-setup)
 
-**WARNING**: Setup work requires Power and Time. So battery is not suitable. We recommend using SMPS (AC adapter) during this work.
+**警告**: セットアップ作業には、電源と時間が必要です。そのため、バッテリーは適していません。この作業では、SMPS(ACアダプタ)の使用をお勧めします。
 {: .notice--warning}
 
-#### [Install Linux (Ubuntu)](#install-linux-ubuntu)
+#### [Linux(Ubuntu) インストール](#install-linux-ubuntu)
 
-In this section, the Alternative Ubuntu Desktop 16.04 LTS will be installed on Intel® Joule™.
+このセクションでは、Alternative Ubuntu Desktop 16.04 LTSがIntel®Joule™にインストールされます。
 
-**[Remote PC]** Download Ubuntu image `Alternative Ubuntu 16.04 for Intel® Joule™` from the below link.
+**[リモートPC]** 以下のリンクから`Alternative Ubuntu 16.04 for Intel® Joule™`をダウンロードします。
 
-- [Download Ubuntu 16.04 for Intel® Joule™](http://people.canonical.com/~platform/snappy/tuchuck/desktop-final/tuchuck-xenial-desktop-iso-20170317-0.iso)
+- [Ubuntu 16.04 for Intel® Joule™ ダウンロード](http://people.canonical.com/~platform/snappy/tuchuck/desktop-final/tuchuck-xenial-desktop-iso-20170317-0.iso)
 
-**[Remote PC]** In order to make a bootable installation USB drive, please follow the [Alternative install(Ubuntu Desktop 16.04 LTS)][alternative-installubuntu-desktop-1604-lts] section from the below link.
+**[リモートPC]** 起動可能なインストールUSBドライブを作成するには、以下のリンクから[Alternative install(Ubuntu Desktop 16.04 LTS)][alternative-installubuntu-desktop-1604-lts]セクションに従ってください。
 
-- [Make a bootable installation USB drive](https://developer.ubuntu.com/core/get-started/intel-joule)
+- [起動可能なインストールUSBドライブを作成する](https://developer.ubuntu.com/core/get-started/intel-joule)
 
-**[Remote PC]** Before getting started, The board needs to have its BIOS updated to [BIOS version #193][bios-version-193] to install Ubuntu Image. Download [BIOS version #193][bios-version-193] and flash the BIOS into the Joule by following instructions in the below link.
+**[リモートPC]** 始める前に、Ubuntu ImageをインストールするにはボードのBIOSを[BIOSバージョン＃193][bios-version-193]に更新する必要があります。 [BIOSバージョン＃193][bios-version-193]をダウンロードし、下記リンクの指示に従いBIOSをJouleにフラッシュします。
 
-- [BIOS update](https://software.intel.com/en-us/flashing-the-bios-on-joule)
+- [BIOSのアップデート](https://software.intel.com/en-us/flashing-the-bios-on-joule)
 
-**WARNING**: Updating to the latest BIOS(1J2 or higher) may cause unexpected problem of `Intel® Joule™` with Ubuntu 16.04 LTS. Please use only the recommended [BIOS version #193][bios-version-193].
+**警告**: 最新のBIOS（1J2以降）に更新すると、Ubuntu 16.04 LTSで`Intel®Joule™`の予期しない問題が発生する可能性があります。 推奨される[BIOSバージョン＃193][bios-version-193]のみを使用してください。
 {: .notice--warning}
 
-**WARNING**: `Intel® Joule™` comes with `passive heatsink` in the package. It is recommended to use the heatsink. In order to operate Joule without the heatsink, please follow the extra [instruction](https://software.intel.com/en-us/node/721471)
+**警告**: `Intel®Joule™`は、パッケージに`パッシブヒートシンク`が付属しています。 ヒートシンクの使用をお勧めします。 ヒートシンクなしでJouleを操作するには、追加の[説明](https://software.intel.com/en-us/node/721471)に従ってください。
 {: .notice--warning}
 
 [bios-version-193]: https://downloadmirror.intel.com/26206/eng/joule-firmware-2017-02-19-193-public.zip
 [alternative-installubuntu-desktop-1604-lts]: https://developer.ubuntu.com/core/get-started/intel-joule#alternative-install:-ubuntu-desktop-16.04-lts
 
 
-If you need following step for installation, please refer to below link
+次のインストール手順が必要な場合は、以下のリンクを参照してください。
 
-  - [Step by step to install Ubuntu][step_by_step_to_install_ubuntu_on_joule]{: .popup}
+  - [ステップバイステップ Ubuntuのインストール][step_by_step_to_install_ubuntu_on_joule]{: .popup}
 
-#### [Install ROS](#install-ros)
+#### [ROSインストール](#install-ros)
 
-**WARNING**: The contents in this chapter corresponds to the Intel® Joule™ which will be the main computer of **TurtleBot3 Waffle**. Do **NOT** apply this instruction to your Remote PC (your desktop PC or laptop).
+**警告**: この章の内容は、**TurtleBot3 Waffle**のメインコンピューターとなるIntel®Joule™に対応しています。 この指示をリモートPC（デスクトップPCまたはラップトップ）に**適用しないでください。**
 {: .notice--warning}
 
-**NOTE**: This instruction takes about 2 hours to install ROS and related packages for TurtleBot3. Elapsed time may vary depending on network environment.
+**注釈**: この手順でTurtleBot3のROS関連パッケージをインストールするには約2時間かかります。 経過時間はネットワーク環境によって異なります。
 {: .notice--info}
 
 ![](/assets/images/platform/turtlebot3/logo_ros.png)
 
-**TIP**: The terminal application can be found with the Ubuntu search icon on the top left corner of the screen. Shortcut key for terminal is Ctrl-Alt-T.
+**ヒント**: 端末アプリケーションは、画面の左上隅にあるUbuntu検索アイコンで見つけることができます。 端末のショートカットキーはCtrl-Alt-Tです。
 {: .notice--info}
 
-**[TurtleBot]** Install ROS
+**[TurtleBot]** ROSのインストール
 
 ``` bash
 $ sudo apt-get update
@@ -78,21 +78,21 @@ $ sudo apt-get upgrade
 $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh && chmod 755 ./install_ros_kinetic.sh && bash ./install_ros_kinetic.sh
 ```
 
-**NOTE**: In order to check which packages are installed, please check this link out. [install_ros_kinetic](https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh)
+**注釈**: インストールされているパッケージを確認するには、このリンクを確認してください。[install_ros_kinetic](https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh)
 {: .notice--info}
 
-**NOTE**: After install ROS, please reboot Intel® Joule™.
+**注釈**: ROSのインストール後、Intel®Joule™を再起動してください。
 {: .notice--info}
 
-If you prefer manual installation, please following the link below.
+マニュアルインストールの場合は、下記のリンクを参照してください。
 
 - [Install ROS on Ubuntu](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 
-#### [Install Dependent Packages](#install-dependent-packages)
+#### [依存パッケージのインストール](#install-dependent-packages)
 
-The next step is to install dependent packages for TurtleBot3 control.
+TurtleBot3を制御するための依存パッケージのインストールする手順です。
 
-**[TurtleBot]** Download packages from github
+**[TurtleBot]** GitHubからパッケージをダウンロードします。
 
 ``` bash
 $ cd ~/catkin_ws/src
@@ -101,70 +101,71 @@ $ git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
 $ git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 ```
 
-**NOTE**: If you want to use Intel® RealSense™, please check related appendix for [Intel® RealSense™](http://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_realsense/#realsense)
+**注釈**: Intel®RealSense™を使用する場合は、[Intel® RealSense™](http://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_realsense/#realsense)の関連付録を確認してください
+
 {: .notice--info}
 
-**[TurtleBot]** Delete some packages that are not needed in TurtleBot SBC
+**[TurtleBot]** TurtleBot SBCに必要の無いパッケージを削除します。
 
 ``` bash
 $ cd ~/catkin_ws/src/turtlebot3
 $ sudo rm -r turtlebot3_description/ turtlebot3_teleop/ turtlebot3_navigation/ turtlebot3_slam/ turtlebot3_example/
 ```
 
-**[TurtleBot]** Install dependent packages
+**[TurtleBot]** 依存パッケージのインストールします。
 
 ``` bash
 $ sudo apt-get install ros-kinetic-rosserial-python ros-kinetic-tf
 ```
 
-**NOTE**: After install packages, please reboot Intel® Joule™.
+**注釈**: パッケージのインストール後、Intel®Joule™を再起動してください。
 {: .notice--info}
 
-**[TurtleBot]** Build packages
+**[TurtleBot]** パッケージをビルドします。
 
 ``` bash
 $ cd ~/catkin_ws && catkin_make
 ```
 
-If catkin_make command is completed without any errors, the preparation for TurtleBot3 is done.
+`catkin_make`コマンドがエラー無しで完了した場合、TurtleBot3の準備は完了です。
 
-#### [USB Settings](#usb-settings)
+#### [USBの設定](#usb-settings)
 
-**[TurtleBot]** The following commands allow to use USB port for OpenCR1.0 without acquiring root permission.
+**[TurtleBot]** 次のコマンドを使用すると、ルート権限を取得せずにOpenCRのUSBポートを使用できます。
 
 ``` bash
 $ rosrun turtlebot3_bringup create_udev_rules
 ```
 
-#### [Network Configuration](#network-configuration)
+#### [ネットワーク設定](#network-configuration)
 
 ![](/assets/images/platform/turtlebot3/software/network_configuration.png)
 
-ROS requires IP addresses in order to communicate between TurtleBot3 and remote PC.
+ROSでは、TurtleBot3とリモートPCの間で通信をするためにIPアドレスが必要です。 リモートPCとTurtleBot3は、同じwifiルーターに接続する必要があります。
 
-Enter the below command on the terminal window of the SBC in TurtleBot3 to find out the IP address of TurtleBot3.
+TurtleBot3のターミナルウィンドウで次のコマンドを入力し、TurtleBot3のIPアドレスを確認します。
 
 ``` bash
 $ ifconfig
 ```
 
-Texts in the rectangle is the IP address of the `TurtleBot`.
+長方形の赤い枠で囲っている文字列が、`TurtleBot`です。
 
 ![](/assets/images/platform/turtlebot3/software/network_configuration4.png)
 
-Enter the following command.
+下記のコマンドを入力します。
 
 ``` bash
 $ nano ~/.bashrc
 ```
 
-Press ' `alt+/` ' to end line of the file.
+`Alt + /`を入力するとファイルの最終行へ移動します。
 
-Replace the `localhost` in the ROS_MASTER_URI address with the IP address acquired from [Remote PC Network Configuration](http://emanual.robotis.com/docs/en/platform/turtlebot3/pc_setup/#network-configuration). Also replace the `localhost` in the ROS_HOSTNAME address with the IP address acquired from the above terminal window, which is the IP address of TurtleBot3.
+ROS_MASTER_URIアドレスの`localhost`を、[リモートPCネットワーク構成](http://emanual.robotis.com/docs/en/platform/turtlebot3/pc_setup/#network-configuration)から取得したIPアドレスに置き換えます。 また、`ROS_HOSTNAME`アドレスの `localhost`を、上記のターミナルウィンドウから取得したIPアドレス（TurtleBot3のIPアドレス）に置き換えます。
 
 ![](/assets/images/platform/turtlebot3/software/network_configuration5.png)
 
-Then, source the bashrc with below command.
+次に、以下のコマンドでbashrcを実行します。
 
 ``` bash
 $ source ~/.bashrc
