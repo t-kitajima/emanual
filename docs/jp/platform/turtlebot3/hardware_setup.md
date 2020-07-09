@@ -107,7 +107,7 @@ TurtleBots3は、組み立てキットとして提供されます。 指示に�
 
 Turtlebot3の主なコンポーネントは、シャーシ、モーター、ホイール、OpenCR、SBC、センサ、バッテリーです。 シャーシは、他のコンポーネントを保持するワッフルプレートです。 ワッフルプレートは手のひらほどのサイズですが、シャーシとして重要な役割を果たします。 ワッフルプレートは、製造コストを下げるために射出成形法で製造されています。 ただし、3Dプリント用のワッフルプレートのCADデータは、[Onshape][waffle_plate_on_onshape]からも入手できます。 Turtlebot3 Burgerは、二輪差動駆動タイプのプラットフォームですが、Segway、Tank、Bike、Trailerなど、さまざまな方法で構造的および機械的にカスタマイズできます。
 
-CADデータは、フルクラウドの3D CADエディタであるOnshapeでリリースされています。 PCまたはポータブルデバイスからWebブラウザーを介してアクセスします。 Onshapeを使用すると、仕事仲間と部品を作りや組み立てができます。
+CADデータは、フルクラウドの3D CADエディタであるOnshapeでリリースされています。 PCまたはポータブルデバイスからWebブラウザを介してアクセスします。 Onshapeを使用すると、仕事仲間と部品を作りや組み立てができます。
 
 - [TurtleBot3 Burger 3Dモデル](http://www.robotis.com/service/download.php?no=676)
 - [TurtleBot3 Waffle 3Dモデル](http://www.robotis.com/service/download.php?no=677)

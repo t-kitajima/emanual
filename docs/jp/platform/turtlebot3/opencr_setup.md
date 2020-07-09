@@ -30,7 +30,7 @@ page_number: 11
 ### [TB3用のOpenCRファームウェアのアップロード](#opencr-firmware-upload-for-tb3)
 
 {% capture notice_01 %}
-**注釈**：ファームウェアのアップロード方法を1つ選択できます。 ただし、**シェルスクリプト**を使用することを強くお勧めします。 TurtleBot3のファームウェアを変更する必要がある場合は、2番目の方法を使用できます。
+**注釈**：ファームウェアのアップロード方法を1つ選択できます。 ただし、**シェルスクリプト**を使用することを強く推奨します。 TurtleBot3のファームウェアを変更する必要がある場合は、2番目の方法を使用できます。
 - 方法＃1：[**シェルスクリプト**](＃shell-script)、シェルスクリプトを使用してビルド済みのバイナリファイルをアップロードします。
 - 方法＃2：[**Arduino IDE**](＃arduino-ide)、提供されたソースコードをビルドし、Arduino IDEを使用して生成されたバイナリファイルをアップロードします。
 {% endcapture %}
@@ -76,7 +76,7 @@ page_number: 11
 
   - [OpenCRのためのArduino IDEのインストール][install_arduino_ide_for_opencr]
 
-TurtleBot3のOpenCRファームウェアは、DYNAMIXELの制御、またはセンサーのデータを取得して送信するタスクを実行します。ファームウェアは、ボードマネージャーのOpenCRの例にあります。
+TurtleBot3のOpenCRファームウェアは、DYNAMIXELの制御、またはセンサのデータを取得して送信するタスクを実行します。ファームウェアは、ボードマネージャのOpenCRの例にあります。
 
 TurtleBot3 Burgerの場合
 

@@ -24,7 +24,7 @@ page_number: 7
 
 ![](/assets/images/platform/turtlebot3/software/remote_pc_and_turtlebot.png)
 
-**警告**: この章の内容は、TurtleBot3を制御する`リモートPC'(デスクトップまたは、ラップトップPC)に対応しています。 この手順は、TurtleBot3で実施しないでください。
+**警告**: この章の内容は、TurtleBot3を制御する`リモートPC`(デスクトップまたは、ラップトップPC)に対応しています。 この手順は、TurtleBot3で実施しないでください。
 {: .notice--warning}
 
 **注釈**: この手順は、`Ubuntu 16.04` and `ROS Kinetic Kame`でテスト済みです。
@@ -36,7 +36,7 @@ page_number: 7
 
 - [ダウンロードリンク][ubuntu_download_link]
 
-Ubuntuのインストールについてさらに助けが必要な場合は、下記リンクのステップバイステップガイドを確認してください。
+Ubuntuのインストールについて、さらに助けが必要な場合は下記リンクのステップバイステップガイドを確認してください。
 
 - [デスクトップ用Ubuntuのインストール](https://www.ubuntu.com/download/desktop/install-ubuntu-desktop)
 
@@ -45,7 +45,7 @@ Ubuntuのインストールについてさらに助けが必要な場合は、�
 ![](/assets/images/platform/turtlebot3/logo_ros.png)
 
 下記のスクリプトを使用すると、ROS1のインストール手順を簡略化できます。
-ターミナルウィンドウでこのスクリプトを実行します。ターミナルアプリケーションは、画面の左上隅にあるUbuntu検索アイコンから起動できます。もしくは、ターミナルのショートカットキー('Ctrl'-'Alt'-'t')を使用して起動できます。 ROS1をインストールした後、リモートPCを再起動してください。
+ターミナルウィンドウでこのスクリプトを実行します。ターミナルアプリケーションは、画面の左上隅にあるUbuntu検索アイコンから起動できます。もしくは、ターミナルのショートカットキー(`Ctrl`-`Alt`-`t`)を使用して起動できます。 ROS1をインストールした後、リモートPCを再起動してください。
 
 ``` bash
 $ sudo apt-get update
@@ -62,14 +62,14 @@ $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/instal
 
 {% capture info_01 %}
 **注釈**:  
- - ROBOTISのROSパッケージはMelodic Moreniaをサポートしていますが、TurtleBot3にはROS Kinetic Kameを使用することをお勧めします。
+ - ROBOTISのROSパッケージはMelodic Moreniaをサポートしていますが、TurtleBot3にはROS Kinetic Kameを使用することを推奨します。
  - ROSをMelodic Moreniaにアップグレードする場合は、サードパーティのROSパッケージが完全にサポートされていることを確認してください。
 {% endcapture %}
 <div class ="notice--info">{{info_01 | markdownify}}</div>
 
 ### [ROS1 依存パッケージのインストール](#install-dependent-ros-1-packages)
 
-リモートPCにTurtleBot3を制御するための依存パッケージのインストールする手順です。
+リモートPCにTurtleBot3を制御するための依存パッケージをインストールする手順です。
 
 ``` bash
 $ sudo apt-get install ros-kinetic-joy ros-kinetic-teleop-twist-joy ros-kinetic-teleop-twist-keyboard ros-kinetic-laser-proc ros-kinetic-rgbd-launch ros-kinetic-depthimage-to-laserscan ros-kinetic-rosserial-arduino ros-kinetic-rosserial-python ros-kinetic-rosserial-server ros-kinetic-rosserial-client ros-kinetic-rosserial-msgs ros-kinetic-amcl ros-kinetic-map-server ros-kinetic-move-base ros-kinetic-urdf ros-kinetic-xacro ros-kinetic-compressed-image-transport ros-kinetic-rqt-image-view ros-kinetic-gmapping ros-kinetic-navigation ros-kinetic-interactive-markers

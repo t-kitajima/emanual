@@ -26,8 +26,8 @@ page_number: 9
 
 {% capture notice_01 %}
 **警告**:
-- この章の内容は、**TurtleBot3 BurgerとWaffle Pi**のメインコンピューターとなる `Raspberry Pi 3`に対応しています。 この指示をリモートPC（デスクトップPCまたは、ラップトップ）で**実施しないでください。**
-- セットアップ作業には、電源と時間が必要です。そのため、バッテリーは適していません。この作業では、SMPS(ACアダプタ)の使用をお勧めします。
+- この章の内容は、**TurtleBot3 BurgerとWaffle Pi**のメインコンピューターとなる `Raspberry Pi 3`に対応しています。 この指示をリモートPC（デスクトップPCまたは、ラップトップ）で**実施しない**でください。
+- セットアップ作業には、電源と時間が必要なためバッテリーは適していません。この作業では、SMPS(ACアダプタ)の使用を推奨します。
 {% endcapture %}
 <div class="notice--warning">{{ notice_01 | markdownify }}</div>
 
@@ -41,7 +41,7 @@ page_number: 9
 <div class="notice--info">{{ info_01 | markdownify }}</div>
 
 {% capture info_02 %}
-**注釈**: Raspberry Pi 3 B +はTurtleBot3 BurgerとWaffle Piで利用できます。 Raspberry Pi 3 B +をご利用の場合は、以下をご参照ください。
+**注釈**: Raspberry Pi 3 B+はTurtleBot3 BurgerとWaffle Piで利用できます。 Raspberry Pi 3 B+をご利用の場合は、以下をご参照ください。
 {% endcapture %}
 <div class="notice--info">{{ info_02 | markdownify }}</div>
 
@@ -56,7 +56,7 @@ page_number: 9
 
 ##### [1) TurtleBot PCへUbuntu MATEのインストール](#1-install-ubuntu-mate-on-turtlebot-pc)
 
-**警告**: `Ubuntu Mate`は現在`Raspberry Pi 3B+`に対応していません。 お持ちの場合は、代わりに`Raspbian`をインストールしてください。
+**警告**: `Ubuntu Mate`は現在`Raspberry Pi 3B+`に対応していません。 お持ちの場合は、代わりに`Raspbian`をインストールしてください。推奨
 {: .notice--warning}
 
 **警告**: Raspberry Pi 3にLinux（Ubuntu MATE）をインストールするには、microSDカードに少なくとも**8GB**の空き容量が必要です。
@@ -66,7 +66,7 @@ page_number: 9
 
 - [ダウンロードリンク](https://ubuntu-mate.org/raspberry-pi/ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz)
 
-**[リモートPC]** Ubuntu MATEイメージをmicroSDに書き込むには、XZ圧縮イメージをネイティブでサポートする`GNOME Disks`と「ディスクイメージの復元...」オプションを使用することをお勧めします。
+**[リモートPC]** Ubuntu MATEイメージをmicroSDに書き込むには、XZ圧縮イメージをネイティブでサポートする`GNOME Disks`と`Restore Disk Image...`オプションを使用することを推奨します。
 
 ``` bash
 $ sudo apt-get install gnome-disk-utility
@@ -74,7 +74,7 @@ $ sudo apt-get install gnome-disk-utility
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/V_6GNyL6Dac" frameborder="0" allowfullscreen></iframe>
 
-**ヒント**: `GNOME Disks`を使用することをお勧めしますが、Linuxの` ddrescue`などの他のアプリケーションも使用できます。
+**ヒント**: `GNOME Disks`の使用を推奨しますが、Linuxの`ddrescue`などの他のアプリケーションも使用できます。
 {: .notice--info}
 
 ``` bash
@@ -83,18 +83,18 @@ $ unxz ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz
 $ sudo ddrescue -D --force ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img /dev/sdx
 ```
 
-**ヒント**: `GNOME Disks`の使用をお勧めしますが、Windowsの` Win32 Disk Imager`などの他のアプリケーションも使用できます。 [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/)
+**ヒント**: `GNOME Disks`の使用を推奨しますが、Windowsの`Win32 Disk Imager`などの他のアプリケーションも使用できます。 [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/)
 {: .notice--info}
 
 ##### [2) TurtleBot PCへのROSインストール](#2-install-ros-on-turtlebot-pc)
 
 ![](/assets/images/platform/turtlebot3/logo_ros.png)
 
-**注釈**: この手順でTurtleBot3のROSおよび関連パッケージをインストールするのに約1時間かかります。 経過時間はネットワーク環境によって異なります。
+**注釈**: この手順でTurtleBot3のROS関連パッケージをインストールには約1時間かかります。 経過時間はネットワーク環境によって異なります。
 {: .notice--info}
 
 **[TurtleBot]** 下記のスクリプトを使用すると、ROSのインストール手順を簡略化できます。
-TurtleBot PCのターミナルウィンドウでこのスクリプトを実行します。ターミナルアプリケーションは、画面の左上隅にあるUbuntu検索アイコンから起動できます。もしくは、ターミナルのショートカットキー('Ctrl'-'Alt'-'t')を使用して起動できます。 ROSをインストールした後、TurtleBot PCを再起動してください。
+TurtleBot PCのターミナルウィンドウでこのスクリプトを実行します。ターミナルアプリケーションは、画面の左上隅にあるUbuntu検索アイコンから起動できます。もしくは、ターミナルのショートカットキー(`Ctrl`-`Alt`-`t`)を使用して起動できます。 ROSをインストールした後、TurtleBot PCを再起動してください。
 
 
 ``` bash
@@ -112,9 +112,9 @@ $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/instal
 
 ##### [3) TurtleBot PCへの依存パッケージのインストール](#3-install-dependent-packages-on-turtlebot-pc)
 
-TurtleBot3を制御するための依存パッケージのインストールする手順です。
+TurtleBot3を制御するための依存パッケージのインストール手順です。
 
-**[TurtleBot]** githubからパッケージをダウンロードします
+**[TurtleBot]** GitHubからパッケージをダウンロードします。
 
 ``` bash
 $ cd ~/catkin_ws/src
@@ -209,7 +209,7 @@ RaspbianベースのLinuxディストリビューションイメージを提供�
   - SHA256 (image_rpi_20190429.img): 7a868c275169b1f02c04617cc0cce9654fd8222623c78b22d0a27c73a9609398
 - ダウンロード後、ダウンロードしたファイルを解凍します。
 - SDカードのイメージを書き込み手順
-  - [etcher.io](https://etcher.io/)にアクセスし、Etcher SDカードイメージユーティリティをダウンロードしてインストールします。
+  - [etcher.io](https://etcher.io/)にアクセスし、Etcher SDカードイメージユーティリティをダウンロードし、インストールします。
   - Etcherを実行し、コンピューターまたはラップトップにダウンロードしたLinuxイメージを選択します。
   - SDカードドライブを選択します。
   - 書き込みを選択して、イメージをSDカードに転送します。
@@ -257,7 +257,7 @@ RaspbianベースのLinuxディストリビューションイメージを提供�
   ```
 
 {% capture notice_03 %}
-**注釈**: **公式Raspbian Stretchとの変更点**
+**注釈**: **公式 Raspbian Stretchとの変更点**
 - [Raspbian Stretch with desktop](https://www.raspberrypi.org/downloads/raspbian/)をベースにしています。 RaspbianはDebian Stretchをベースにしています。
 - Wolfram、Mathematica、Minecraft Pi、Oracle Java SEなどの非フリーソフトウェアを削除しています。
 - libreofficeを削除してイメージのサイズを小さくしています。
