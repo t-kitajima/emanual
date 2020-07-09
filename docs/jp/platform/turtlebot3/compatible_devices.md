@@ -20,19 +20,19 @@ page_number: 13
   <h1 id="setup"><a href="#setup">Setup</a></h1>
 <![end dummy Header 1]-->
 
-## [Compatible Devices](#compatible-devices)
+## [対応デバイス](#compatible-devices)
 
-- If you want to use other products instead of Computer and Sensors included in the basic configuration, please refer to the this page.
+- 基本構成に含まれているコンピュータとセンサの代わりに他の製品を使用したい場合は、このページを参照してください。
 
-### [Computer](#computer)
+### [コンピュータ]](#computer)
 
-- TurtleBot3's main computer is `Raspberry Pi 3` (TurtleBot3 Burger and Waffle Pi) and `Intel Joule 570x` (TurtleBot3 Waffle). These SBCs (Single Board Computer) are enough to use the basic features of TurtleBot3, but users need to increase CPU performance, use GPU, or add RAM size for other purposes. This section describes how to replace the SBC.
+- TurtleBot3のメインコンピュータは、 `Raspberry Pi 3`（TurtleBot3 BurgerとWaffle Pi）と`Intel Joule 570x`（TurtleBot3 Waffle）です。 これらのSBC（シングルボードコンピュータ）は、TurtleBot3の基本機能を使用するには十分ですが、ユーザはCPUパフォーマンスを向上させるか、GPUを使用するか、他の目的でRAMサイズを追加する必要があります。 この章では、SBCを交換する方法について説明します。
 
-- There are various types of SBC as shown in the following figure. The specification of each SBC is different. But if you can install Linux and ROS on the SBC you want to use, you can use that SBC as the main computer for TurtleBot3. In addition to SBC, [Intel NUC][intel_nuc], mini PC and small notebooks are available.
+- 次の図に示すように、SBCには様々なタイプがあります。 各SBCの仕様は異なります。 ただし、使用するSBCにLinuxとROSをインストールできる場合は、そのSBCをTurtleBot3のメインコンピューターとして使用できます。 SBCに加えて、[Intel NUC][intel_nuc]、ミニPC、小型ノートブックも利用できます。
 
 ![](/assets/images/platform/turtlebot3/setup/sbcs.png)
 
-- The TurtleBot3 development team has tested several SBCs. Here is a list of SBCs we tested:
+- TurtleBot3開発チームは、いくつかのSBCをテストしました。 テストしたSBCのリストは次のとおりです:
   - [Raspberry Pi 3][raspberry_pi_3]
   - [Intel Joule 570x][intel_joule_570x]
   - [DragonBoard 410c][dragonboard_410c]
@@ -42,41 +42,39 @@ page_number: 13
   - [LattePanda][lattepanda]
   - [ODROID-XU4][odroid_xu4]
 
-#### Hardware assembly
+#### ハードウェアアセンブリ
 
-- Most of the SBCs can be assembled without problems using `PCB support`, which is built in TurtleBot3. For reference, you can purchase additional parts such as PCB support ([link](http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=3284&GC=GD070003)), download [files](http://www.robotis.com/service/download.php?no=676) shared with Onshape, and print them using a 3D printer.
+- TurtleBot3に組み込まれている`PCB support`を使用すると、ほとんどのSBCを問題なく組み立てることができます。 参考までに、PCB support（[リンク](http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=3284&GC=GD070003)）などの追加パーツを購入し、Onshapeで共有されている[ファイル](http://www.robotis.com/service/download.php?no=676)をダウンロードし、3Dプリンターを使用して印刷します。
 
 ![](/assets/images/platform/turtlebot3/setup/pcb_support.png)
 
-- You can fix SBC on the waffle-plate of TurtleBot3 using the PCB support in the fixing hole of the SBC to be used as shown in the following figure.
+- 次の図に示すように、使用するSBCの固定穴のPCB supportを使用して、SBCをTurtleBot3のWaffleプレートに固定できます。
 
 ![](/assets/images/platform/turtlebot3/setup/pcb_support_and_sbc.png)
 
-#### Power supply
+#### 電源供給
 
-- Hardware assembly of the SBC is simple. But the power supply is not simple. You need to modify the existing power cable or make a new power cable to match the `power cable` of the computer you are going to use.
+- SBCのハードウェアアセンブリは単純ですが、電源は単純ではありません。 使用するコンピュータの`電源ケーブル`に合わせて、既存の電源ケーブルを変更するか、新しい電源ケーブルを作成する必要があります。
 
-- As a basic part of TurtleBot3, the following `power cable` is provided. The left figure is for Raspberry Pi and the right figure is for Intel Joule 570x. The power cable must be made to match the power specifications of the computer you are using. [OpenCR][open_cr] has both a 5V (4A) power and a 12V (1A) power, which are commonly used in SBCs.
+- TurtleBot3の基本パーツとして、以下の`電源ケーブル`が付属しています。 左の図はRaspberry Pi用、右の図はIntel Joule 570x用です。 電源ケーブルは、使用しているコンピュータの電源仕様に合わせて作成する必要があります。 [OpenCR][open_cr]には、SBCで一般的に使用されている5V（4A）電力と12V（1A）電力の両方があります。
 
 ![](/assets/images/platform/turtlebot3/setup/power_cable.png)
 
-- The power source for the SBC is the three connectors on the left in the [OpenCR][open_cr] pinmap below.
+- SBCの電源は、下記の[OpenCR][open_cr]ピンマップの左側にある3つのコネクタです。
 
 ![](/assets/images/parts/controller/opencr10/opencr_pinout.png)
 
+### [センサ](#sensors)
 
-### [Sensors](#sensors)
+- `TurtleBot3 Burger`は、研究開発に強化された[360°LiDAR][lds]、[9軸慣性測定ユニット][imu]、[精密エンコーダ][dynamixel]を使用します。 `TurtleBot3 Waffle`も同様の360°LiDARを搭載していますが、さらに認識SDKを備えた強力な[Intel®RealSense™][realsense]も提案しています。 `TurtleBot3 Waffle Pi`は、使用率の高い[Raspberry Pi Camera][raspi_cam]を使用しています。 これは、移動ロボットを作るための最良のハードウェアソリューションになります。
 
-- `TurtleBot3 Burger` uses enhanced [360° LiDAR][lds], [9-Axis Inertial Measurement Unit][imu] and [precise encoder][dynamixel] for your research and development. `TurtleBot3 Waffle` is equipped with an identical 360° LiDAR as well but additionally proposes a powerful [Intel® RealSense™][realsense] with the recognition SDK. `TurtleBot3 Waffle Pi` uses high utilized [Raspberry Pi Camera][raspi_cam]. This will be the best hardware solution for making a mobile robot.
-
-- If you use an additional sensor, you can use it after attaching the sensor to the robot. The ROS provides a development environment in which drivers and libraries of the aforementioned sensors can be used. Not all sensors are supported by ROS package, but more and more sensor related packages are increasing. 
+- 追加センサを使用する場合は、センサをロボットに取り付けて使用できます。 ROSは、前述のセンサのドライバとライブラリを使用できる開発環境を提供します。 すべてのセンサがROSパッケージでサポートされているわけではありませんが、センサ関連のパッケージが増加しています。
 
 ![](/assets/images/platform/turtlebot3/setup/sensors.png)
 
-- If you are looking for a new sensor, check out [Sensors page][sensors] of ROS Wiki to find the sensor and related ROS packages you want.
+- 新しいセンサを探している場合は、ROS Wikiの[センサページ][sensors]を確認し必要なセンサーと関連するROSパッケージを見つけてください。
 
-- If you are using an analog sensor connected to the embedded board, you can use it with OpenCR. If you need to use an analog sensor other than USB or Ethernet communication, refer to [Additional Sensors][additional_sensors] page. 
-
+- 組み込みボードに接続されたアナログセンサを使用する場合は、OpenCRで使用できます。 USBまたはイーサネット通信以外のアナログセンサを使用する必要がある場合は、[追加センサー][additional_sensors]ページを参照してください。
 
 [raspberry_pi_3]: https://www.raspberrypi.org/products/
 [intel_joule_570x]: https://ark.intel.com/products/96414/Intel-Joule-570x-Developer-Kit
